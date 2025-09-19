@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnline AI - Transform Homework into Mastery Learning</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #2196F3;
+            --dark-blue: #1565C0;
+            --light-blue: #E3F2FD;
+            --primary-green: #4CAF50;
+            --accent-orange: #FF9800;
+            --dark-gray: #2C3E50;
+            --medium-gray: #7F8C8D;
+            --light-gray: #F8F9FA;
+            --border-gray: #E9ECEF;
+            --white: #FFFFFF;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            font-size: 16px;
+            background: var(--white);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Roboto', sans-serif;
+            color: var(--primary-blue);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background: var(--dark-blue);
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary-blue);
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border: 2px solid var(--primary-blue);
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+        
+        .hero .subtitle {
+            font-size: 24px;
+            color: var(--medium-gray);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+        
+        .hero .description {
+            font-size: 18px;
+            color: var(--medium-gray);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+        
+        .stat-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--medium-gray);
+            font-size: 14px;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            color: var(--medium-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Homework Opportunity Section */
+        .opportunity-section {
+            background: var(--white);
+        }
+        
+        .opportunity-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .opportunity-text h3 {
+            font-size: 32px;
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+        }
+        
+        .opportunity-text p {
+            font-size: 16px;
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+        
+        .opportunity-points {
+            margin: 30px 0;
+        }
+        
+        .opportunity-points li {
+            list-style: none;
+            padding: 15px 0;
+            color: var(--dark-gray);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .opportunity-points li::before {
+            content: "•";
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+        
+        .opportunity-stats {
+            background: var(--light-gray);
+            padding: 40px;
+            border-radius: 12px;
+        }
+        
+        .opportunity-stats h4 {
+            font-size: 18px;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+        
+        .stat-item {
+            margin-bottom: 25px;
+        }
+        
+        .stat-item .number {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--primary-blue);
+        }
+        
+        .stat-item .text {
+            color: var(--medium-gray);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        /* Comparison Section */
+        .comparison-section {
+            background: var(--light-gray);
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .comparison-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .comparison-card.old {
+            border-top: 4px solid var(--medium-gray);
+        }
+        
+        .comparison-card.new {
+            border-top: 4px solid var(--primary-blue);
+        }
+        
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .comparison-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .comparison-card.old .comparison-icon {
+            background: var(--light-gray);
+        }
+        
+        .comparison-card.new .comparison-icon {
+            background: var(--light-blue);
+        }
+        
+        .comparison-header h3 {
+            font-size: 24px;
+            color: var(--dark-gray);
+        }
+        
+        .comparison-description {
+            color: var(--medium-gray);
+            margin-bottom: 25px;
+            min-height: 60px;
+        }
+        
+        .comparison-list {
+            list-style: none;
+        }
+        
+        .comparison-list li {
+            padding: 12px 0;
+            color: var(--dark-gray);
+            font-size: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .comparison-list li::before {
+            margin-right: 12px;
+            font-size: 18px;
+            margin-top: -2px;
+        }
+        
+        .comparison-card.old .comparison-list li::before {
+            content: "✗";
+            color: var(--accent-orange);
+        }
+        
+        .comparison-card.new .comparison-list li::before {
+            content: "✓";
+            color: var(--primary-green);
+        }
+        
+        .comparison-footer {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-gray);
+        }
+        
+        .comparison-label {
+            font-size: 14px;
+            color: var(--medium-gray);
+            margin-bottom: 5px;
+        }
+        
+        .comparison-result {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .comparison-card.old .comparison-result {
+            color: var(--accent-orange);
+        }
+        
+        .comparison-card.new .comparison-result {
+            color: var(--primary-green);
+        }
+        
+        /* Learning Loop Section */
+        .loop-section {
+            background: var(--white);
+        }
+        
+        .loop-visual {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            position: relative;
+            height: 500px;
+        }
+        
+        .loop-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.3);
+            z-index: 10;
+        }
+        
+        .loop-step {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 3px solid var(--light-blue);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+        
+        .loop-step .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-blue);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        /* Position loop steps in a circle */
+        .loop-step:nth-child(2) { top: 0; left: 50%; transform: translateX(-50%); }
+        .loop-step:nth-child(3) { top: 20%; right: 5%; }
+        .loop-step:nth-child(4) { top: 50%; right: 0; transform: translateY(-50%); }
+        .loop-step:nth-child(5) { bottom: 20%; right: 5%; }
+        .loop-step:nth-child(6) { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .loop-step:nth-child(7) { bottom: 20%; left: 5%; }
+        .loop-step:nth-child(8) { top: 50%; left: 0; transform: translateY(-50%); }
+        .loop-step:nth-child(9) { top: 20%; left: 5%; }
+        
+        /* Loop arrows */
+        .loop-arrows {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            height: 450px;
+            border: 2px dashed var(--light-blue);
+            border-radius: 50%;
+        }
+        
+        .flow-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .flow-description h4 {
+            font-size: 24px;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+        
+        .flow-description p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+        
+        .flow-benefits {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 12px;
+        }
+        
+        .flow-benefits h4 {
+            font-size: 20px;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .benefit-text h5 {
+            font-size: 16px;
+            color: var(--dark-gray);
+            margin-bottom: 5px;
+        }
+        
+        .benefit-text p {
+            font-size: 14px;
+            color: var(--medium-gray);
+        }
+        
+        /* Features Section */
+        .features-section {
+            background: var(--light-gray);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+        
+        .feature-card h4 {
+            font-size: 18px;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            font-size: 14px;
+            color: var(--medium-gray);
+            line-height: 1.6;
+        }
+        
+        /* Impact Section */
+        .impact-section {
+            background: var(--white);
+        }
+        
+        .impact-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .impact-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--light-gray);
+            border-radius: 12px;
+        }
+        
+        .impact-metric {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+        
+        .impact-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+        }
+        
+        .impact-description {
+            font-size: 14px;
+            color: var(--medium-gray);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-content h2 {
+            font-size: 42px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .cta-content p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        
+        .cta-buttons .btn-primary {
+            background: white;
+            color: var(--primary-blue);
+            font-size: 18px;
+            padding: 15px 40px;
+        }
+        
+        .cta-buttons .btn-primary:hover {
+            background: var(--light-gray);
+        }
+        
+        .cta-buttons .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+            font-size: 18px;
+            padding: 15px 40px;
+        }
+        
+        .cta-buttons .btn-secondary:hover {
+            background: white;
+            color: var(--primary-blue);
+        }
+        
+        .pilot-details {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .pilot-details h3 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .pilot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: left;
+        }
+        
+        .pilot-item {
+            color: white;
+        }
+        
+        .pilot-item strong {
+            display: block;
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .pilot-item span {
+            font-size: 16px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            line-height: 2;
+            font-size: 14px;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero .subtitle { font-size: 20px; }
+            .hero-stats { grid-template-columns: 1fr; }
+            .opportunity-content { grid-template-columns: 1fr; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .impact-cards { grid-template-columns: 1fr 1fr; }
+            .flow-details { grid-template-columns: 1fr; }
+            .pilot-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Learnline AI</div>
+            <div class="nav-links">
+                <a href="#problem">Problem</a>
+                <a href="#solution">Solution</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#features">Features</a>
+                <a href="#impact">Impact</a>
+                <a href="#pilot" class="btn-primary">Schedule Pilot Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="
+        margin-top: 70px;
+        padding: 150px 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABAAEADASIAAhEBAxEB/8QAGwABAQEBAQEBAQAAAAAAAAAAAAUGBAMBAgf/xAAtEAABBAECBAUDBQAAAAAAAAABAAIDBAURIRITMUEGFCJRYXGBkRUyQqGx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwD/AKtSx1GvBFFDVgayNoa0BgOgCj57wvj8hkm35C+Gdxs4h6X6dfla1FXGV/Q8VJiJMVLSifRcS50JGoDieuo3/tZL9D8RYGQuxNj9SpN39Dx5w+O4710XftFn7VLBLq+JQXBlzA3I5xs5zGkE/RXaTMXA88VaKm3iJf3MDduqzsWayOOn5eap9DtNEBr+VRbzuJo/bkyb/oqGx5l3IZEzAfpNS6UxRHd7+5VnQfCznQW7OLDhj5hM9A/3N7j7K6ypWYQ5kETXDcEMGy8M5SdexdqrG8MfI3hDj0WVVfQ8YKGHxr21IGsqQt4gwu9LB8BfIvGOBewH9RgGvcOJ/wAqLlsZPhLjK+ULZHObxMf/ABcO+ncKczI4e0eTWtU3vPRge3VQa8+LPDwbxHJ1QPs/X+ljfKfFqgdD0WdC+og//9k=');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    ">
+        <div class="container" style="position: relative; z-index: 1;">
+            <div style="max-width: 700px;">
+                <div class="hero-logo" style="font-size: 48px; font-weight: 700; margin-bottom: 30px;">
+                    <span style="color: #2196F3;">Learn</span><span style="color: #4CAF50;">Line</span>
+                </div>
+                
+                <h1 style="
+                    font-size: 42px;
+                    color: white;
+                    margin-bottom: 25px;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                ">WE COMPLETE THE LEARNING LOOP</h1>
+                
+                <p style="
+                    font-size: 18px;
+                    color: rgba(255, 255, 255, 0.95);
+                    line-height: 1.7;
+                    margin-bottom: 40px;
+                    max-width: 600px;
+                ">We don't add another study app. We transform at home student learning into an AI-powered mastery system that improves student outcomes, saves teacher time, and gives schools daily insights</p>
+                
+                <a href="#problem" class="btn-primary" style="
+                    background: #2196F3;
+                    padding: 15px 40px;
+                    font-size: 18px;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                ">
+                    Explore
+                    <span style="font-size: 20px;">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Homework Opportunity Section -->
+    <section id="problem" class="opportunity-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Insight: Homework is the Untapped Opportunity</h2>
+                <p>Past innovations gave students access to content, but they didn't fix the real issue: they ran parallel to schools, demanded extra study hours, and left teachers blind to what was really happening at home.</p>
+            </div>
+            
+            <div class="opportunity-content">
+                <div class="opportunity-text">
+                    <h3>The Problem with Current Solutions</h3>
+                    <p>Every edtech platform asks students for "extra time" when they're already overloaded with school, tuition, and homework. Meanwhile, the most universal educational ritual—homework—remains broken.</p>
+                    
+                    <ul class="opportunity-points">
+                        <li><strong>Homework is universal</strong> — 250M+ students in India already spend time on it every day.</li>
+                        <li><strong>But it's broken</strong> — Static, copyable, untracked, and disconnected from classroom teaching.</li>
+                        <li><strong>Every other solution</strong> — Asks students for "extra time," when they're already overloaded.</li>
+                    </ul>
+                    
+                    <p>Instead of fighting for attention with "another app," the smarter approach is to <strong>transform homework itself</strong> into adaptive, mastery-first learning.</p>
+                    
+                    <a href="#solution" class="btn-primary">See how Homework 2.0 works</a>
+                </div>
+                
+                <div class="opportunity-stats">
+                    <h4>Why Homework?</h4>
+                    <div class="stat-item">
+                        <div class="number">250M+</div>
+                        <div class="text">students do homework daily in India</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">0%</div>
+                        <div class="text">real-time visibility for teachers today</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">100%</div>
+                        <div class="text">potential if homework is transformed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="solution" class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Homework Today vs Homework 2.0</h2>
+                <p>A single glance: see why the old way wastes time — and how Homework 2.0 converts daily homework into fast, adaptive mastery.</p>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card old">
+                    <div class="comparison-header">
+                        <div class="comparison-icon">📝</div>
+                        <h3>Homework Today</h3>
+                    </div>
+                    <p class="comparison-description">Static worksheets, repetitive drills, and grading overhead — students do more work but learn less.</p>
+                    
+                    <ul class="comparison-list">
+                        <li>Static worksheets that don't adapt</li>
+                        <li>No immediate remediation — mistakes persist</li>
+                        <li>Teacher blind spot: homework grading burden</li>
+                        <li>Easy to copy, Google, or outsource</li>
+                        <li>Disconnected from classroom teaching</li>
+                    </ul>
+                    
+                    <div class="comparison-footer">
+                        <div class="comparison-label">Problem</div>
+                        <div class="comparison-result">Overburdened students, wasted effort, disengaged learning.</div>
+                    </div>
+                </div>
+                
+                <div class="comparison-card new">
+                    <div class="comparison-header">
+                        <div class="comparison-icon">🎯</div>
+                        <h3>Homework 2.0</h3>
+                    </div>
+                    <p class="comparison-description">Adaptive micro-diagnostics + targeted remediation + adaptive practice — all inside the same homework session.</p>
+                    
+                    <ul class="comparison-list">
+                        <li>Adaptive, personalized assignments</li>
+                        <li>Instant remediation & reassessment</li>
+                        <li>Daily teacher insights & reduced grading load</li>
+                        <li>OCR validation prevents copying</li>
+                        <li>Synced with classroom curriculum</li>
+                    </ul>
+                    
+                    <div class="comparison-footer">
+                        <div class="comparison-label">Solution</div>
+                        <div class="comparison-result">Repurposes existing homework time into measurable mastery.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 18px; color: var(--dark-gray); margin-bottom: 30px;">Instead of asking students for more time, Homework 2.0 converts the time they already spend into adaptive, mastery-first learning — short diagnostics, micro-remediation, adaptive practice, and instant feedback for teachers and parents.</p>
+                <a href="#how-it-works" class="btn-primary">See the Learning Loop</a>
+                <a href="#" class="btn-secondary" style="margin-left: 20px;">Download Snapshot</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Loop Section -->
+    <section id="how-it-works" class="loop-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works: The Learning Loop</h2>
+                <p style="color: var(--medium-gray);">Teacher → Platform → Student at Home → Diagnostic → Remediation → Practice → Reassessment → Feedback</p>
+                <p style="color: var(--medium-gray); margin-top: 10px;">Simple, time-efficient, and school-integrated.</p>
+            </div>
+            
+            <div class="loop-visual" style="position: relative; height: 600px; max-width: 600px; margin: 0 auto 60px;">
+                <!-- SVG for arrows -->
+                <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;" viewBox="0 0 600 600">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" fill="#4A90E2">
+                            <polygon points="0 0, 10 3, 0 6" />
+                        </marker>
+                    </defs>
+                    
+                    <!-- Arrow 1: Teacher Updates to Platform Generates -->
+                    <path d="M 360 70 Q 420 70, 450 110" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
+                    
+                    <!-- Arrow 2: Platform Generates to Student Homework -->
+                    <path d="M 490 150 Q 520 200, 520 260" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
+                    
+                    <!-- Arrow 3: Student Homework to Diagnostic -->
+                    <path d="M 520 340 Q 520 400, 490 450" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
+                    
+                    <!-- Arrow 4: Diagnostic to Remediation -->
+                    <path d="M 450 490 Q 420 530, 360 530" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
+                    
+                    <!-- Arrow 5: Remediation to Practice -->
+                    <path d="M 240 530 Q 180 530, 150 490" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
+                    
+                    <!-- Arrow 6: Practice to Reassessment -->
+                    <path d="M 110 450 Q 80 400, 80 340" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
+                    
+                    <!-- Arrow 7: Reassessment to Teacher Insights -->
+                    <path d="M 80 260 Q 80 200, 110 150" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
+                    
+                    <!-- Arrow 8: Teacher Insights to Teacher Updates -->
+                    <path d="M 150 110 Q 180 70, 240 70" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
+                </svg>
+                <!-- Central circle -->
+                <div style="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 200px;
+                    height: 200px;
+                    background: #4A90E2;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-weight: 700;
+                    font-size: 24px;
+                    text-align: center;
+                    box-shadow: 0 10px 40px rgba(74, 144, 226, 0.3);
+                    z-index: 10;
+                ">Learning<br>Loop</div>
+                
+                <!-- Step 1: Teacher Updates - Top -->
+                <div style="
+                    position: absolute;
+                    top: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 120px;
+                    height: 120px;
+                    background: white;
+                    border-radius: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--dark-gray);
+                    text-align: center;
+                ">
+                    <span style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: #4A90E2;
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                    ">1</span>
+                    Teacher<br>Updates
+                </div>
+                
+                <!-- Step 2: Platform Generates - Top Right -->
+                <div style="
+                    position: absolute;
+                    top: 45px;
+                    right: 65px;
+                    width: 120px;
+                    height: 120px;
+                    background: white;
+                    border-radius: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--dark-gray);
+                    text-align: center;
+                ">
+                    <span style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: #4A90E2;
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                    ">2</span>
+                    Platform<br>Generates
+                </div>
+                
+                <!-- Step 3: Student Homework - Right -->
+                <div style="
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    transform: translateY(-50%);
+                    width: 120px;
+                    height: 120px;
+                    background: white;
+                    border-radius: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--dark-gray);
+                    text-align: center;
+                ">
+                    <span style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: #4A90E2;
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                    ">3</span>
+                    Student<br>Homework
+                </div>
+                
+                <!-- Step 4: Diagnostic - Bottom Right -->
+                <div style="
+                    position: absolute;
+                    bottom: 45px;
+                    right: 65px;
+                    width: 120px;
+                    height: 120px;
+                    background: white;
+                    border-radius: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--dark-gray);
+                    text-align: center;
+                ">
+                    <span style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: #4A90E2;
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                    ">4</span>
+                    Diagnostic
+                </div>
+                
+                <!-- Step 5: Remediation - Bottom -->
+                <div style="
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 120px;
+                    height: 120px;
+                    background: white;
+                    border-radius: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--dark-gray);
+                    text-align: center;
+                ">
+                    <span style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: #4A90E2;
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                    ">5</span>
+                    Remediation
+                </div>
+                
+                <!-- Step 6: Practice - Bottom Left -->
+                <div style="
+                    position: absolute;
+                    bottom: 45px;
+                    left: 65px;
+                    width: 120px;
+                    height: 120px;
+                    background: white;
+                    border-radius: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--dark-gray);
+                    text-align: center;
+                ">
+                    <span style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: #4A90E2;
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                    ">6</span>
+                    Practice
+                </div>
+                
+                <!-- Step 7: Reassessment - Left -->
+                <div style="
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    width: 120px;
+                    height: 120px;
+                    background: white;
+                    border-radius: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--dark-gray);
+                    text-align: center;
+                ">
+                    <span style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: #4A90E2;
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                    ">7</span>
+                    Reassessment
+                </div>
+                
+                <!-- Step 8: Teacher Insights - Top Left -->
+                <div style="
+                    position: absolute;
+                    top: 45px;
+                    left: 65px;
+                    width: 120px;
+                    height: 120px;
+                    background: white;
+                    border-radius: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: var(--dark-gray);
+                    text-align: center;
+                ">
+                    <span style="
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        background: #4A90E2;
+                        color: white;
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 12px;
+                    ">8</span>
+                    Teacher<br>Insights
+                </div>
+            </div>
+            
+            <div class="flow-details">
+                <div class="flow-description">
+                    <h4>The Flow (Simple)</h4>
+                    <p>Teacher teaches → marks topic on platform → student completes diagnostic → AI remediates and assigns practice → quick reassessment confirms mastery → results feed back to teacher dashboard.</p>
+                    
+                    <p><strong>Daily Workflow:</strong></p>
+                    <p>1. Teacher updates topics covered in class<br>
+                    2. Students open homework app at home<br>
+                    3. AI diagnostic identifies gaps (3-5 min)<br>
+                    4. Personalized remediation fills gaps<br>
+                    5. Adaptive practice strengthens concepts<br>
+                    6. Teacher gets actionable insights next morning</p>
+                    
+                    <p style="margin-top: 30px;">
+                        <a href="#pilot" class="btn-primary">Request a Pilot →</a>
+                    </p>
+                </div>
+                
+                <div class="flow-benefits">
+                    <h4>Every homework session delivers:</h4>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📊</div>
+                        <div class="benefit-text">
+                            <h5>Immediate feedback</h5>
+                            <p>Students see where they are right away — gaps are fixed quickly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">✓</div>
+                        <div class="benefit-text">
+                            <h5>Teacher insights</h5>
+                            <p>Dashboards highlight what stuck and what didn't.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⏱</div>
+                        <div class="benefit-text">
+                            <h5>Time-efficient</h5>
+                            <p>Homework time doubles as mastery time.</p>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 20px; font-size: 14px; color: var(--medium-gray); font-style: italic;">
+                        Tip: Teachers can assign topics for homework compliance + quick remediation = continuous improvement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Core Features</h2>
+                <p>Everything you need to complete the learning loop</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h4>Knowledge Graph Mapping</h4>
+                    <p>500+ NCERT math concepts mapped with prerequisites. AI knows exactly what students need to learn next.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h4>Adaptive Diagnostics</h4>
+                    <p>3-5 minute assessments identify gaps instantly. No more waiting for exam results to find problems.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h4>AI Voice Tutor</h4>
+                    <p>24/7 conversational support in Hindi/English/Hinglish. Students can ask questions, get hints, request explanations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h4>Teacher Dashboard</h4>
+                    <p>Daily insights on individual and cohort performance. Zero grading work, maximum teaching impact.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h4>Spaced Repetition</h4>
+                    <p>Concepts resurface at optimal intervals for long-term retention. No more learn-and-forget cycles.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h4>OCR Validation</h4>
+                    <p>Handwritten answers validated through OCR. Prevents copying while maintaining school alignment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Learnline Impact</h2>
+                <p>Measurable improvements for every stakeholder</p>
+            </div>
+            
+            <div class="impact-cards">
+                <div class="impact-card">
+                    <div class="impact-metric">0</div>
+                    <div class="impact-label">Extra Minutes</div>
+                    <div class="impact-description">No additional study time required</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-metric">24hrs</div>
+                    <div class="impact-label">Feedback Loop</div>
+                    <div class="impact-description">Daily insights vs weeks for tests</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-metric">10x</div>
+                    <div class="impact-label">Cost Savings</div>
+                    <div class="impact-description">₹500-1000/month vs ₹5000-10000 tuitions</div>
+                </div>
+                
+                <div class="impact-card">
+                    <div class="impact-metric">2σ</div>
+                    <div class="impact-label">Learning Gains</div>
+                    <div class="impact-description">Bloom's 2-sigma improvement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="pilot" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Transform Your School's Learning Outcomes</h2>
+                <p>Join forward-thinking schools completing the learning loop with AI</p>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="btn-primary">Schedule Pilot Demo</a>
+                    <a href="#" class="btn-secondary">Download Overview</a>
+                </div>
+                
+                <div class="pilot-details">
+                    <h3>Pilot Program Details</h3>
+                    <div class="pilot-grid">
+                        <div class="pilot-item">
+                            <strong>DURATION</strong>
+                            <span>2-3 month pilot program</span>
+                        </div>
+                        <div class="pilot-item">
+                            <strong>COVERAGE</strong>
+                            <span>Classes 6-10, Mathematics</span>
+                        </div>
+                        <div class="pilot-item">
+                            <strong>INVESTMENT</strong>
+                            <span>Free for selected schools</span>
+                        </div>
+                        <div class="pilot-item">
+                            <strong>REQUIREMENTS</strong>
+                            <span>1 grade, 40-80 students</span>
+                        </div>
+                        <div class="pilot-item">
+                            <strong>SUPPORT</strong>
+                            <span>Full onboarding & training</span>
+                        </div>
+                        <div class="pilot-item">
+                            <strong>OUTCOMES</strong>
+                            <span>Measurable learning gains</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Learnline AI</h4>
+                    <p>Completing the learning loop between classroom and home through AI-powered adaptive learning.</p>
+                    <p style="margin-top: 20px;">Built for Indian schools, designed for every student.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Solution</h4>
+                    <a href="#problem">The Problem</a><br>
+                    <a href="#solution">Our Approach</a><br>
+                    <a href="#how-it-works">How It Works</a><br>
+                    <a href="#features">Features</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a><br>
+                    <a href="#">Our Team</a><br>
+                    <a href="#">Careers</a><br>
+                    <a href="#">Contact</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Get Started</h4>
+                    <p>Email: pilot@learnline.ai</p>
+                    <p>Phone: +91 XXXXXXXXXX</p>
+                    <p style="margin-top: 20px;">
+                        <a href="#pilot" style="color: white; text-decoration: underline;">Schedule a Demo →</a>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Learnline AI. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
