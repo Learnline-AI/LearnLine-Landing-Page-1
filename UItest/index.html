@@ -125,6 +125,9 @@
             padding: 4px;
             border: 1px solid #d0d7de;
             transition: all 0.2s ease;
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .chat-input-container:focus-within {
@@ -136,6 +139,7 @@
         .chat-input {
             flex: 1;
             padding: 12px 16px;
+            padding-left: 60px;
             border: none;
             background: #ffffff;
             font-family: 'Avenir Next LT Pro', -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Segoe UI', Roboto, sans-serif;
@@ -175,8 +179,6 @@
             transform: translateY(0);
         }
 
-        /* Microphone Icon Button Styles */
-
         .input-mode-toggle {
             position: absolute;
             left: 8px;
@@ -210,14 +212,6 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-        }
-
-        .chat-input-container {
-            position: relative;
-        }
-
-        .chat-input {
-            padding-left: 60px;
         }
 
         .header {
@@ -669,7 +663,6 @@
         </div>
         
         <div class="chat-input-area">
-            <!-- Text Input Mode -->
             <div class="chat-input-container" id="text-input-mode">
                 <button class="input-mode-toggle" title="Microphone">
                     <img src="assets/images/Microphone Icon.png" alt="Microphone">
@@ -792,26 +785,17 @@
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
-        // Microphone button click effect (no functionality, just UI feedback)
-        document.addEventListener('DOMContentLoaded', function() {
-            const micButton = document.querySelector('.input-mode-toggle');
-            if (micButton) {
-                micButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // Just visual feedback - no actual functionality
-                    // The CSS handles the click animation
-                });
+        // Handle Enter key press
+        document.getElementById('chat-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
             }
         });
 
-        // Allow Enter key to send message
-        document.addEventListener('DOMContentLoaded', function() {
-            const input = document.getElementById('chat-input');
-            input.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
+        // Microphone button functionality
+        document.querySelector('.input-mode-toggle').addEventListener('click', function() {
+            console.log('Microphone button clicked');
+            // Add voice input functionality here
         });
     </script>
 </body>
