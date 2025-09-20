@@ -440,15 +440,16 @@
     <script>
         function scrollToComparison() {
             const hiddenContent = document.getElementById('next-content');
-            const comparisonSection = document.getElementById('comparison-section');
+            const nextButton = document.querySelector('.next-button');
             
             // Show the hidden content first
             hiddenContent.classList.add('show');
             
-            // Wait for the animation to complete, then scroll to the comparison section
+            // Wait for the animation to complete, then scroll to push button out of view
             setTimeout(() => {
-                const headerHeight = 40; // Account for some spacing from top
-                const targetPosition = comparisonSection.offsetTop - headerHeight;
+                const buttonPosition = nextButton.offsetTop;
+                const buttonHeight = nextButton.offsetHeight;
+                const targetPosition = buttonPosition + buttonHeight + 20; // Push button just out of view
                 
                 window.scrollTo({
                     top: targetPosition,
