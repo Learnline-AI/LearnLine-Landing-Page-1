@@ -90,6 +90,37 @@
             margin: 20px 0;
         }
 
+        .next-button {
+            display: flex;
+            justify-content: flex-end;
+            margin: 30px 0;
+        }
+
+        .next-btn {
+            background: #2196f3;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-family: 'Avenir Next LT Pro', 'Avenir Next', Arial, sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+        }
+
+        .next-btn:hover {
+            background: #1976d2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+        }
+
+        .next-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+        }
+
         .pizza-progression {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -298,10 +329,14 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="next-button">
+                <button class="next-btn" onclick="scrollToComparison()">Next →</button>
+            </div>
         </div>
 
         <!-- Size Comparison -->
-        <div class="section">
+        <div class="section" id="comparison-section">
             <h2>So Which Slice is Bigger?</h2>
             
             <p>
@@ -382,5 +417,18 @@
             </p>
         </div>
     </div>
+
+    <script>
+        function scrollToComparison() {
+            const comparisonSection = document.getElementById('comparison-section');
+            const headerHeight = 40; // Account for some spacing from top
+            const targetPosition = comparisonSection.offsetTop - headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 </html>
