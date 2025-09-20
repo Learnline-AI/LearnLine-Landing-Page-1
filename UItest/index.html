@@ -398,10 +398,17 @@
                         <strong>In simple words:</strong> It's a fraction with 1 on top!
                     </p>
                 </div>
+                
+                <div class="next-button">
+                    <button class="next-btn" onclick="scrollToTimeSection()">Next →</button>
+                </div>
             </div>
+        </div>
 
+        <!-- Hidden Time Content -->
+        <div class="hidden-content" id="time-content">
             <!-- Time Examples -->
-            <div class="section">
+            <div class="section" id="time-section">
                 <h2>Time Fractions</h2>
                 <p>
                     Every hour has 60 minutes to divide!
@@ -452,6 +459,46 @@
                 const targetPosition = buttonPosition + buttonHeight + 20; // Push button just out of view
                 
                 // Custom smooth scroll with slower duration
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 300; // Match content animation timing
+                let start = null;
+                
+                function animation(currentTime) {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+                
+                // Easing function for smooth animation
+                function easeInOutQuad(t, b, c, d) {
+                    t /= d/2;
+                    if (t < 1) return c/2*t*t + b;
+                    t--;
+                    return -c/2 * (t*(t-2) - 1) + b;
+                }
+                
+                requestAnimationFrame(animation);
+            }, 100); // Small delay to ensure content starts appearing
+        }
+
+        function scrollToTimeSection() {
+            const hiddenContent = document.getElementById('time-content');
+            const nextButtons = document.querySelectorAll('.next-button');
+            const secondButton = nextButtons[1]; // Get the second Next button
+            
+            // Show the hidden time content and start scroll simultaneously
+            hiddenContent.classList.add('show');
+            
+            // Start scroll immediately for synchronized animation
+            setTimeout(() => {
+                const buttonPosition = secondButton.offsetTop;
+                const buttonHeight = secondButton.offsetHeight;
+                const targetPosition = buttonPosition + buttonHeight + 20; // Push button just out of view
+                
+                // Custom smooth scroll with same duration
                 const startPosition = window.pageYOffset;
                 const distance = targetPosition - startPosition;
                 const duration = 300; // Match content animation timing
