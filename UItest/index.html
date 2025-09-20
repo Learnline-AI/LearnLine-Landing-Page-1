@@ -445,7 +445,7 @@
             // Show the hidden content first
             hiddenContent.classList.add('show');
             
-            // Wait a bit for the content to start appearing, then scroll
+            // Wait for the animation to complete, then scroll to the comparison section
             setTimeout(() => {
                 const headerHeight = 40; // Account for some spacing from top
                 const targetPosition = comparisonSection.offsetTop - headerHeight;
@@ -454,7 +454,7 @@
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-            }, 100);
+            }, 650); // Wait for the 0.6s animation to complete plus small buffer
         }
     </script>
 </body>
