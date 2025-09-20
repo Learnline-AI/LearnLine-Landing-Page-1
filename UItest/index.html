@@ -123,8 +123,8 @@
 
         .hidden-content {
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease;
+            transform: translateY(30px);
+            transition: all 0.3s ease-out;
             visibility: hidden;
             height: 0;
             overflow: hidden;
@@ -442,20 +442,39 @@
             const hiddenContent = document.getElementById('next-content');
             const nextButton = document.querySelector('.next-button');
             
-            // Show the hidden content first
+            // Show the hidden content and start scroll simultaneously
             hiddenContent.classList.add('show');
             
-            // Wait for the animation to complete, then scroll to push button out of view
+            // Start scroll immediately for synchronized animation
             setTimeout(() => {
                 const buttonPosition = nextButton.offsetTop;
                 const buttonHeight = nextButton.offsetHeight;
                 const targetPosition = buttonPosition + buttonHeight + 20; // Push button just out of view
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }, 650); // Wait for the 0.6s animation to complete plus small buffer
+                // Custom smooth scroll with slower duration
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 300; // Match content animation timing
+                let start = null;
+                
+                function animation(currentTime) {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                    window.scrollTo(0, run);
+                    if (timeElapsed < duration) requestAnimationFrame(animation);
+                }
+                
+                // Easing function for smooth animation
+                function easeInOutQuad(t, b, c, d) {
+                    t /= d/2;
+                    if (t < 1) return c/2*t*t + b;
+                    t--;
+                    return -c/2 * (t*(t-2) - 1) + b;
+                }
+                
+                requestAnimationFrame(animation);
+            }, 100); // Small delay to ensure content starts appearing
         }
     </script>
 </body>
