@@ -486,8 +486,9 @@
 
         function scrollToTimeSection() {
             const hiddenContent = document.getElementById('time-content');
-            const nextButtons = document.querySelectorAll('.next-button');
-            const secondButton = nextButtons[1]; // Get the second Next button
+            // Find the specific button that was clicked (the one before Time Fractions)
+            const unitFractionSection = document.querySelector('.section:has(.highlight-box)').parentElement;
+            const secondButton = unitFractionSection.querySelector('.next-button');
             
             // Show the hidden time content and start scroll simultaneously
             hiddenContent.classList.add('show');
