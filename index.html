@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learnline AI - Transform Homework into Mastery Learning</title>
+    <title>LearnLine - Transform Homework into Mastery Learning</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
+        :root {
+            --primary-blue: #0B63D6;
+            --accent-green: #059669;
+            --accent-warm: #FFB74D;
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+            --bg-white: #FFFFFF;
+            --bg-soft: #F8FAFC;
+            --bg-alt: #EEF2F7;
+            --error: #E11D48;
+            --shadow: 0 10px 28px rgba(11, 99, 214, 0.08);
+            --radius: 14px;
+        }
         
         * {
             margin: 0;
@@ -13,37 +29,41 @@
             box-sizing: border-box;
         }
         
-        :root {
-            --primary-blue: #2196F3;
-            --dark-blue: #1565C0;
-            --light-blue: #E3F2FD;
-            --primary-green: #4CAF50;
-            --accent-orange: #FF9800;
-            --dark-gray: #2C3E50;
-            --medium-gray: #7F8C8D;
-            --light-gray: #F8F9FA;
-            --border-gray: #E9ECEF;
-            --white: #FFFFFF;
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--dark-gray);
-            line-height: 1.7;
-            font-size: 16px;
-            background: var(--white);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4 {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            line-height: 1.3;
+            line-height: 1.2;
+        }
+        
+        h1 { font-size: 48px; margin-bottom: 20px; }
+        h2 { font-size: 36px; margin-bottom: 16px; }
+        h3 { font-size: 24px; margin-bottom: 12px; }
+        
+        p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
+        }
+        
+        section {
+            padding: 80px 0;
         }
         
         /* Navigation */
@@ -51,36 +71,51 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
         
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 16px 0;
         }
         
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat';
+            font-weight: 800;
             font-size: 24px;
-            font-weight: 700;
-            font-family: 'Roboto', sans-serif;
+        }
+        
+        .logo-text span:first-child {
             color: var(--primary-blue);
+        }
+        
+        .logo-text span:last-child {
+            color: var(--accent-green);
         }
         
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 32px;
             align-items: center;
         }
         
         .nav-links a {
-            color: var(--dark-gray);
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: 500;
-            font-size: 15px;
             transition: color 0.3s;
         }
         
@@ -88,37 +123,33 @@
             color: var(--primary-blue);
         }
         
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
         .btn-primary {
             background: var(--primary-blue);
             color: white;
-            padding: 12px 30px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            display: inline-block;
+            box-shadow: 0 6px 20px rgba(11, 99, 214, 0.25);
         }
         
         .btn-primary:hover {
-            background: var(--dark-blue);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(11, 99, 214, 0.35);
         }
         
         .btn-secondary {
-            background: var(--white);
+            background: transparent;
             color: var(--primary-blue);
-            padding: 12px 30px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
             border: 2px solid var(--primary-blue);
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-block;
         }
         
         .btn-secondary:hover {
@@ -129,197 +160,181 @@
         /* Hero Section */
         .hero {
             margin-top: 70px;
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(11, 99, 214, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+            position: relative;
         }
         
         .hero-content {
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            color: var(--dark-gray);
-            margin-bottom: 20px;
-            font-weight: 900;
-        }
-        
-        .hero .subtitle {
-            font-size: 24px;
-            color: var(--medium-gray);
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-        
-        .hero .description {
-            font-size: 18px;
-            color: var(--medium-gray);
-            max-width: 800px;
-            margin: 0 auto 40px;
-            line-height: 1.8;
-        }
-        
-        .hero-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            max-width: 900px;
-            margin: 60px auto 0;
-        }
-        
-        .stat-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-        
-        .stat-number {
-            font-size: 36px;
-            font-weight: 900;
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-        }
-        
-        .stat-label {
-            color: var(--medium-gray);
-            font-size: 14px;
-        }
-        
-        /* Section Styles */
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-header h2 {
-            font-size: 36px;
-            color: var(--dark-gray);
-            margin-bottom: 20px;
-        }
-        
-        .section-header p {
-            font-size: 18px;
-            color: var(--medium-gray);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* Homework Opportunity Section */
-        .opportunity-section {
-            background: var(--white);
-        }
-        
-        .opportunity-content {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
+            grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
         
-        .opportunity-text h3 {
-            font-size: 32px;
-            color: var(--dark-gray);
-            margin-bottom: 25px;
+        .hero-text h1 {
+            font-size: 52px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
         }
         
-        .opportunity-text p {
-            font-size: 16px;
-            color: var(--medium-gray);
-            margin-bottom: 20px;
-        }
-        
-        .opportunity-points {
-            margin: 30px 0;
-        }
-        
-        .opportunity-points li {
-            list-style: none;
-            padding: 15px 0;
-            color: var(--dark-gray);
-            display: flex;
-            align-items: flex-start;
-        }
-        
-        .opportunity-points li::before {
-            content: "•";
-            color: var(--primary-blue);
-            font-weight: bold;
+        .hero-subtitle {
             font-size: 20px;
-            margin-right: 15px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        .hero-text h2 {
+            font-size: 32px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
         }
         
-        .opportunity-stats {
-            background: var(--light-gray);
-            padding: 40px;
-            border-radius: 12px;
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
         }
         
-        .opportunity-stats h4 {
-            font-size: 18px;
-            color: var(--dark-gray);
-            margin-bottom: 30px;
+        .hero-stats {
+            display: flex;
+            gap: 40px;
         }
         
         .stat-item {
-            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
         }
         
-        .stat-item .number {
-            font-size: 32px;
-            font-weight: 900;
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
             color: var(--primary-blue);
         }
         
-        .stat-item .text {
-            color: var(--medium-gray);
+        .stat-label {
             font-size: 14px;
-            margin-top: 5px;
+            color: var(--text-muted);
         }
         
-        /* Comparison Section */
-        .comparison-section {
-            background: var(--light-gray);
+        .hero-visual {
+            position: relative;
+        }
+        
+        .hero-illustration {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(11, 99, 214, 0.2);
+        }
+        
+        /* Problem Section */
+        .problem-section {
+            background: var(--bg-soft);
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .pill {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(11, 99, 214, 0.1);
+            color: var(--primary-blue);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .problem-card h3 {
+            margin-bottom: 16px;
+        }
+        
+        .problem-stat {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #E5E7EB;
+        }
+        
+        .problem-stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--error);
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            position: relative;
+        }
+        
+        .solution-visual {
+            margin: 60px 0;
         }
         
         .comparison-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
         }
         
         .comparison-card {
-            background: var(--white);
+            background: white;
+            border-radius: var(--radius);
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            box-shadow: var(--shadow);
+            position: relative;
         }
         
         .comparison-card.old {
-            border-top: 4px solid var(--medium-gray);
+            border-top: 4px solid var(--error);
         }
         
         .comparison-card.new {
-            border-top: 4px solid var(--primary-blue);
+            border-top: 4px solid var(--accent-green);
+            transform: scale(1.02);
         }
         
         .comparison-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 16px;
+            margin-bottom: 24px;
         }
         
         .comparison-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -327,85 +342,51 @@
         }
         
         .comparison-card.old .comparison-icon {
-            background: var(--light-gray);
+            background: rgba(225, 29, 72, 0.1);
+            color: var(--error);
         }
         
         .comparison-card.new .comparison-icon {
-            background: var(--light-blue);
-        }
-        
-        .comparison-header h3 {
-            font-size: 24px;
-            color: var(--dark-gray);
-        }
-        
-        .comparison-description {
-            color: var(--medium-gray);
-            margin-bottom: 25px;
-            min-height: 60px;
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--accent-green);
         }
         
         .comparison-list {
             list-style: none;
+            margin: 24px 0;
         }
         
         .comparison-list li {
             padding: 12px 0;
-            color: var(--dark-gray);
-            font-size: 15px;
             display: flex;
             align-items: flex-start;
+            gap: 12px;
         }
         
         .comparison-list li::before {
-            margin-right: 12px;
+            content: '✗';
+            color: var(--error);
+            font-weight: bold;
             font-size: 18px;
-            margin-top: -2px;
-        }
-        
-        .comparison-card.old .comparison-list li::before {
-            content: "✗";
-            color: var(--accent-orange);
         }
         
         .comparison-card.new .comparison-list li::before {
-            content: "✓";
-            color: var(--primary-green);
-        }
-        
-        .comparison-footer {
-            margin-top: 30px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border-gray);
-        }
-        
-        .comparison-label {
-            font-size: 14px;
-            color: var(--medium-gray);
-            margin-bottom: 5px;
-        }
-        
-        .comparison-result {
-            font-size: 18px;
-            font-weight: 600;
-        }
-        
-        .comparison-card.old .comparison-result {
-            color: var(--accent-orange);
-        }
-        
-        .comparison-card.new .comparison-result {
-            color: var(--primary-green);
+            content: '✓';
+            color: var(--accent-green);
         }
         
         /* Learning Loop Section */
         .loop-section {
-            background: var(--white);
+            background: var(--bg-soft);
+        }
+        
+        .loop-container {
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .loop-visual {
-            max-width: 800px;
-            margin: 0 auto 60px;
+            margin: 60px 0;
             position: relative;
             height: 500px;
         }
@@ -415,17 +396,17 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 180px;
-            height: 180px;
-            background: var(--primary-blue);
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: 700;
             font-size: 20px;
-            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.3);
+            font-weight: 700;
+            box-shadow: 0 20px 40px rgba(11, 99, 214, 0.3);
             z-index: 10;
         }
         
@@ -433,145 +414,77 @@
             position: absolute;
             width: 140px;
             height: 140px;
-            background: var(--white);
+            background: white;
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            border: 3px solid var(--light-blue);
-            font-size: 14px;
+            box-shadow: var(--shadow);
+            font-size: 13px;
             font-weight: 600;
-            color: var(--dark-gray);
+            text-align: center;
+            padding: 20px;
+            transition: all 0.3s ease;
         }
         
-        .loop-step .step-number {
+        .loop-step:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(11, 99, 214, 0.2);
+        }
+        
+        .loop-step-number {
             position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary-blue);
-            color: white;
+            top: -10px;
+            right: 10px;
             width: 30px;
             height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-        
-        /* Position loop steps in a circle */
-        .loop-step:nth-child(2) { top: 0; left: 50%; transform: translateX(-50%); }
-        .loop-step:nth-child(3) { top: 20%; right: 5%; }
-        .loop-step:nth-child(4) { top: 50%; right: 0; transform: translateY(-50%); }
-        .loop-step:nth-child(5) { bottom: 20%; right: 5%; }
-        .loop-step:nth-child(6) { bottom: 0; left: 50%; transform: translateX(-50%); }
-        .loop-step:nth-child(7) { bottom: 20%; left: 5%; }
-        .loop-step:nth-child(8) { top: 50%; left: 0; transform: translateY(-50%); }
-        .loop-step:nth-child(9) { top: 20%; left: 5%; }
-        
-        /* Loop arrows */
-        .loop-arrows {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 450px;
-            height: 450px;
-            border: 2px dashed var(--light-blue);
-            border-radius: 50%;
-        }
-        
-        .flow-details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-        
-        .flow-description h4 {
-            font-size: 24px;
-            color: var(--dark-gray);
-            margin-bottom: 20px;
-        }
-        
-        .flow-description p {
-            color: var(--medium-gray);
-            margin-bottom: 20px;
-        }
-        
-        .flow-benefits {
-            background: var(--light-gray);
-            padding: 30px;
-            border-radius: 12px;
-        }
-        
-        .flow-benefits h4 {
-            font-size: 20px;
-            color: var(--dark-gray);
-            margin-bottom: 20px;
-        }
-        
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        
-        .benefit-icon {
-            width: 40px;
-            height: 40px;
             background: var(--primary-blue);
-            border-radius: 8px;
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .benefit-text h5 {
-            font-size: 16px;
-            color: var(--dark-gray);
-            margin-bottom: 5px;
-        }
-        
-        .benefit-text p {
             font-size: 14px;
-            color: var(--medium-gray);
         }
         
-        /* Features Section */
-        .features-section {
-            background: var(--light-gray);
-        }
+        /* Position loop steps */
+        .loop-step:nth-child(2) { top: 0; left: 50%; transform: translateX(-50%); }
+        .loop-step:nth-child(3) { top: 15%; right: 10%; }
+        .loop-step:nth-child(4) { top: 50%; right: 0; transform: translateY(-50%); }
+        .loop-step:nth-child(5) { bottom: 15%; right: 10%; }
+        .loop-step:nth-child(6) { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .loop-step:nth-child(7) { bottom: 15%; left: 10%; }
+        .loop-step:nth-child(8) { top: 50%; left: 0; transform: translateY(-50%); }
+        .loop-step:nth-child(9) { top: 15%; left: 10%; }
         
-        .features-grid {
+        /* Stakeholders Section */
+        .stakeholders-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
+            margin-top: 60px;
         }
         
-        .feature-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
+        .stakeholder-card {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.3s ease;
         }
         
-        .feature-card:hover {
+        .stakeholder-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(11, 99, 214, 0.15);
         }
         
-        .feature-icon {
+        .stakeholder-icon {
             width: 60px;
             height: 60px;
-            background: var(--light-blue);
-            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -579,129 +492,130 @@
             font-size: 28px;
         }
         
-        .feature-card h4 {
-            font-size: 18px;
-            color: var(--dark-gray);
-            margin-bottom: 15px;
+        /* Features Section */
+        .features-section {
+            background: var(--bg-soft);
         }
         
-        .feature-card p {
-            font-size: 14px;
-            color: var(--medium-gray);
-            line-height: 1.6;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(11, 99, 214, 0.15);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(11, 99, 214, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-size: 24px;
         }
         
         /* Impact Section */
-        .impact-section {
-            background: var(--white);
-        }
-        
-        .impact-cards {
+        .impact-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
+            margin-top: 60px;
         }
         
         .impact-card {
             text-align: center;
-            padding: 30px 20px;
-            background: var(--light-gray);
-            border-radius: 12px;
+            padding: 40px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
         }
         
-        .impact-metric {
-            font-size: 42px;
-            font-weight: 900;
-            color: var(--primary-blue);
-            margin-bottom: 10px;
+        .impact-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
         }
         
         .impact-label {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 600;
-            color: var(--dark-gray);
-            margin-bottom: 10px;
-        }
-        
-        .impact-description {
-            font-size: 14px;
-            color: var(--medium-gray);
+            color: var(--text-dark);
+            margin-bottom: 8px;
         }
         
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            color: white;
             text-align: center;
+            padding: 100px 0;
         }
         
         .cta-content h2 {
-            font-size: 42px;
             color: white;
+            font-size: 42px;
             margin-bottom: 20px;
         }
         
         .cta-content p {
+            color: rgba(255, 255, 255, 0.9);
             font-size: 20px;
-            color: rgba(255,255,255,0.9);
-            max-width: 600px;
-            margin: 0 auto 40px;
+            margin-bottom: 40px;
         }
         
         .cta-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
         .cta-buttons .btn-primary {
             background: white;
             color: var(--primary-blue);
-            font-size: 18px;
-            padding: 15px 40px;
-        }
-        
-        .cta-buttons .btn-primary:hover {
-            background: var(--light-gray);
         }
         
         .cta-buttons .btn-secondary {
-            background: transparent;
-            color: white;
             border-color: white;
-            font-size: 18px;
-            padding: 15px 40px;
-        }
-        
-        .cta-buttons .btn-secondary:hover {
-            background: white;
-            color: var(--primary-blue);
+            color: white;
         }
         
         .pilot-details {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
             padding: 40px;
-            border-radius: 12px;
             max-width: 800px;
             margin: 0 auto;
-        }
-        
-        .pilot-details h3 {
-            color: white;
-            font-size: 24px;
-            margin-bottom: 30px;
         }
         
         .pilot-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            text-align: left;
+            margin-top: 30px;
         }
         
         .pilot-item {
-            color: white;
+            text-align: left;
         }
         
         .pilot-item strong {
@@ -711,14 +625,10 @@
             margin-bottom: 5px;
         }
         
-        .pilot-item span {
-            font-size: 16px;
-        }
-        
         /* Footer */
         footer {
-            background: var(--dark-gray);
-            color: white;
+            background: var(--text-dark);
+            color: #A0AEC0;
             padding: 60px 0 30px;
         }
         
@@ -730,17 +640,16 @@
         }
         
         .footer-section h4 {
-            font-size: 18px;
-            margin-bottom: 20px;
             color: white;
+            margin-bottom: 20px;
         }
         
-        .footer-section p,
         .footer-section a {
-            color: rgba(255,255,255,0.7);
+            color: #A0AEC0;
             text-decoration: none;
-            line-height: 2;
-            font-size: 14px;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s;
         }
         
         .footer-section a:hover {
@@ -750,25 +659,68 @@
         .footer-bottom {
             text-align: center;
             padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.5);
-            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeIn 0.6s ease-out;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .hero .subtitle { font-size: 20px; }
-            .hero-stats { grid-template-columns: 1fr; }
-            .opportunity-content { grid-template-columns: 1fr; }
-            .comparison-grid { grid-template-columns: 1fr; }
-            .features-grid { grid-template-columns: 1fr; }
-            .impact-cards { grid-template-columns: 1fr 1fr; }
-            .flow-details { grid-template-columns: 1fr; }
-            .pilot-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .cta-buttons { flex-direction: column; align-items: center; }
+            .nav-links {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 40px;
+            }
+            
+            .problem-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stakeholders-grid,
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pilot-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -776,685 +728,467 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <div class="logo">Learnline AI</div>
+            <a href="#" class="logo">
+                <svg width="40" height="40" viewBox="0 0 64 64" fill="none">
+                    <rect x="8" y="12" width="48" height="10" rx="5" fill="#0B63D6"/>
+                    <rect x="8" y="28" width="32" height="10" rx="5" fill="#059669"/>
+                    <path d="M12 48 L30 48 L40 38" stroke="#FFB74D" stroke-width="6" stroke-linecap="round"/>
+                </svg>
+                <div class="logo-text">
+                    <span>Learn</span><span>Line</span>
+                </div>
+            </a>
+            
             <div class="nav-links">
                 <a href="#problem">Problem</a>
                 <a href="#solution">Solution</a>
                 <a href="#how-it-works">How It Works</a>
-                <a href="#features">Features</a>
                 <a href="#impact">Impact</a>
-                <a href="#pilot" class="btn-primary">Schedule Pilot Demo</a>
+                <a href="#pilot" class="btn btn-primary">Schedule Pilot</a>
             </div>
         </div>
     </nav>
-
+    
     <!-- Hero Section -->
-    <section class="hero" style="
-        margin-top: 70px;
-        padding: 150px 0;
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCABAAEADASIAAhEBAxEB/8QAGwABAQEBAQEBAQAAAAAAAAAAAAUGBAMBAgf/xAAtEAABBAECBAUDBQAAAAAAAAABAAIDBAURIRITMUEGFCJRYXGBkRUyQqGx/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwD/AKtSx1GvBFFDVgayNoa0BgOgCj57wvj8hkm35C+Gdxs4h6X6dfla1FXGV/Q8VJiJMVLSifRcS50JGoDieuo3/tZL9D8RYGQuxNj9SpN39Dx5w+O4710XftFn7VLBLq+JQXBlzA3I5xs5zGkE/RXaTMXA88VaKm3iJf3MDduqzsWayOOn5eap9DtNEBr+VRbzuJo/bkyb/oqGx5l3IZEzAfpNS6UxRHd7+5VnQfCznQW7OLDhj5hM9A/3N7j7K6ypWYQ5kETXDcEMGy8M5SdexdqrG8MfI3hDj0WVVfQ8YKGHxr21IGsqQt4gwu9LB8BfIvGOBewH9RgGvcOJ/wAqLlsZPhLjK+ULZHObxMf/ABcO+ncKczI4e0eTWtU3vPRge3VQa8+LPDwbxHJ1QPs/X+ljfKfFqgdD0WdC+og//9k=');
-        background-size: cover;
-        background-position: center;
-        position: relative;
-    ">
-        <div class="container" style="position: relative; z-index: 1;">
-            <div style="max-width: 700px;">
-                <div class="hero-logo" style="font-size: 48px; font-weight: 700; margin-bottom: 30px;">
-                    <span style="color: #2196F3;">Learn</span><span style="color: #4CAF50;">Line</span>
-                </div>
-                
-                <h1 style="
-                    font-size: 42px;
-                    color: white;
-                    margin-bottom: 25px;
-                    font-weight: 700;
-                    letter-spacing: 1px;
-                ">WE COMPLETE THE LEARNING LOOP</h1>
-                
-                <p style="
-                    font-size: 18px;
-                    color: rgba(255, 255, 255, 0.95);
-                    line-height: 1.7;
-                    margin-bottom: 40px;
-                    max-width: 600px;
-                ">We don't add another study app. We transform at home student learning into an AI-powered mastery system that improves student outcomes, saves teacher time, and gives schools daily insights</p>
-                
-                <a href="#problem" class="btn-primary" style="
-                    background: #2196F3;
-                    padding: 15px 40px;
-                    font-size: 18px;
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 10px;
-                ">
-                    Explore
-                    <span style="font-size: 20px;">→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Homework Opportunity Section -->
-    <section id="problem" class="opportunity-section">
+    <section class="hero">
         <div class="container">
-            <div class="section-header">
-                <h2>Our Insight: Homework is the Untapped Opportunity</h2>
-                <p>Past innovations gave students access to content, but they didn't fix the real issue: they ran parallel to schools, demanded extra study hours, and left teachers blind to what was really happening at home.</p>
-            </div>
-            
-            <div class="opportunity-content">
-                <div class="opportunity-text">
-                    <h3>The Problem with Current Solutions</h3>
-                    <p>Every edtech platform asks students for "extra time" when they're already overloaded with school, tuition, and homework. Meanwhile, the most universal educational ritual—homework—remains broken.</p>
+            <div class="hero-content">
+                <div class="hero-text animate-in">
+                    <h1>Learning done.<br>Time returned.</h1>
+                    <p class="hero-subtitle">
+                        We don't add another study app. We transform at home student learning into an AI-powered mastery system that improves student outcomes, saves teacher time, and gives schools daily insights
+                    </p>
+                     <h2>We Complete<br>the Learning Loop</h1>
+                    <div class="hero-cta">
+                        <a href="#pilot" class="btn btn-primary">Schedule School Demo</a>
+                        <a href="#solution" class="btn btn-secondary">See How It Works</a>
+                    </div>
                     
-                    <ul class="opportunity-points">
-                        <li><strong>Homework is universal</strong> — 250M+ students in India already spend time on it every day.</li>
-                        <li><strong>But it's broken</strong> — Static, copyable, untracked, and disconnected from classroom teaching.</li>
-                        <li><strong>Every other solution</strong> — Asks students for "extra time," when they're already overloaded.</li>
-                    </ul>
-                    
-                    <p>Instead of fighting for attention with "another app," the smarter approach is to <strong>transform homework itself</strong> into adaptive, mastery-first learning.</p>
-                    
-                    <a href="#solution" class="btn-primary">See how Homework 2.0 works</a>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1:1</span>
+                            <span class="stat-label">Adaptive learning now live</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Learning Visibility
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10x</span>
+                            <span class="stat-label">Cheaper than tuition</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="opportunity-stats">
-                    <h4>Why Homework?</h4>
-                    <div class="stat-item">
-                        <div class="number">250M+</div>
-                        <div class="text">students do homework daily in India</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="number">0%</div>
-                        <div class="text">real-time visibility for teachers today</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="number">100%</div>
-                        <div class="text">potential if homework is transformed</div>
+                <div class="hero-visual animate-in">
+                    <div class="hero-illustration">
+                        <!-- Placeholder for illustration -->
+                        <svg width="100%" height="100%" viewBox="0 0 500 500" fill="none" style="position: absolute; top: 0; left: 0;">
+                            <circle cx="100" cy="100" r="80" fill="white" opacity="0.1"/>
+                            <circle cx="400" cy="400" r="60" fill="white" opacity="0.1"/>
+                            <rect x="200" y="200" width="150" height="100" rx="20" fill="white" opacity="0.1"/>
+                            <path d="M50 250 Q 250 150, 450 250" stroke="white" stroke-width="3" opacity="0.2"/>
+                        </svg>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Comparison Section -->
-    <section id="solution" class="comparison-section">
+    
+    <!-- Problem Section -->
+    <section id="problem" class="problem-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Homework Today vs Homework 2.0</h2>
-                <p>A single glance: see why the old way wastes time — and how Homework 2.0 converts daily homework into fast, adaptive mastery.</p>
+            <div class="section-header animate-in">
+                <div class="pill">The Education Gap</div>
+                <h2>Homework is broken. We all know it.</h2>
+                <p>Almost all Indian students spend hours on homework daily, yet it's the most underutilized touchpoint in education.</p>
             </div>
             
-            <div class="comparison-grid">
+            <div class="problem-grid animate-in">
+                <div class="problem-card">
+                    <h3>📚 Current Reality</h3>
+                    <p>Static worksheets, easy to copy, no immediate feedback. Teachers spend hours grading but get no insights into actual learning.</p>
+                    <div class="problem-stat">
+                        <span class="problem-stat-number">30:1</span>
+                        <div>
+                            <strong>Student-Teacher Ratio</strong>
+                            <p>Individual attention is impossible</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <h3>🔄 The Vicious Cycle</h3>
+                    <p>Students who don't understand fall further behind. Fast learners get bored. Everyone loses.</p>
+                    <div class="problem-stat">
+                        <span class="problem-stat-number">72%</span>
+                        <div>
+                            <strong>Learning Gaps Undetected</strong>
+                            <p>Until it's too late to fix</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="problem-card" style="max-width: 800px; margin: 0 auto;">
+                <h3>💡 Our Insight</h3>
+                <p style="font-size: 18px; line-height: 1.7;">
+                    Every tech alternative asks for "extra time" when students are already overwhelmed. 
+                    We don't add hours — we transform the homework time that already exists into 
+                    adaptive, diagnostic-driven learning.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Solution Section -->
+    <section id="solution" class="solution-section">
+        <div class="container">
+            <div class="section-header animate-in">
+                <div class="pill">The Solution</div>
+                <h2>Homework 2.0: Same time, 10x better outcomes</h2>
+                <p>We replace static worksheets with AI-powered adaptive learning that diagnoses, remediates, and tracks mastery in real-time.</p>
+            </div>
+            
+            <div class="comparison-grid animate-in">
                 <div class="comparison-card old">
                     <div class="comparison-header">
                         <div class="comparison-icon">📝</div>
                         <h3>Homework Today</h3>
                     </div>
-                    <p class="comparison-description">Static worksheets, repetitive drills, and grading overhead — students do more work but learn less.</p>
-                    
                     <ul class="comparison-list">
-                        <li>Static worksheets that don't adapt</li>
-                        <li>No immediate remediation — mistakes persist</li>
-                        <li>Teacher blind spot: homework grading burden</li>
-                        <li>Easy to copy, Google, or outsource</li>
-                        <li>Disconnected from classroom teaching</li>
+                        <li>Static worksheets for everyone</li>
+                        <li>Easy to copy or Google answers</li>
+                        <li>No feedback until tests</li>
+                        <li>Teachers grade manually</li>
+                        <li>Zero visibility on gaps</li>
                     </ul>
-                    
-                    <div class="comparison-footer">
-                        <div class="comparison-label">Problem</div>
-                        <div class="comparison-result">Overburdened students, wasted effort, disengaged learning.</div>
+                    <div style="padding-top: 20px; border-top: 1px solid #E5E7EB;">
+                        <strong style="color: var(--error);">Result:</strong>
+                        <p>Wasted time, frustrated students, teachers left in dark s</p>
                     </div>
                 </div>
                 
                 <div class="comparison-card new">
                     <div class="comparison-header">
                         <div class="comparison-icon">🎯</div>
-                        <h3>Homework 2.0</h3>
+                        <h3>LearnLine Homework</h3>
                     </div>
-                    <p class="comparison-description">Adaptive micro-diagnostics + targeted remediation + adaptive practice — all inside the same homework session.</p>
-                    
                     <ul class="comparison-list">
-                        <li>Adaptive, personalized assignments</li>
-                        <li>Instant remediation & reassessment</li>
-                        <li>Daily teacher insights & reduced grading load</li>
-                        <li>OCR validation prevents copying</li>
-                        <li>Synced with classroom curriculum</li>
+                        <li>Adaptive to each student's level</li>
+                        <li>OCR validates handwritten work</li>
+                        <li>Instant diagnostics & remediation</li>
+                        <li>Auto-graded with insights</li>
+                        <li>Daily mastery tracking</li>
                     </ul>
-                    
-                    <div class="comparison-footer">
-                        <div class="comparison-label">Solution</div>
-                        <div class="comparison-result">Repurposes existing homework time into measurable mastery.</div>
+                    <div style="padding-top: 20px; border-top: 1px solid #E5E7EB;">
+                        <strong style="color: var(--accent-green);">Result:</strong>
+                        <p>Efficient learning, confident students, empowered teachers</p>
                     </div>
                 </div>
             </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <p style="font-size: 18px; color: var(--dark-gray); margin-bottom: 30px;">Instead of asking students for more time, Homework 2.0 converts the time they already spend into adaptive, mastery-first learning — short diagnostics, micro-remediation, adaptive practice, and instant feedback for teachers and parents.</p>
-                <a href="#how-it-works" class="btn-primary">See the Learning Loop</a>
-                <a href="#" class="btn-secondary" style="margin-left: 20px;">Download Snapshot</a>
-            </div>
         </div>
     </section>
-
-    <!-- Learning Loop Section -->
-    <section id="how-it-works" class="loop-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>How It Works: The Learning Loop</h2>
-                <p style="color: var(--medium-gray);">Teacher → Platform → Student at Home → Diagnostic → Remediation → Practice → Reassessment → Feedback</p>
-                <p style="color: var(--medium-gray); margin-top: 10px;">Simple, time-efficient, and school-integrated.</p>
-            </div>
-            
-            <div class="loop-visual" style="position: relative; height: 600px; max-width: 600px; margin: 0 auto 60px;">
-                <!-- SVG for arrows -->
-                <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;" viewBox="0 0 600 600">
+    
+ <!-- Learning Loop Section -->
+<section id="how-it-works" class="loop-section" style="background: #F8FAFC; padding: 100px 0;">
+    <div class="container">
+        <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 80px;">
+            <div class="pill" style="display: inline-block; padding: 10px 20px; background: linear-gradient(135deg, rgba(11, 99, 214, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%); color: #0B63D6; border-radius: 24px; font-size: 14px; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.5px; text-transform: uppercase;">How It Works</div>
+            <h2 style="font-size: 48px; background: linear-gradient(135deg, #0B63D6 0%, #059669 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px; font-weight: 800;">The Learning Loop</h2>
+            <p style="color: #6B7280; font-size: 20px; line-height: 1.6;">Every homework session creates a complete cycle of learning, from classroom to mastery in just 20 minutes.</p>
+        </div>
+        
+        <div style="display: flex; gap: 60px; align-items: center; justify-content: center;">
+            <!-- Loop Diagram -->
+            <div style="position: relative; width: 700px; height: 700px;">
+                <!-- Animated Background -->
+                <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;" viewBox="0 0 700 700">
                     <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" fill="#4A90E2">
-                            <polygon points="0 0, 10 3, 0 6" />
-                        </marker>
+                        <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0B63D6;stop-opacity:0.3">
+                                <animate attributeName="stop-opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite" />
+                            </stop>
+                            <stop offset="100%" style="stop-color:#059669;stop-opacity:0.3">
+                                <animate attributeName="stop-opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite" begin="1.5s" />
+                            </stop>
+                        </linearGradient>
                     </defs>
-                    
-                    <!-- Arrow 1: Teacher Updates to Platform Generates -->
-                    <path d="M 360 70 Q 420 70, 450 110" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
-                    
-                    <!-- Arrow 2: Platform Generates to Student Homework -->
-                    <path d="M 490 150 Q 520 200, 520 260" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
-                    
-                    <!-- Arrow 3: Student Homework to Diagnostic -->
-                    <path d="M 520 340 Q 520 400, 490 450" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
-                    
-                    <!-- Arrow 4: Diagnostic to Remediation -->
-                    <path d="M 450 490 Q 420 530, 360 530" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
-                    
-                    <!-- Arrow 5: Remediation to Practice -->
-                    <path d="M 240 530 Q 180 530, 150 490" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
-                    
-                    <!-- Arrow 6: Practice to Reassessment -->
-                    <path d="M 110 450 Q 80 400, 80 340" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
-                    
-                    <!-- Arrow 7: Reassessment to Teacher Insights -->
-                    <path d="M 80 260 Q 80 200, 110 150" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
-                    
-                    <!-- Arrow 8: Teacher Insights to Teacher Updates -->
-                    <path d="M 150 110 Q 180 70, 240 70" fill="none" stroke="#4A90E2" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.5"/>
+                    <circle cx="350" cy="350" r="250" fill="none" stroke="url(#flowGradient)" stroke-width="2" stroke-dasharray="10,5" opacity="0.5">
+                        <animateTransform attributeName="transform" type="rotate" from="0 350 350" to="360 350 350" dur="30s" repeatCount="indefinite" />
+                    </circle>
                 </svg>
-                <!-- Central circle -->
-                <div style="
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 200px;
-                    height: 200px;
-                    background: #4A90E2;
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    font-weight: 700;
-                    font-size: 24px;
-                    text-align: center;
-                    box-shadow: 0 10px 40px rgba(74, 144, 226, 0.3);
-                    z-index: 10;
-                ">Learning<br>Loop</div>
                 
-                <!-- Step 1: Teacher Updates - Top -->
-                <div style="
-                    position: absolute;
-                    top: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 120px;
-                    height: 120px;
-                    background: white;
-                    border-radius: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                    font-size: 13px;
-                    font-weight: 600;
-                    color: var(--dark-gray);
-                    text-align: center;
-                ">
-                    <span style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: #4A90E2;
-                        color: white;
-                        width: 24px;
-                        height: 24px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 12px;
-                    ">1</span>
-                    Teacher<br>Updates
+                <!-- Central Hub -->
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; background: linear-gradient(135deg, #0B63D6 0%, #059669 100%); border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(11, 99, 214, 0.15), 0 20px 40px rgba(11, 99, 214, 0.1), 0 30px 60px rgba(11, 99, 214, 0.05); z-index: 10;">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" style="margin-bottom: 12px;">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+                        <path d="M2 12L12 17L22 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+                    </svg>
+                    <h2 style="color: white; font-size: 26px; font-weight: 700; font-family: 'Montserrat', sans-serif; text-align: center; line-height: 1.2;">Learning<br>Loop</h2>
+                    <p style="color: rgba(255, 255, 255, 0.9); font-size: 13px; margin-top: 0px; font-weight: 500;">Daily Mastery in 20 Min</p>
                 </div>
                 
-                <!-- Step 2: Platform Generates - Top Right -->
-                <div style="
-                    position: absolute;
-                    top: 45px;
-                    right: 65px;
-                    width: 120px;
-                    height: 120px;
-                    background: white;
-                    border-radius: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                    font-size: 13px;
-                    font-weight: 600;
-                    color: var(--dark-gray);
-                    text-align: center;
-                ">
-                    <span style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: #4A90E2;
-                        color: white;
-                        width: 24px;
-                        height: 24px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 12px;
-                    ">2</span>
-                    Platform<br>Generates
+                <!-- Step 1: Teacher Sets Goals (top - 12 o'clock) -->
+                <div class="loop-step" style="position: absolute; top: 50px; left: 50%; transform: translateX(-50%); width: 150px; height: 150px; background: white; border: 2px solid #059669; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #059669 0%, #10B981 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">1</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <path d="M17 20H7C5.89543 20 5 19.1046 5 18V8C5 6.89543 5.89543 6 7 6H17C18.1046 6 19 6.89543 19 8V18C19 19.1046 18.1046 20 17 20Z" stroke="#059669" stroke-width="2"/>
+                        <path d="M12 6V2" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M8 10H16M8 14H13" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Teacher Sets<br>Learning Goals</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">Daily update</div>
                 </div>
                 
-                <!-- Step 3: Student Homework - Right -->
-                <div style="
-                    position: absolute;
-                    top: 50%;
-                    right: 0;
-                    transform: translateY(-50%);
-                    width: 120px;
-                    height: 120px;
-                    background: white;
-                    border-radius: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                    font-size: 13px;
-                    font-weight: 600;
-                    color: var(--dark-gray);
-                    text-align: center;
-                ">
-                    <span style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: #4A90E2;
-                        color: white;
-                        width: 24px;
-                        height: 24px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 12px;
-                    ">3</span>
-                    Student<br>Homework
+                <!-- Step 2: AI Creates Homework (top-right - 1:30) -->
+                <div class="loop-step" style="position: absolute; top: 175px; right: 100px; width: 150px; height: 150px; background: white; border: 2px solid #0B63D6; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #0B63D6 0%, #3B82F6 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">2</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <circle cx="12" cy="12" r="3" stroke="#0B63D6" stroke-width="2"/>
+                        <path d="M12 1V6M12 18V23M4.22 4.22L7.76 7.76M16.24 16.24L19.78 19.78M1 12H6M18 12H23M4.22 19.78L7.76 16.24M16.24 7.76L19.78 4.22" stroke="#0B63D6" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">AI Creates<br>Adaptive HW</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">Instant</div>
                 </div>
                 
-                <!-- Step 4: Diagnostic - Bottom Right -->
-                <div style="
-                    position: absolute;
-                    bottom: 45px;
-                    right: 65px;
-                    width: 120px;
-                    height: 120px;
-                    background: white;
-                    border-radius: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                    font-size: 13px;
-                    font-weight: 600;
-                    color: var(--dark-gray);
-                    text-align: center;
-                ">
-                    <span style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: #4A90E2;
-                        color: white;
-                        width: 24px;
-                        height: 24px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 12px;
-                    ">4</span>
-                    Diagnostic
+                <!-- Step 3: Student Begins (right - 3 o'clock) -->
+                <div class="loop-step" style="position: absolute; top: 50%; right: 50px; transform: translateY(-50%); width: 150px; height: 150px; background: white; border: 2px solid #FFB74D; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #FFB74D 0%, #FFC947 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">3</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <rect x="7" y="2" width="10" height="20" rx="2" stroke="#FFB74D" stroke-width="2"/>
+                        <circle cx="12" cy="18" r="1.5" fill="#FFB74D"/>
+                        <line x1="10" y1="5" x2="14" y2="5" stroke="#FFB74D" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Student<br>Begins Session</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">After school</div>
                 </div>
                 
-                <!-- Step 5: Remediation - Bottom -->
-                <div style="
-                    position: absolute;
-                    bottom: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 120px;
-                    height: 120px;
-                    background: white;
-                    border-radius: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                    font-size: 13px;
-                    font-weight: 600;
-                    color: var(--dark-gray);
-                    text-align: center;
-                ">
-                    <span style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: #4A90E2;
-                        color: white;
-                        width: 24px;
-                        height: 24px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 12px;
-                    ">5</span>
-                    Remediation
+                <!-- Step 4: Smart Diagnostic (bottom-right - 4:30) -->
+                <div class="loop-step" style="position: absolute; bottom: 135px; right: 30px; transform: translateX(-50%); width: 150px; height: 150px; background: white; border: 2px solid #8B5CF6; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">4</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <circle cx="11" cy="11" r="8" stroke="#8B5CF6" stroke-width="2"/>
+                        <path d="M21 21L16.65 16.65" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="11" cy="11" r="3" stroke="#8B5CF6" stroke-width="1" opacity="0.5"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Smart<br>Diagnostic</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">3-5 min</div>
                 </div>
                 
-                <!-- Step 6: Practice - Bottom Left -->
-                <div style="
-                    position: absolute;
-                    bottom: 45px;
-                    left: 65px;
-                    width: 120px;
-                    height: 120px;
-                    background: white;
-                    border-radius: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                    font-size: 13px;
-                    font-weight: 600;
-                    color: var(--dark-gray);
-                    text-align: center;
-                ">
-                    <span style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: #4A90E2;
-                        color: white;
-                        width: 24px;
-                        height: 24px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 12px;
-                    ">6</span>
-                    Practice
+                <!-- Step 5: Personalized Gap Filling (bottom - 6 o'clock) -->
+                <div class="loop-step" style="position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); width: 150px; height: 150px; background: white; border: 2px solid #8B5CF6; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">5</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <path d="M3 12H21M12 3V21" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="3" fill="#8B5CF6" opacity="0.3"/>
+                        <circle cx="12" cy="12" r="1.5" fill="#8B5CF6"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Personalized<br>Gap Filling</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">Adaptive</div>
+                </div>
+            
+                <!-- Step 6: Mastery Practice (bottom-left - 7:30) -->
+                <div class="loop-step" style="position: absolute; top: 485px; left: 125px; width: 150px; height: 150px; background: white; border: 2px solid #FFB74D; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #FFB74D 0%, #FFC947 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">6</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <circle cx="12" cy="12" r="10" stroke="#FFB74D" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="6" stroke="#FFB74D" stroke-width="1.5" opacity="0.5"/>
+                        <circle cx="12" cy="12" r="2" fill="#FFB74D"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Mastery<br>Practice</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">10-12 min</div>
                 </div>
                 
-                <!-- Step 7: Reassessment - Left -->
-                <div style="
-                    position: absolute;
-                    top: 50%;
-                    left: 0;
-                    transform: translateY(-50%);
-                    width: 120px;
-                    height: 120px;
-                    background: white;
-                    border-radius: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                    font-size: 13px;
-                    font-weight: 600;
-                    color: var(--dark-gray);
-                    text-align: center;
-                ">
-                    <span style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: #4A90E2;
-                        color: white;
-                        width: 24px;
-                        height: 24px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 12px;
-                    ">7</span>
-                    Reassessment
+                <!-- Step 7: Quick Reassessment (left - 9 o'clock) -->
+                <div class="loop-step" style="position: absolute; top: 50%; left: 50px; transform: translateY(-50%); width: 150px; height: 150px; background: white; border: 2px solid #0B63D6; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #0B63D6 0%, #3B82F6 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">7</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <path d="M9 11L12 14L22 4" stroke="#0B63D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 12V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H16" stroke="#0B63D6" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Quick<br>Reassessment</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">2 min</div>
                 </div>
                 
-                <!-- Step 8: Teacher Insights - Top Left -->
-                <div style="
-                    position: absolute;
-                    top: 45px;
-                    left: 65px;
-                    width: 120px;
-                    height: 120px;
-                    background: white;
-                    border-radius: 50%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                    font-size: 13px;
-                    font-weight: 600;
-                    color: var(--dark-gray);
-                    text-align: center;
-                ">
-                    <span style="
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        background: #4A90E2;
-                        color: white;
-                        width: 24px;
-                        height: 24px;
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 12px;
-                    ">8</span>
-                    Teacher<br>Insights
+                <!-- Step 8: Real-time Analytics (top-left - 10:30) -->
+                <div class="loop-step" style="position: absolute; top: 110px; left: 120px; width: 150px; height: 150px; background: white; border: 2px solid #059669; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #059669 0%, #10B981 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">8</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#059669" stroke-width="2"/>
+                        <path d="M9 9V15M12 7V15M15 11V15" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Real-time<br>Analytics</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">24/7 access</div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Summary Section -->
+        <div style="margin-top: 60px; text-align: center;">
+            <p style="font-size: 20px; color: #1F2937; font-weight: 600; font-family: 'Montserrat', sans-serif; margin-bottom: 8px;">
+                Daily Flow: 20-25 minutes per subject = Complete mastery tracking
+            </p>
+            <p style="color: #6B7280; font-size: 16px;">
+                Same homework time. 10x better outcomes. Zero teacher grading.
+            </p>
+        </div>
+    </div>
+</section>
+    
+    <!-- Stakeholders Section -->
+    <section class="stakeholders-section">
+        <div class="container">
+            <div class="section-header animate-in">
+                <div class="pill">For Everyone</div>
+                <h2>Every stakeholder wins</h2>
+                <p>Built for the entire learning ecosystem, not just students.</p>
+            </div>
             
-            <div class="flow-details">
-                <div class="flow-description">
-                    <h4>The Flow (Simple)</h4>
-                    <p>Teacher teaches → marks topic on platform → student completes diagnostic → AI remediates and assigns practice → quick reassessment confirms mastery → results feed back to teacher dashboard.</p>
-                    
-                    <p><strong>Daily Workflow:</strong></p>
-                    <p>1. Teacher updates topics covered in class<br>
-                    2. Students open homework app at home<br>
-                    3. AI diagnostic identifies gaps (3-5 min)<br>
-                    4. Personalized remediation fills gaps<br>
-                    5. Adaptive practice strengthens concepts<br>
-                    6. Teacher gets actionable insights next morning</p>
-                    
-                    <p style="margin-top: 30px;">
-                        <a href="#pilot" class="btn-primary">Request a Pilot →</a>
-                    </p>
+            <div class="stakeholders-grid animate-in">
+                <div class="stakeholder-card">
+                    <div class="stakeholder-icon">👩‍🎓</div>
+                    <h3>Students</h3>
+                    <p>Learn at your pace. Get help instantly. Master concepts, don't just memorize.</p>
+                    <strong style="color: var(--primary-blue);">Less stress, more confidence</strong>
                 </div>
                 
-                <div class="flow-benefits">
-                    <h4>Every homework session delivers:</h4>
-                    
-                    <div class="benefit-item">
-                        <div class="benefit-icon">📊</div>
-                        <div class="benefit-text">
-                            <h5>Immediate feedback</h5>
-                            <p>Students see where they are right away — gaps are fixed quickly.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="benefit-item">
-                        <div class="benefit-icon">✓</div>
-                        <div class="benefit-text">
-                            <h5>Teacher insights</h5>
-                            <p>Dashboards highlight what stuck and what didn't.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="benefit-item">
-                        <div class="benefit-icon">⏱</div>
-                        <div class="benefit-text">
-                            <h5>Time-efficient</h5>
-                            <p>Homework time doubles as mastery time.</p>
-                        </div>
-                    </div>
-                    
-                    <p style="margin-top: 20px; font-size: 14px; color: var(--medium-gray); font-style: italic;">
-                        Tip: Teachers can assign topics for homework compliance + quick remediation = continuous improvement.
-                    </p>
+                <div class="stakeholder-card">
+                    <div class="stakeholder-icon">👨‍👩‍👧</div>
+                    <h3>Parents</h3>
+                    <p>See daily progress. Pay 10x less than tuition. No more homework battles.</p>
+                    <strong style="color: var(--primary-blue);">Peace of mind, saved money</strong>
+                </div>
+                
+                <div class="stakeholder-card">
+                    <div class="stakeholder-icon">👩‍🏫</div>
+                    <h3>Teachers</h3>
+                    <p>Zero grading. Daily insights. Know exactly who needs help.</p>
+                    <strong style="color: var(--primary-blue);">Teach more, grade less</strong>
+                </div>
+                
+                <div class="stakeholder-card">
+                    <div class="stakeholder-icon">🏫</div>
+                    <h3>Schools</h3>
+                    <p>Better outcomes. Happy parents. Progressive reputation.</p>
+                    <strong style="color: var(--primary-blue);">Measurable improvement</strong>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Features Section -->
-    <section id="features" class="features-section">
+    <section class="features-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Core Features</h2>
-                <p>Everything you need to complete the learning loop</p>
+            <div class="section-header animate-in">
+                <div class="pill">Technology</div>
+                <h2>Built for Indian classrooms</h2>
+                <p>Cutting-edge AI meets practical classroom needs.</p>
             </div>
             
-            <div class="features-grid">
+            <div class="features-grid animate-in">
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
-                    <h4>Knowledge Graph Mapping</h4>
-                    <p>500+ NCERT math concepts mapped with prerequisites. AI knows exactly what students need to learn next.</p>
+                    <h3>Knowledge Graph</h3>
+                    <p>500+ NCERT concepts mapped with prerequisites. AI knows exactly what to teach next.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h4>Adaptive Diagnostics</h4>
-                    <p>3-5 minute assessments identify gaps instantly. No more waiting for exam results to find problems.</p>
+                    <h3>Smart Diagnostics</h3>
+                    <p>3-5 minute assessments identify gaps instantly, not after exam results.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h4>AI Voice Tutor</h4>
-                    <p>24/7 conversational support in Hindi/English/Hinglish. Students can ask questions, get hints, request explanations.</p>
+                    <div class="feature-icon">🗣️</div>
+                    <h3>AI Voice Tutor</h3>
+                    <p>24/7 support in Hindi, English, or Hinglish. Ask questions, get hints, learn naturally.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h4>Teacher Dashboard</h4>
-                    <p>Daily insights on individual and cohort performance. Zero grading work, maximum teaching impact.</p>
+                    <h3>Teacher Dashboard</h3>
+                    <p>See class-wide patterns. Individual progress. Zero manual work.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🔄</div>
-                    <h4>Spaced Repetition</h4>
-                    <p>Concepts resurface at optimal intervals for long-term retention. No more learn-and-forget cycles.</p>
+                    <h3>Spaced Repetition</h3>
+                    <p>Concepts resurface at optimal intervals. Build long-term retention.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
-                    <h4>OCR Validation</h4>
-                    <p>Handwritten answers validated through OCR. Prevents copying while maintaining school alignment.</p>
+                    <h3>OCR Validation</h3>
+                    <p>Students write on paper, app validates. Prevents copying, maintains school alignment.</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Impact Section -->
     <section id="impact" class="impact-section">
         <div class="container">
-            <div class="section-header">
-                <h2>The Learnline Impact</h2>
-                <p>Measurable improvements for every stakeholder</p>
+            <div class="section-header animate-in">
+                <div class="pill">Impact</div>
+                <h2>Measurable results that matter</h2>
+                <p>Real improvements for real classrooms.</p>
             </div>
             
-            <div class="impact-cards">
+            <div class="impact-grid animate-in">
                 <div class="impact-card">
-                    <div class="impact-metric">0</div>
+                    <div class="impact-number">0</div>
                     <div class="impact-label">Extra Minutes</div>
-                    <div class="impact-description">No additional study time required</div>
+                    <p>Same homework time, better outcomes</p>
                 </div>
                 
                 <div class="impact-card">
-                    <div class="impact-metric">24hrs</div>
+                    <div class="impact-number">24hr</div>
                     <div class="impact-label">Feedback Loop</div>
-                    <div class="impact-description">Daily insights vs weeks for tests</div>
+                    <p>Daily insights vs weeks for tests</p>
                 </div>
                 
                 <div class="impact-card">
-                    <div class="impact-metric">10x</div>
-                    <div class="impact-label">Cost Savings</div>
-                    <div class="impact-description">₹500-1000/month vs ₹5000-10000 tuitions</div>
+                    <div class="impact-number">40%</div>
+                    <div class="impact-label">Faster Mastery</div>
+                    <p>Students learn concepts quicker</p>
                 </div>
                 
                 <div class="impact-card">
-                    <div class="impact-metric">2σ</div>
+                    <div class="impact-number">2σ</div>
                     <div class="impact-label">Learning Gains</div>
-                    <div class="impact-description">Bloom's 2-sigma improvement</div>
+                    <p>Approaching 1:1 tutoring results</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- CTA Section -->
     <section id="pilot" class="cta-section">
         <div class="container">
-            <div class="cta-content">
-                <h2>Transform Your School's Learning Outcomes</h2>
-                <p>Join forward-thinking schools completing the learning loop with AI</p>
+            <div class="cta-content animate-in">
+                <h2>Transform your school in 90 days</h2>
+                <p>Join progressive schools completing the learning loop with AI.</p>
                 
                 <div class="cta-buttons">
-                    <a href="#" class="btn-primary">Schedule Pilot Demo</a>
-                    <a href="#" class="btn-secondary">Download Overview</a>
+                    <a href="mailto:pilot@learnline.ai" class="btn btn-primary">Schedule Pilot Demo</a>
+                    <a href="#" class="btn btn-secondary">Download School Pack</a>
                 </div>
                 
                 <div class="pilot-details">
-                    <h3>Pilot Program Details</h3>
+                    <h3 style="margin-bottom: 30px;">Pilot Program Details</h3>
                     <div class="pilot-grid">
                         <div class="pilot-item">
                             <strong>DURATION</strong>
-                            <span>2-3 month pilot program</span>
+                            <span>2-3 month pilot</span>
                         </div>
                         <div class="pilot-item">
                             <strong>COVERAGE</strong>
                             <span>Classes 6-10, Mathematics</span>
                         </div>
                         <div class="pilot-item">
-                            <strong>INVESTMENT</strong>
+                            <strong>COST</strong>
                             <span>Free for selected schools</span>
                         </div>
                         <div class="pilot-item">
@@ -1474,37 +1208,46 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Learnline AI</h4>
-                    <p>Completing the learning loop between classroom and home through AI-powered adaptive learning.</p>
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <svg width="32" height="32" viewBox="0 0 64 64" fill="none">
+                            <rect x="8" y="12" width="48" height="10" rx="5" fill="#0B63D6"/>
+                            <rect x="8" y="28" width="32" height="10" rx="5" fill="#059669"/>
+                            <path d="M12 48 L30 48 L40 38" stroke="#FFB74D" stroke-width="6" stroke-linecap="round"/>
+                        </svg>
+                        <div class="logo-text">
+                            <span>Learn</span><span>Line</span>
+                        </div>
+                    </div>
+                    <p>Completing the learning loop between classroom and home with AI-powered adaptive learning.</p>
                     <p style="margin-top: 20px;">Built for Indian schools, designed for every student.</p>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Solution</h4>
-                    <a href="#problem">The Problem</a><br>
-                    <a href="#solution">Our Approach</a><br>
-                    <a href="#how-it-works">How It Works</a><br>
-                    <a href="#features">Features</a>
+                    <a href="#problem">The Problem</a>
+                    <a href="#solution">Our Approach</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#impact">Impact</a>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Company</h4>
-                    <a href="#">About Us</a><br>
-                    <a href="#">Our Team</a><br>
-                    <a href="#">Careers</a><br>
-                    <a href="#">Contact</a>
+                    <h4>Resources</h4>
+                    <a href="#">School Pack</a>
+                    <a href="#">Teacher Guide</a>
+                    <a href="#">Parent FAQ</a>
+                    <a href="#">Research</a>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Get Started</h4>
                     <p>Email: pilot@learnline.ai</p>
-                    <p>Phone: +91 XXXXXXXXXX</p>
+                    <p>Phone: +91 98765 43210</p>
                     <p style="margin-top: 20px;">
                         <a href="#pilot" style="color: white; text-decoration: underline;">Schedule a Demo →</a>
                     </p>
@@ -1512,13 +1255,13 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Learnline AI. All rights reserved. | Privacy Policy | Terms of Service</p>
+                <p>&copy; 2025 LearnLine. All rights reserved. | Privacy Policy | Terms of Service</p>
             </div>
         </div>
     </footer>
     
     <script>
-        // Smooth scrolling for navigation
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1532,13 +1275,37 @@
             });
         });
         
-        // Add scroll effect to navigation
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Navigation background on scroll
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
                 nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
             } else {
-                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
             }
         });
     </script>
