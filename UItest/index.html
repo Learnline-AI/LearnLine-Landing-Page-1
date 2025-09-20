@@ -172,65 +172,7 @@
             transform: translateY(0);
         }
 
-        /* Voice Input Mode Styles */
-        .voice-input-container {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-        }
-
-        .voice-input-container.active {
-            display: flex;
-        }
-
-        .voice-toggle-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            background: #333;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .voice-toggle-btn:hover {
-            background: #555;
-            transform: scale(1.05);
-        }
-
-        .voice-toggle-btn.recording {
-            background: #dc3545;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
-        }
-
-        .voice-input-text {
-            flex: 1;
-            padding: 12px 16px;
-            background: #f8f9fa;
-            border: 1px solid #e0e0e0;
-            border-radius: 20px;
-            font-family: 'Avenir Next LT Pro', -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Segoe UI', Roboto, sans-serif;
-            font-size: 0.95rem;
-            color: #333;
-            outline: none;
-            min-height: 40px;
-            display: flex;
-            align-items: center;
-        }
+        /* Microphone Icon Button Styles */
 
         .input-mode-toggle {
             position: absolute;
@@ -246,13 +188,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
             transition: all 0.2s ease;
             z-index: 10;
+            padding: 6px;
         }
 
         .input-mode-toggle:hover {
             background: #e9ecef;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .input-mode-toggle:active {
+            background: #dee2e6;
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .input-mode-toggle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .chat-input-container {
@@ -714,25 +668,11 @@
         <div class="chat-input-area">
             <!-- Text Input Mode -->
             <div class="chat-input-container" id="text-input-mode">
-                <button class="input-mode-toggle" onclick="toggleInputMode()" title="Switch to voice input">
-                    🎤
+                <button class="input-mode-toggle" title="Microphone">
+                    <img src="assets/images/Microphone Icon.png" alt="Microphone">
                 </button>
                 <input type="text" class="chat-input" placeholder="Type your question here..." id="chat-input">
                 <button class="chat-send-btn" onclick="sendMessage()">Send</button>
-            </div>
-            
-            <!-- Voice Input Mode -->
-            <div class="voice-input-container" id="voice-input-mode">
-                <div style="position: relative; flex: 1; display: flex; align-items: center; gap: 15px;">
-                    <button class="input-mode-toggle" onclick="toggleInputMode()" title="Switch to text input" style="position: static; transform: none;">
-                        ⌨️
-                    </button>
-                    <button class="voice-toggle-btn" onclick="toggleVoiceRecording()" id="voice-btn" title="Click to start recording">
-                        🎤
-                    </button>
-                    <div class="voice-input-text" id="voice-text">Type your question here...</div>
-                    <button class="chat-send-btn" onclick="sendVoiceMessage()">Send</button>
-                </div>
             </div>
         </div>
     </div>
@@ -849,82 +789,17 @@
             messagesContainer.scrollTop = messagesContainer.scrollHeight;
         }
 
-        // Input mode toggle functionality
-        let isVoiceMode = false;
-        let isRecording = false;
-
-        function toggleInputMode() {
-            const textMode = document.getElementById('text-input-mode');
-            const voiceMode = document.getElementById('voice-input-mode');
-            const toggleBtns = document.querySelectorAll('.input-mode-toggle');
-            
-            isVoiceMode = !isVoiceMode;
-            
-            if (isVoiceMode) {
-                textMode.style.display = 'none';
-                voiceMode.classList.add('active');
-                toggleBtns.forEach(btn => {
-                    btn.innerHTML = '⌨️';
-                    btn.title = 'Switch to text input';
-                });
-            } else {
-                textMode.style.display = 'flex';
-                voiceMode.classList.remove('active');
-                toggleBtns.forEach(btn => {
-                    btn.innerHTML = '🎤';
-                    btn.title = 'Switch to voice input';
+        // Microphone button click effect (no functionality, just UI feedback)
+        document.addEventListener('DOMContentLoaded', function() {
+            const micButton = document.querySelector('.input-mode-toggle');
+            if (micButton) {
+                micButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Just visual feedback - no actual functionality
+                    // The CSS handles the click animation
                 });
             }
-        }
-
-        function toggleVoiceRecording() {
-            const voiceBtn = document.getElementById('voice-btn');
-            const voiceText = document.getElementById('voice-text');
-            
-            isRecording = !isRecording;
-            
-            if (isRecording) {
-                voiceBtn.classList.add('recording');
-                voiceBtn.title = 'Click to stop recording';
-                voiceText.textContent = 'Listening... Click the microphone to stop.';
-                
-                // Simulate voice recording (in real implementation, this would use Web Speech API)
-                setTimeout(() => {
-                    if (isRecording) {
-                        voiceText.textContent = 'I heard: "What is the difference between 1/2 and 1/4?"';
-                    }
-                }, 2000);
-            } else {
-                voiceBtn.classList.remove('recording');
-                voiceBtn.title = 'Click to start recording';
-                if (voiceText.textContent === 'Listening... Click the microphone to stop.') {
-                    voiceText.textContent = 'Type your question here...';
-                }
-            }
-        }
-
-        function sendVoiceMessage() {
-            const voiceText = document.getElementById('voice-text');
-            const message = voiceText.textContent;
-            
-            if (message === 'Type your question here...' || message === 'Listening... Click the microphone to stop.') {
-                return;
-            }
-            
-            // Add the voice message to chat
-            addMessage(message, 'user');
-            
-            // Reset voice input
-            voiceText.textContent = 'Type your question here...';
-            isRecording = false;
-            document.getElementById('voice-btn').classList.remove('recording');
-            
-            // Add bot response
-            setTimeout(() => {
-                const response = generateResponse(message);
-                addMessage(response, 'bot');
-            }, 1000);
-        }
+        });
 
         // Allow Enter key to send message
         document.addEventListener('DOMContentLoaded', function() {
