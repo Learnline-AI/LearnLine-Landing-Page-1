@@ -17,16 +17,113 @@
             color: #000;
             background: #fff;
             min-height: 100vh;
-            padding: 40px 20px;
+            margin: 0;
+            padding: 0;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+        .main-layout {
+            display: flex;
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+
+        .left-padding {
+            width: 15%;
+        }
+
+        .content-area {
+            width: 40%;
             padding: 40px;
             background: #fff;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
+            margin: 0;
+            height: fit-content;
+        }
+
+        .middle-padding {
+            width: 15%;
+        }
+
+        .chatbot-area {
+            width: 30%;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            height: fit-content;
+            position: sticky;
+            top: 40px;
+        }
+
+        .container {
+            /* Remove old container styles since we're using new layout */
+        }
+
+        .chatbot-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background: #fff;
+            margin-bottom: 15px;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .chat-message.bot {
+            background: #e3f2fd;
+            margin-right: auto;
+        }
+
+        .chat-message.user {
+            background: #f0f0f0;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .chat-send-btn {
+            padding: 10px 15px;
+            background: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        .chat-send-btn:hover {
+            background: #1976d2;
         }
 
         .header {
@@ -274,7 +371,10 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="main-layout">
+        <div class="left-padding"></div>
+        
+        <div class="content-area">
         <!-- Header -->
         <div class="header">
             <h1>Fractions</h1>
@@ -442,6 +542,26 @@
                 </p>
             </div>
         </div>
+        
+        <div class="middle-padding"></div>
+        
+        <div class="chatbot-area">
+            <div class="chatbot-header">Ask me about fractions!</div>
+            
+            <div class="chat-messages" id="chat-messages">
+                <div class="chat-message bot">
+                    <div>Hi! I'm here to help you learn about fractions. Feel free to ask me any questions about what you're reading!</div>
+                </div>
+                <div class="chat-message bot">
+                    <div>For example, you could ask: "What's the difference between 1/2 and 1/4?" or "How do I read fractions?"</div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" placeholder="Type your question here..." id="chat-input">
+                <button class="chat-send-btn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -524,6 +644,47 @@
                 requestAnimationFrame(animation);
             }, 100); // Small delay to ensure content starts appearing
         }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const messagesContainer = document.getElementById('chat-messages');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message user';
+            userMessage.innerHTML = `<div>${message}</div>`;
+            messagesContainer.appendChild(userMessage);
+            
+            // Clear input
+            input.value = '';
+            
+            // Add bot response after a short delay
+            setTimeout(() => {
+                const botMessage = document.createElement('div');
+                botMessage.className = 'chat-message bot';
+                botMessage.innerHTML = `<div>Thanks for your question! This is a static demo chatbot. In a real implementation, I would help answer questions about fractions based on the content you're learning.</div>`;
+                messagesContainer.appendChild(botMessage);
+                
+                // Scroll to bottom
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 1000);
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Allow Enter key to send message
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('chat-input');
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+        });
     </script>
 </body>
 </html>
