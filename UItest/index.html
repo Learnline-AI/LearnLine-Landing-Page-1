@@ -28,7 +28,7 @@
         }
 
         .content-area {
-            max-width: 100%;
+            max-width: 75%;
             padding: 60px 80px 60px 60px;
             background: #ffffff;
             margin: 20px;
@@ -153,31 +153,7 @@
         .microphone-icon {
             width: 24px;
             height: 24px;
-            background: #333;
-            border-radius: 50%;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .microphone-icon::before {
-            content: '';
-            width: 8px;
-            height: 12px;
-            background: white;
-            border-radius: 4px 4px 0 0;
-            position: relative;
-        }
-
-        .microphone-icon::after {
-            content: '';
-            position: absolute;
-            bottom: 2px;
-            width: 2px;
-            height: 4px;
-            background: white;
-            border-radius: 0 0 1px 1px;
+            object-fit: contain;
         }
 
         .header {
@@ -620,7 +596,7 @@
         <div class="chat-input-area">
             <div class="chat-input-container" id="text-input-mode">
                 <button class="input-mode-toggle" title="Microphone">
-                    <div class="microphone-icon"></div>
+                    <img src="assets/images/Microphone Icon.png" alt="Microphone" class="microphone-icon">
                 </button>
                 <input type="text" class="chat-input" placeholder="Type your question here..." id="chat-input">
                 <button class="chat-send-btn" onclick="sendMessage()">Send</button>
