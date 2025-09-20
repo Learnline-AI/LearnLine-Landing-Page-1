@@ -92,17 +92,22 @@
 
         .pizza-progression {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
             margin: 25px 0;
         }
 
         .pizza-item {
             text-align: center;
             background: #fff;
-            padding: 20px;
+            padding: 15px;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
+        }
+
+        .pizza-item p {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
         }
 
         .pizza-image {
@@ -202,7 +207,21 @@
             }
 
             .pizza-progression {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .pizza-item {
+                padding: 10px;
+            }
+
+            .pizza-image {
+                width: 80px;
+                height: 80px;
+            }
+
+            .pizza-item p {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -291,10 +310,12 @@
 
             <div class="comparison-box">
                 <div style="text-align: center;">
+                    <img src="assets/images/pizza-halves.jpg" alt="Pizza halves" style="width: 80px; height: 80px; border-radius: 8px; margin-bottom: 10px;">
                     <div class="fraction-display">1/2</div>
                 </div>
                 <div class="vs">VS</div>
                 <div style="text-align: center;">
+                    <img src="assets/images/pizza-eighths.jpg" alt="Pizza eighths" style="width: 80px; height: 80px; border-radius: 8px; margin-bottom: 10px;">
                     <div class="fraction-display">1/8</div>
                 </div>
             </div>
