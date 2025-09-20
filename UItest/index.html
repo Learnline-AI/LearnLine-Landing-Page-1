@@ -121,6 +121,22 @@
             box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
         }
 
+        .hidden-content {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .hidden-content.show {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+            height: auto;
+        }
+
         .pizza-progression {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -335,99 +351,110 @@
             </div>
         </div>
 
-        <!-- Size Comparison -->
-        <div class="section" id="comparison-section">
-            <h2>So Which Slice is Bigger?</h2>
-            
-            <p>
-                Think about it: If you're really hungry, would you rather have 1/2 of a pizza or 1/8 of a pizza?
-            </p>
-
-            <div class="comparison-box">
-                <div style="text-align: center;">
-                    <img src="assets/images/pizza-halves.jpg" alt="Pizza halves" style="width: 80px; height: 80px; border-radius: 8px; margin-bottom: 10px;">
-                    <div class="fraction-display">1/2</div>
-                </div>
-                <div class="vs">VS</div>
-                <div style="text-align: center;">
-                    <img src="assets/images/pizza-eighths.jpg" alt="Pizza eighths" style="width: 80px; height: 80px; border-radius: 8px; margin-bottom: 10px;">
-                    <div class="fraction-display">1/8</div>
-                </div>
-            </div>
-
-            <p>
-                1/2 is bigger! Because when you cut a pizza into only 2 pieces, each piece is much bigger than when you cut it into 8 pieces.
-            </p>
-
-            <div class="highlight-box">
-                <p><strong>Quick Trick:</strong> The bigger the bottom number, the smaller the piece!</p>
-            </div>
-
-            <p>
-                <strong>Try This:</strong> If you and 3 friends share a pizza equally, each person gets 1/4. But if just you and one friend share it, each gets 1/2. Who gets more pizza?
-            </p>
-        </div>
-
-        <!-- Unit Fraction Definition -->
-        <div class="section">
-            <h2>So what is the definition of a 'Fractional Unit' or 'Unit Fraction'?</h2>
-            
-            <div class="highlight-box">
+        <!-- Hidden Content that appears after Next button -->
+        <div class="hidden-content" id="next-content">
+            <!-- Size Comparison -->
+            <div class="section" id="comparison-section">
+                <h2>So Which Slice is Bigger?</h2>
+                
                 <p>
-                    A <strong>fractional unit</strong> is what you get when you divide 1 whole thing into equal parts and take just ONE of those parts.
+                    Think about it: If you're really hungry, would you rather have 1/2 of a pizza or 1/8 of a pizza?
                 </p>
+
+                <div class="comparison-box">
+                    <div style="text-align: center;">
+                        <img src="assets/images/pizza-halves.jpg" alt="Pizza halves" style="width: 80px; height: 80px; border-radius: 8px; margin-bottom: 10px;">
+                        <div class="fraction-display">1/2</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div style="text-align: center;">
+                        <img src="assets/images/pizza-eighths.jpg" alt="Pizza eighths" style="width: 80px; height: 80px; border-radius: 8px; margin-bottom: 10px;">
+                        <div class="fraction-display">1/8</div>
+                    </div>
+                </div>
+
                 <p>
-                    <strong>In simple words:</strong> It's a fraction with 1 on top!
+                    1/2 is bigger! Because when you cut a pizza into only 2 pieces, each piece is much bigger than when you cut it into 8 pieces.
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>Quick Trick:</strong> The bigger the bottom number, the smaller the piece!</p>
+                </div>
+
+                <p>
+                    <strong>Try This:</strong> If you and 3 friends share a pizza equally, each person gets 1/4. But if just you and one friend share it, each gets 1/2. Who gets more pizza?
                 </p>
             </div>
-        </div>
 
-        <!-- Time Examples -->
-        <div class="section">
-            <h2>Time Fractions</h2>
-            <p>
-                Every hour has 60 minutes to divide!
-            </p>
-
-            <div class="clock-examples">
-                <div class="clock-item">
-                    <img src="assets/images/clock-quarter.png" alt="Clock showing quarter past" class="clock-image">
-                    <h3>Quarter past</h3>
-                    <div class="fraction-display">15/60</div>
-                    <p>The minute hand moved from 12 to 3</p>
-                </div>
-
-                <div class="clock-item">
-                    <img src="assets/images/clock-half.png" alt="Clock showing half past" class="clock-image">
-                    <h3>Half past</h3>
-                    <div class="fraction-display">30/60</div>
-                    <p>The minute hand is pointing at 6 now</p>
-                </div>
-
-                <div class="clock-item">
-                    <img src="assets/images/clock-three-quarter.png" alt="Clock showing three quarters past" class="clock-image">
-                    <h3>Three-Quarters Past</h3>
-                    <div class="fraction-display">45/60</div>
-                    <p>The minute hand is now at 9!</p>
+            <!-- Unit Fraction Definition -->
+            <div class="section">
+                <h2>So what is the definition of a 'Fractional Unit' or 'Unit Fraction'?</h2>
+                
+                <div class="highlight-box">
+                    <p>
+                        A <strong>fractional unit</strong> is what you get when you divide 1 whole thing into equal parts and take just ONE of those parts.
+                    </p>
+                    <p>
+                        <strong>In simple words:</strong> It's a fraction with 1 on top!
+                    </p>
                 </div>
             </div>
 
-            <p>
-                <strong>Did you notice?</strong> Could we have written the same fractions as 3/12, 6/12, 9/12 as well (because those are the numbers on the clock?)
-            </p>
+            <!-- Time Examples -->
+            <div class="section">
+                <h2>Time Fractions</h2>
+                <p>
+                    Every hour has 60 minutes to divide!
+                </p>
+
+                <div class="clock-examples">
+                    <div class="clock-item">
+                        <img src="assets/images/clock-quarter.png" alt="Clock showing quarter past" class="clock-image">
+                        <h3>Quarter past</h3>
+                        <div class="fraction-display">15/60</div>
+                        <p>The minute hand moved from 12 to 3</p>
+                    </div>
+
+                    <div class="clock-item">
+                        <img src="assets/images/clock-half.png" alt="Clock showing half past" class="clock-image">
+                        <h3>Half past</h3>
+                        <div class="fraction-display">30/60</div>
+                        <p>The minute hand is pointing at 6 now</p>
+                    </div>
+
+                    <div class="clock-item">
+                        <img src="assets/images/clock-three-quarter.png" alt="Clock showing three quarters past" class="clock-image">
+                        <h3>Three-Quarters Past</h3>
+                        <div class="fraction-display">45/60</div>
+                        <p>The minute hand is now at 9!</p>
+                    </div>
+                </div>
+
+                <p>
+                    <strong>Did you notice?</strong> Could we have written the same fractions as 3/12, 6/12, 9/12 as well (because those are the numbers on the clock?)
+                </p>
+            </div>
         </div>
     </div>
 
     <script>
         function scrollToComparison() {
+            const hiddenContent = document.getElementById('next-content');
             const comparisonSection = document.getElementById('comparison-section');
-            const headerHeight = 40; // Account for some spacing from top
-            const targetPosition = comparisonSection.offsetTop - headerHeight;
             
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+            // Show the hidden content first
+            hiddenContent.classList.add('show');
+            
+            // Wait a bit for the content to start appearing, then scroll
+            setTimeout(() => {
+                const headerHeight = 40; // Account for some spacing from top
+                const targetPosition = comparisonSection.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }, 100);
         }
     </script>
 </body>
