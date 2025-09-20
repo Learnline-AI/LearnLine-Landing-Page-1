@@ -28,10 +28,10 @@
         }
 
         .content-area {
-            max-width: 75%;
+            max-width: 800px;
             padding: 60px 80px 60px 60px;
             background: #ffffff;
-            margin: 20px;
+            margin: 20px auto;
             border-radius: 18px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             overflow-y: auto;
@@ -109,23 +109,24 @@
             box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
             align-self: center;
             height: fit-content;
+            transform: translateX(-1px) translateY(-1px);
         }
 
         .chat-send-btn:hover {
             background: #0056b3;
-            transform: translateY(-1px);
+            transform: translateX(-1px) translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
         }
 
         .chat-send-btn:active {
-            transform: translateY(0);
+            transform: translateX(-1px) translateY(-1px);
         }
 
         .input-mode-toggle {
             position: absolute;
-            left: 8px;
+            left: 7px;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) translateY(-1px);
             width: 44px;
             height: 44px;
             border: none;
@@ -142,17 +143,17 @@
 
         .input-mode-toggle:hover {
             background: #e9ecef;
-            transform: translateY(-50%) scale(1.05);
+            transform: translateY(-50%) translateY(-1px) scale(1.05);
         }
 
         .input-mode-toggle:active {
             background: #dee2e6;
-            transform: translateY(-50%) scale(0.95);
+            transform: translateY(-50%) translateY(-1px) scale(0.95);
         }
 
         .microphone-icon {
-            width: 24px;
-            height: 24px;
+            width: 48px;
+            height: 48px;
             object-fit: contain;
         }
 
