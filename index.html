@@ -276,8 +276,8 @@
         .learning-loop-diamond {
             position: relative;
             width: 100%;
-            max-width: 1000px;
-            height: 700px;
+            max-width: 1200px;
+            height: 800px;
             margin: 0 auto;
         }
         
@@ -313,8 +313,8 @@
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
+            width: 28px;
+            height: 28px;
             background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
             border-radius: 50%;
             display: flex;
@@ -322,13 +322,14 @@
             justify-content: center;
             color: white;
             font-weight: 700;
-            font-size: 14px;
-            z-index: 10;
+            font-size: 13px;
+            z-index: 15;
+            box-shadow: 0 4px 12px rgba(11, 99, 214, 0.3);
         }
         
         /* Diamond Positions - Clockwise */
         .screen-top {
-            top: 0;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             animation-delay: 0s;
@@ -336,13 +337,13 @@
         
         .screen-right {
             top: 50%;
-            right: 0;
+            right: 50px;
             transform: translateY(-50%);
             animation-delay: 0.5s;
         }
         
         .screen-bottom {
-            bottom: 0;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             animation-delay: 1s;
@@ -350,19 +351,19 @@
         
         .screen-left {
             top: 50%;
-            left: 0;
+            left: 50px;
             transform: translateY(-50%);
             animation-delay: 1.5s;
         }
         
         /* Screen Sizes */
         .laptop-screen {
-            width: 300px;
+            width: 280px;
             height: auto;
         }
         
         .phone-screen {
-            width: 150px;
+            width: 140px;
             height: auto;
         }
         
@@ -372,8 +373,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
             border-radius: 50%;
             display: flex;
@@ -382,7 +383,7 @@
             justify-content: center;
             color: white;
             text-align: center;
-            z-index: 5;
+            z-index: 3;
             opacity: 0;
             animation: fadeInScale 1s ease forwards;
             animation-delay: 2s;
@@ -390,14 +391,15 @@
         }
         
         .hub-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             font-family: 'Montserrat', sans-serif;
             margin-bottom: 5px;
+            line-height: 1.1;
         }
         
         .hub-subtitle {
-            font-size: 12px;
+            font-size: 11px;
             opacity: 0.9;
             font-weight: 500;
         }
@@ -406,39 +408,39 @@
         .connection-line {
             position: absolute;
             background: linear-gradient(45deg, var(--primary-blue), var(--accent-green));
-            height: 3px;
-            opacity: 0.6;
+            height: 2px;
+            opacity: 0.4;
             animation: connectionFlow 3s ease-in-out infinite;
         }
         
         .line-top-right {
-            top: 25%;
+            top: 30%;
             left: 55%;
-            width: 200px;
+            width: 180px;
             transform: rotate(45deg);
             animation-delay: 0s;
         }
         
         .line-right-bottom {
             top: 55%;
-            right: 25%;
-            width: 200px;
+            right: 30%;
+            width: 180px;
             transform: rotate(135deg);
             animation-delay: 0.75s;
         }
         
         .line-bottom-left {
-            bottom: 25%;
+            bottom: 30%;
             right: 55%;
-            width: 200px;
+            width: 180px;
             transform: rotate(225deg);
             animation-delay: 1.5s;
         }
         
         .line-left-top {
             bottom: 55%;
-            left: 25%;
-            width: 200px;
+            left: 30%;
+            width: 180px;
             transform: rotate(315deg);
             animation-delay: 2.25s;
         }
@@ -996,28 +998,36 @@
         /* Mobile Responsiveness */
         @media (max-width: 1024px) {
             .learning-loop-diamond {
-                height: 600px;
+                height: 650px;
             }
             
             .laptop-screen {
-                width: 250px;
+                width: 240px;
             }
             
             .phone-screen {
-                width: 120px;
+                width: 110px;
             }
             
             .central-hub {
-                width: 140px;
-                height: 140px;
+                width: 130px;
+                height: 130px;
             }
             
             .hub-title {
-                font-size: 16px;
+                font-size: 15px;
             }
             
             .connection-line {
-                width: 150px;
+                width: 140px;
+            }
+            
+            .screen-right {
+                right: 30px;
+            }
+            
+            .screen-left {
+                left: 30px;
             }
         }
         
@@ -1154,11 +1164,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text animate-in">
-                    <h1>See the Complete<br>Learning Loop</h1>
+                    <h1>Learning done.<br>Time returned.</h1>
                     <p class="hero-subtitle">
-                        From teacher setup to AI intervention to real-time insights - watch how LearnLine transforms homework into a 20-minute mastery system that improves outcomes for everyone.
+                        We don't add another study app. We transform at home student learning into an AI-powered mastery system that improves student outcomes, saves teacher time, and gives schools daily insights
                     </p>
-                     <h2>Same homework time.<br>10x better results.</h2>
+                     <h2>We Complete<br>the Learning Loop</h2>
                     <div class="hero-cta">
                         <a href="#pilot" class="btn btn-primary">Schedule School Demo</a>
                         <a href="#solution" class="btn btn-secondary">See How It Works</a>
