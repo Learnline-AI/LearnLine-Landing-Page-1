@@ -275,11 +275,12 @@
         /* Diamond Learning Loop Layout */
         .learning-loop-diamond {
             position: relative;
-            width: 100%;
-            max-width: 1400px;
-            height: 900px;
+            width: 500px;
+            height: 500px;
             margin: 0 auto;
-            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .screen-container {
@@ -401,8 +402,14 @@
             font-size: 14px;
             font-weight: 700;
             font-family: 'Montserrat', sans-serif;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
             line-height: 1.1;
+        }
+        
+        .hub-time {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 2px;
         }
         
         .hub-subtitle {
@@ -1670,11 +1677,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text animate-in">
-                    <h1>Learning done.<br>Time returned.</h1>
+                    <h1>Complete the Learning Loop</h1>
                     <p class="hero-subtitle">
-                        We don't add another study app. We transform at home student learning into an AI-powered mastery system that improves student outcomes, saves teacher time, and gives schools daily insights
+                        Transform homework into adaptive mastery learning. 
+                        <span style="color: var(--accent-green); font-weight: 600;">Same 20 minutes</span>, measurable outcomes daily.
                     </p>
-                     <h2>We Complete<br>the Learning Loop</h2>
                     <div class="hero-cta">
                         <a href="#pilot" class="btn btn-primary">Schedule School Demo</a>
                         <a href="#solution" class="btn btn-secondary">See How It Works</a>
@@ -1682,16 +1689,16 @@
                     
                     <div class="hero-stats">
                         <div class="stat-item">
-                            <span class="stat-number">1:1</span>
-                            <span class="stat-label">Adaptive learning now live</span>
+                            <span class="stat-number">20min</span>
+                            <span class="stat-label">Complete daily loop</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Learning Visibility</span>
+                            <span class="stat-number">3min</span>
+                            <span class="stat-label">Gap detection</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">10x</span>
-                            <span class="stat-label">Cheaper than tuition</span>
+                            <span class="stat-number">Zero</span>
+                            <span class="stat-label">Teacher grading</span>
                         </div>
                     </div>
                 </div>
@@ -1728,8 +1735,9 @@
                         
                         <!-- Central Hub -->
                         <div class="central-hub">
-                            <div class="hub-title">Complete<br>Learning Loop</div>
-                            <div class="hub-subtitle">20 minutes</div>
+                            <div class="hub-title">Learning Loop</div>
+                            <div class="hub-time">20min</div>
+                            <div class="hub-subtitle">Daily Mastery</div>
                         </div>
                         
                         <!-- Connection Lines -->
