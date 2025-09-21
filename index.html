@@ -280,6 +280,7 @@
             width: 100%;
             max-width: 900px;
             position: relative;
+            padding: 40px 0;
         }
         
         .student-device, .teacher-device {
@@ -316,20 +317,23 @@
         
         .device-label {
             text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
+            margin-top: 20px;
+            font-size: 16px;
             font-weight: 600;
             color: var(--text-dark);
             opacity: 0;
             animation: fadeInUp 1s ease forwards;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .student-device .device-label {
             animation-delay: 1.5s;
+            color: var(--primary-blue);
         }
         
         .teacher-device .device-label {
             animation-delay: 2s;
+            color: var(--accent-green);
         }
         
         /* Connection Flow */
@@ -352,105 +356,21 @@
         }
         
         .sync-badge {
-            background: rgba(255, 255, 255, 0.95);
-            color: var(--primary-blue);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 13px;
             font-weight: 700;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 16px rgba(11, 99, 214, 0.25);
             backdrop-filter: blur(4px);
             opacity: 0;
             animation: fadeInScale 1s ease forwards;
             animation-delay: 2.5s;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
         }
         
-        /* Device Annotations */
-        .device-annotations {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        
-        .annotation {
-            position: absolute;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            opacity: 0;
-            animation: fadeInScale 1s ease forwards;
-        }
-        
-        .student-progress {
-            top: 30%;
-            left: -120px;
-            animation-delay: 3s;
-        }
-        
-        .student-assignments {
-            bottom: 30%;
-            right: -100px;
-            animation-delay: 3.5s;
-        }
-        
-        .teacher-insights {
-            top: 25%;
-            right: -120px;
-            animation-delay: 4s;
-        }
-        
-        .teacher-analytics {
-            bottom: 35%;
-            left: -110px;
-            animation-delay: 4.5s;
-        }
-        
-        .pulse-dot {
-            width: 10px;
-            height: 10px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-        
-        .annotation-text {
-            background: white;
-            color: var(--text-dark);
-            padding: 6px 12px;
-            border-radius: 16px;
-            font-size: 12px;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            white-space: nowrap;
-        }
-        
-        /* Ecosystem Benefits */
-        .ecosystem-benefits {
-            position: absolute;
-            bottom: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .benefit-pill {
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--primary-blue);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(4px);
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
         
         /* Animations */
         @keyframes deviceFloat {
@@ -1001,17 +921,6 @@
                 height: 150px;
             }
             
-            .annotation {
-                display: none; /* Hide annotations on tablet for cleaner look */
-            }
-            
-            .ecosystem-benefits {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                transform: none;
-                margin-top: 30px;
-            }
         }
         
         /* Responsive */
@@ -1045,10 +954,6 @@
                 width: 280px;
             }
             
-            .benefit-pill {
-                font-size: 11px;
-                padding: 6px 12px;
-            }
             
             .devices-ecosystem {
                 gap: 30px;
@@ -1143,16 +1048,6 @@
                         <div class="student-device">
                             <img src="assets/teacherdashboard.png" alt="Student Learning Experience - 78% Progress Tracking" class="device-image student-mobile">
                             <div class="device-label">Student Experience</div>
-                            <div class="device-annotations">
-                                <div class="annotation student-progress">
-                                    <div class="pulse-dot"></div>
-                                    <span class="annotation-text">78% weekly progress</span>
-                                </div>
-                                <div class="annotation student-assignments">
-                                    <div class="pulse-dot"></div>
-                                    <span class="annotation-text">One-tap start</span>
-                                </div>
-                            </div>
                         </div>
                         
                         <!-- Connection Flow -->
@@ -1184,26 +1079,9 @@
                         <div class="teacher-device">
                             <img src="assets/teacherdashboard.webp" alt="Teacher Analytics Dashboard - Live Student Monitoring" class="device-image teacher-desktop">
                             <div class="device-label">Teacher Analytics</div>
-                            <div class="device-annotations">
-                                <div class="annotation teacher-insights">
-                                    <div class="pulse-dot"></div>
-                                    <span class="annotation-text">Live monitoring</span>
-                                </div>
-                                <div class="annotation teacher-analytics">
-                                    <div class="pulse-dot"></div>
-                                    <span class="annotation-text">Instant insights</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     
-                    <!-- Ecosystem Benefits -->
-                    <div class="ecosystem-benefits">
-                        <span class="benefit-pill" style="animation-delay: 0s;">📱 Student-Friendly</span>
-                        <span class="benefit-pill" style="animation-delay: 0.3s;">📊 Teacher Analytics</span>
-                        <span class="benefit-pill" style="animation-delay: 0.6s;">⚡ Instant Feedback</span>
-                        <span class="benefit-pill" style="animation-delay: 0.9s;">🎯 Real-time Sync</span>
-                    </div>
                 </div>
             </div>
         </div>
