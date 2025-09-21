@@ -570,37 +570,128 @@
             color: var(--error);
         }
         
-        /* Solution Section */
-        .solution-section {
-            padding: 60px 20px;
-            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        /* Transformation Section - The Merged Approach */
+        .transformation-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg-white) 50%, var(--bg-soft) 100%);
+            position: relative;
+            overflow: hidden;
         }
         
+        /* Subtle background pattern */
+        .transformation-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(11, 99, 214, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Section Header - Leading with Insight */
+        .transformation-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .insight-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            color: white;
+            border-radius: 28px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(11, 99, 214, 0.2);
+        }
+        
+        .insight-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .transformation-header h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .transformation-header .subtitle {
+            font-size: 20px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .transformation-header .key-insight {
+            font-size: 18px;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 20px;
+            background: rgba(5, 150, 105, 0.08);
+            border-left: 4px solid var(--accent-green);
+            border-radius: 8px;
+            margin-top: 32px;
+        }
+        
+        /* Visual Comparison Container */
         .comparison-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-top: 40px;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: stretch;
+            margin-bottom: 60px;
             position: relative;
+            z-index: 2;
         }
         
+        /* Comparison Cards */
         .comparison-card {
             background: white;
             border-radius: 20px;
             overflow: hidden;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
         
-        .comparison-card.old {
-            border: 2px solid #e5e7eb;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        .comparison-card:hover {
+            transform: translateY(-8px);
         }
         
-        .comparison-card.new {
-            border: 2px solid #059669;
-            box-shadow: 0 8px 30px rgba(5, 150, 105, 0.15);
-            transform: translateY(-5px);
+        .comparison-card.current {
+            border: 2px solid #E5E7EB;
+        }
+        
+        .comparison-card.current:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+        
+        .comparison-card.transformed {
+            border: 2px solid var(--accent-green);
+            transform: scale(1.02);
+            box-shadow: 0 8px 32px rgba(5, 150, 105, 0.15);
+        }
+        
+        .comparison-card.transformed:hover {
+            transform: scale(1.02) translateY(-8px);
+            box-shadow: 0 16px 40px rgba(5, 150, 105, 0.2);
         }
         
         .card-badge {
@@ -615,32 +706,270 @@
             font-weight: 700;
             text-transform: uppercase;
             z-index: 10;
+            animation: pulse 2s infinite;
         }
         
-        /* Image Section */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Progressive reveal animations */
+        .comparison-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.8s ease forwards;
+        }
+        
+        .comparison-card.new {
+            animation-delay: 0.2s;
+        }
+        
+        .feature-list li {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        .comparison-card:hover .feature-list li {
+            animation: slideInLeft 0.3s ease forwards;
+        }
+        
+        .comparison-card:hover .feature-list li:nth-child(1) { animation-delay: 0.1s; }
+        .comparison-card:hover .feature-list li:nth-child(2) { animation-delay: 0.2s; }
+        .comparison-card:hover .feature-list li:nth-child(3) { animation-delay: 0.3s; }
+        .comparison-card:hover .feature-list li:nth-child(4) { animation-delay: 0.4s; }
+        .comparison-card:hover .feature-list li:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Card Headers for Transformation */
+        .card-header {
+            padding: 24px 24px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        
+        .card-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .current .card-label {
+            color: var(--text-muted);
+        }
+        
+        .transformed .card-label {
+            color: var(--accent-green);
+        }
+        
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .current .card-title {
+            color: var(--text-dark);
+        }
+        
+        .transformed .card-title {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Metric Rows */
+        .metric-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        .metric-value {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .current .metric-value {
+            color: var(--error);
+        }
+        
+        .transformed .metric-value {
+            color: var(--accent-green);
+        }
+        
+        /* Transform Arrow */
+        .transform-arrow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        .transform-arrow {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(11, 99, 214, 0.25);
+            position: relative;
+            animation: transformPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes transformPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .transform-arrow svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+        
+        .transform-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+        
+        .experience-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-blue);
+        }
+        
+        .experience-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, rgba(11, 99, 214, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .experience-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--primary-blue);
+        }
+        
+        .experience-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+        
+        .experience-value {
+            font-size: 24px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-green);
+            margin-bottom: 4px;
+        }
+        
+        .experience-context {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        
+        /* Card Image Section Styles for Transformation */
         .card-image-section {
-            height: 200px;
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow: hidden;
         }
         
-        .card-image-section img {
+        .card-image-section.transformed {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.03) 0%, rgba(11, 99, 214, 0.03) 100%);
+        }
+        
+        .card-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
         }
         
-        .old .card-image-section {
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        .card-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
         
-        .new .card-image-section {
-            background: linear-gradient(135deg, rgba(11, 99, 214, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+        .comparison-card.current .card-image {
+            border: 2px solid rgba(225, 29, 72, 0.2);
         }
         
-        /* Content Section */
+        .comparison-card.transformed .card-image {
+            border: 2px solid rgba(5, 150, 105, 0.3);
+        }
+        
+        /* Card Content for Transformation */
         .card-content {
-            padding: 16px;
+            padding: 24px;
         }
         
         .card-header {
@@ -689,21 +1018,36 @@
         
         .feature-list {
             list-style: none;
-            margin: 12px 0;
+            margin: 10px 0;
         }
         
         .feature-list li {
-            padding: 6px 0;
+            padding: 4px 0;
             display: flex;
             align-items: flex-start;
             gap: 10px;
             font-size: 15px;
             color: #495057;
+            line-height: 1.3;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+        
+        .feature-list li:hover {
+            transform: translateX(5px);
+            background: rgba(11, 99, 214, 0.03);
+            padding-left: 8px;
+            margin: 0 -8px;
         }
         
         .feature-icon {
             font-size: 18px;
             margin-top: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-list li:hover .feature-icon {
+            transform: scale(1.2);
         }
         
         .old .feature-icon {
@@ -715,9 +1059,9 @@
         }
         
         .result-box {
-            padding: 12px;
+            padding: 10px;
             border-radius: 12px;
-            margin-top: 12px;
+            margin-top: 8px;
         }
         
         .old .result-box {
@@ -1246,8 +1590,30 @@
                 padding: 12px;
             }
             
-            .solution-section {
-                padding: 40px 20px;
+            .transformation-section {
+                padding: 60px 20px;
+            }
+            
+            .transformation-header h2 {
+                font-size: 32px;
+            }
+            
+            .comparison-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .transform-arrow-container {
+                transform: rotate(90deg);
+                margin: 20px 0;
+            }
+            
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .card-image-section {
+                height: 220px;
             }
             
             .stakeholders-grid,
@@ -1264,6 +1630,17 @@
             }
             
             .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card-image-section {
+                height: 180px;
+                padding: 16px;
+            }
+            
+            .experience-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -1401,117 +1778,161 @@
                 </div>
             </div>
             
-            <div class="problem-card" style="max-width: 800px; margin: 0 auto;">
-                <h3>💡 Our Insight</h3>
-                <p style="font-size: 18px; line-height: 1.7;">
-                    Every tech alternative asks for "extra time" when students are already overwhelmed. 
-                    We don't add hours — we transform the homework time that already exists into 
-                    adaptive, diagnostic-driven learning.
-                </p>
-            </div>
         </div>
     </section>
     
-    <!-- Solution Section -->
-    <section id="solution" class="solution-section">
+    <!-- The Transformation Section - Merged Problem & Solution -->
+    <section id="solution" class="transformation-section">
         <div class="container">
-            <div class="section-header">
-                <div class="pill">The Solution</div>
-                <h2>Homework 2.0: Same time, 10x better outcomes</h2>
+            <!-- Header - Leading with Insight -->
+            <div class="transformation-header">
+                <div class="insight-badge">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Our Breakthrough Insight
+                </div>
+                <h2>Every homework hour is a mastery opportunity</h2>
                 <p class="subtitle">
-                    We replace static worksheets with AI-powered adaptive learning that diagnoses, remediates, and tracks mastery in real-time.
+                    Students already spend 3 hours daily on homework. Teachers already assign it. Parents already supervise it.
                 </p>
+                <p class="subtitle">
+                    What if we transformed these existing hours into adaptive, diagnostic-driven learning?
+                </p>
+                <div class="key-insight">
+                    We don't add hours. We transform the hours that already exist into measurable mastery.
+                </div>
             </div>
             
+            <!-- Visual Comparison -->
             <div class="comparison-container">
-                <!-- Old Way Card -->
-                <div class="comparison-card old">
-                    <!-- Image Section -->
-                    <div class="card-image-section">
-                        <img src="assets/Solution-Section/OldHomework.webp" alt="Traditional homework worksheet" />
+                <!-- Current State -->
+                <div class="comparison-card current">
+                    <div class="card-header">
+                        <div class="card-label">Today's Reality</div>
+                        <h3 class="card-title">Traditional Homework</h3>
                     </div>
                     
-                    <!-- Content Section -->
+                    <!-- Actual Image -->
+                    <div class="card-image-section">
+                        <img src="assets/Solution-Section/OldHomework.webp" alt="Traditional homework worksheet showing static, one-size-fits-all approach" class="card-image" />
+                    </div>
+                    
                     <div class="card-content">
-                        <div class="card-header">
-                            <div class="card-icon">📝</div>
-                            <h3 class="card-title">Homework Today</h3>
+                        <div class="metric-row">
+                            <span class="metric-label">Teacher visibility</span>
+                            <span class="metric-value">Zero</span>
                         </div>
-                        
-                        <ul class="feature-list">
-                            <li>
-                                <span class="feature-icon">✗</span>
-                                <span>Static worksheets for everyone</span>
-                            </li>
-                            <li>
-                                <span class="feature-icon">✗</span>
-                                <span>Easy to copy or Google answers</span>
-                            </li>
-                            <li>
-                                <span class="feature-icon">✗</span>
-                                <span>No feedback until tests</span>
-                            </li>
-                            <li>
-                                <span class="feature-icon">✗</span>
-                                <span>Teachers grade manually</span>
-                            </li>
-                            <li>
-                                <span class="feature-icon">✗</span>
-                                <span>Zero visibility on gaps</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="result-box">
-                            <div class="result-label">Result:</div>
-                            <div class="result-text">Wasted time, frustrated students, teachers left in dark</div>
+                        <div class="metric-row">
+                            <span class="metric-label">Personalization</span>
+                            <span class="metric-value">None</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Gap detection</span>
+                            <span class="metric-value">After exams</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Teacher time</span>
+                            <span class="metric-value">2 hrs grading</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Learning outcome</span>
+                            <span class="metric-value">Unmeasured</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- New Way Card -->
-                <div class="comparison-card new">
-                    <div class="card-badge">Recommended</div>
-                    
-                    <!-- Image Section -->
-                    <div class="card-image-section">
-                        <img src="assets/Solution-Section/LearnLineHomeWork.webp" alt="LearnLine adaptive homework interface" />
+                <!-- Transformation Arrow -->
+                <div class="transform-arrow-container">
+                    <div class="transform-arrow">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </div>
+                    <span class="transform-label">Same Time</span>
+                </div>
+                
+                <!-- Transformed State -->
+                <div class="comparison-card transformed">
+                    <div class="card-header">
+                        <div class="card-label">With LearnLine</div>
+                        <h3 class="card-title">Adaptive Homework</h3>
                     </div>
                     
-                    <!-- Content Section -->
+                    <!-- Actual Image -->
+                    <div class="card-image-section transformed">
+                        <img src="assets/Solution-Section/LearnLineHomeWork.webp" alt="LearnLine adaptive homework interface showing personalized, interactive learning experience" class="card-image" />
+                    </div>
+                    
                     <div class="card-content">
-                        <div class="card-header">
-                            <div class="card-icon">🎯</div>
-                            <h3 class="card-title">LearnLine Homework</h3>
+                        <div class="metric-row">
+                            <span class="metric-label">Teacher visibility</span>
+                            <span class="metric-value">Real-time</span>
                         </div>
-                        
-                        <ul class="feature-list">
-                            <li>
-                                <span class="feature-icon">✓</span>
-                                <span>Adaptive to each student's level</span>
-                            </li>
-                            <li>
-                                <span class="feature-icon">✓</span>
-                                <span>OCR validates handwritten work</span>
-                            </li>
-                            <li>
-                                <span class="feature-icon">✓</span>
-                                <span>Instant diagnostics & remediation</span>
-                            </li>
-                            <li>
-                                <span class="feature-icon">✓</span>
-                                <span>Auto-graded with insights</span>
-                            </li>
-                            <li>
-                                <span class="feature-icon">✓</span>
-                                <span>Daily mastery tracking</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="result-box">
-                            <div class="result-label">Result:</div>
-                            <div class="result-text">Efficient learning, confident students, empowered teachers</div>
+                        <div class="metric-row">
+                            <span class="metric-label">Personalization</span>
+                            <span class="metric-value">1:1 adaptive</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Gap detection</span>
+                            <span class="metric-value">3 minutes</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Teacher time</span>
+                            <span class="metric-value">Zero grading</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Learning outcome</span>
+                            <span class="metric-value">Daily tracked</span>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Experience Cards - Who Wins -->
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h4>Students</h4>
+                    <div class="experience-value">72%</div>
+                    <div class="experience-context">Faster concept mastery, more confidence</div>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h4>Parents</h4>
+                    <div class="experience-value">10x</div>
+                    <div class="experience-context">Cheaper than tuition, clear progress</div>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h4>Teachers</h4>
+                    <div class="experience-value">2hrs</div>
+                    <div class="experience-context">Daily saved from grading</div>
+                </div>
+                
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h4>Schools</h4>
+                    <div class="experience-value">100%</div>
+                    <div class="experience-context">Learning visibility, happy parents</div>
                 </div>
             </div>
         </div>
