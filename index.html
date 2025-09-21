@@ -266,16 +266,223 @@
         
         .hero-visual {
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
         }
         
-        .hero-illustration {
+        /* Dual Device Ecosystem */
+        .devices-ecosystem {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
-            border-radius: 20px;
+            max-width: 900px;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(11, 99, 214, 0.2);
+        }
+        
+        .student-device, .teacher-device {
+            position: relative;
+            animation: deviceFloat 6s ease-in-out infinite;
+        }
+        
+        .student-device {
+            animation-delay: 0s;
+        }
+        
+        .teacher-device {
+            animation-delay: 1s;
+        }
+        
+        .device-image {
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 20px 40px rgba(11, 99, 214, 0.15));
+        }
+        
+        .student-mobile {
+            width: 280px;
+            height: auto;
+        }
+        
+        .teacher-desktop {
+            width: 350px;
+            height: auto;
+        }
+        
+        .device-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .device-label {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        .student-device .device-label {
+            animation-delay: 1.5s;
+        }
+        
+        .teacher-device .device-label {
+            animation-delay: 2s;
+        }
+        
+        /* Connection Flow */
+        .connection-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        
+        .flow-animation {
+            width: 200px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        
+        .sync-badge {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary-blue);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            animation: fadeInScale 1s ease forwards;
+            animation-delay: 2.5s;
+        }
+        
+        /* Device Annotations */
+        .device-annotations {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .annotation {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            animation: fadeInScale 1s ease forwards;
+        }
+        
+        .student-progress {
+            top: 30%;
+            left: -120px;
+            animation-delay: 3s;
+        }
+        
+        .student-assignments {
+            bottom: 30%;
+            right: -100px;
+            animation-delay: 3.5s;
+        }
+        
+        .teacher-insights {
+            top: 25%;
+            right: -120px;
+            animation-delay: 4s;
+        }
+        
+        .teacher-analytics {
+            bottom: 35%;
+            left: -110px;
+            animation-delay: 4.5s;
+        }
+        
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .annotation-text {
+            background: white;
+            color: var(--text-dark);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+        }
+        
+        /* Ecosystem Benefits */
+        .ecosystem-benefits {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .benefit-pill {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-blue);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+        
+        /* Animations */
+        @keyframes deviceFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         /* Problem Section */
@@ -772,6 +979,41 @@
             transform: translateY(0);
         }
         
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .devices-ecosystem {
+                flex-direction: column;
+                gap: 40px;
+                align-items: center;
+            }
+            
+            .connection-flow {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin: 20px 0;
+            }
+            
+            .flow-animation {
+                transform: rotate(90deg);
+                width: 100px;
+                height: 150px;
+            }
+            
+            .annotation {
+                display: none; /* Hide annotations on tablet for cleaner look */
+            }
+            
+            .ecosystem-benefits {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 30px;
+            }
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -792,6 +1034,33 @@
             
             .hero-text h1 {
                 font-size: 40px;
+            }
+            
+            /* Mobile device optimization */
+            .student-mobile {
+                width: 220px;
+            }
+            
+            .teacher-desktop {
+                width: 280px;
+            }
+            
+            .benefit-pill {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+            
+            .devices-ecosystem {
+                gap: 30px;
+            }
+            
+            .device-label {
+                font-size: 12px;
+            }
+            
+            .sync-badge {
+                font-size: 10px;
+                padding: 6px 12px;
             }
             
             .problem-grid,
@@ -846,7 +1115,7 @@
                     <p class="hero-subtitle">
                         We don't add another study app. We transform at home student learning into an AI-powered mastery system that improves student outcomes, saves teacher time, and gives schools daily insights
                     </p>
-                     <h2>We Complete<br>the Learning Loop</h1>
+                     <h2>We Complete<br>the Learning Loop</h2>
                     <div class="hero-cta">
                         <a href="#pilot" class="btn btn-primary">Schedule School Demo</a>
                         <a href="#solution" class="btn btn-secondary">See How It Works</a>
@@ -859,7 +1128,7 @@
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">100%</span>
-                            <span class="stat-label">Learning Visibility
+                            <span class="stat-label">Learning Visibility</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">10x</span>
@@ -869,14 +1138,71 @@
                 </div>
                 
                 <div class="hero-visual animate-in">
-                    <div class="hero-illustration">
-                        <!-- Placeholder for illustration -->
-                        <svg width="100%" height="100%" viewBox="0 0 500 500" fill="none" style="position: absolute; top: 0; left: 0;">
-                            <circle cx="100" cy="100" r="80" fill="white" opacity="0.1"/>
-                            <circle cx="400" cy="400" r="60" fill="white" opacity="0.1"/>
-                            <rect x="200" y="200" width="150" height="100" rx="20" fill="white" opacity="0.1"/>
-                            <path d="M50 250 Q 250 150, 450 250" stroke="white" stroke-width="3" opacity="0.2"/>
-                        </svg>
+                    <div class="devices-ecosystem">
+                        <!-- Student Mobile Device -->
+                        <div class="student-device">
+                            <img src="assets/Student Dashboard.png" alt="Student Learning Experience - 78% Progress Tracking" class="device-image student-mobile">
+                            <div class="device-label">Student Experience</div>
+                            <div class="device-annotations">
+                                <div class="annotation student-progress">
+                                    <div class="pulse-dot"></div>
+                                    <span class="annotation-text">78% weekly progress</span>
+                                </div>
+                                <div class="annotation student-assignments">
+                                    <div class="pulse-dot"></div>
+                                    <span class="annotation-text">One-tap start</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Connection Flow -->
+                        <div class="connection-flow">
+                            <svg class="flow-animation" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#0B63D6">
+                                            <animate attributeName="stop-opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+                                        </stop>
+                                        <stop offset="100%" style="stop-color:#059669">
+                                            <animate attributeName="stop-opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="1s"/>
+                                        </stop>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M20,50 Q100,30 180,50" stroke="url(#flowGradient)" stroke-width="3" fill="none" stroke-dasharray="8,4">
+                                    <animate attributeName="stroke-dashoffset" values="12;0" dur="1.5s" repeatCount="indefinite"/>
+                                </path>
+                                <circle r="4" fill="#059669">
+                                    <animateMotion dur="2s" repeatCount="indefinite">
+                                        <mpath href="#dataFlow"/>
+                                    </animateMotion>
+                                </circle>
+                            </svg>
+                            <span class="sync-badge">⚡ Real-time Sync</span>
+                        </div>
+                        
+                        <!-- Teacher Dashboard Device -->
+                        <div class="teacher-device">
+                            <img src="assets/teacherdashboard.png" alt="Teacher Analytics Dashboard - Live Student Monitoring" class="device-image teacher-desktop">
+                            <div class="device-label">Teacher Analytics</div>
+                            <div class="device-annotations">
+                                <div class="annotation teacher-insights">
+                                    <div class="pulse-dot"></div>
+                                    <span class="annotation-text">Live monitoring</span>
+                                </div>
+                                <div class="annotation teacher-analytics">
+                                    <div class="pulse-dot"></div>
+                                    <span class="annotation-text">Instant insights</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ecosystem Benefits -->
+                    <div class="ecosystem-benefits">
+                        <span class="benefit-pill" style="animation-delay: 0s;">📱 Student-Friendly</span>
+                        <span class="benefit-pill" style="animation-delay: 0.3s;">📊 Teacher Analytics</span>
+                        <span class="benefit-pill" style="animation-delay: 0.6s;">⚡ Instant Feedback</span>
+                        <span class="benefit-pill" style="animation-delay: 0.9s;">🎯 Real-time Sync</span>
                     </div>
                 </div>
             </div>
