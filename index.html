@@ -626,7 +626,20 @@
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
             color: white;
             text-align: center;
-            padding: 100px 0;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
         
         .cta-content h2 {
@@ -649,13 +662,28 @@
         }
         
         .cta-buttons .btn-primary {
-            background: white;
-            color: var(--primary-blue);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+        }
+        
+        .cta-buttons .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
         }
         
         .cta-buttons .btn-secondary {
-            border-color: white;
+            border: 2px solid rgba(255, 255, 255, 0.4);
             color: white;
+            background: transparent;
+        }
+        
+        .cta-buttons .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
         }
         
         .pilot-details {
@@ -734,7 +762,14 @@
         }
         
         .animate-in {
-            animation: fadeIn 0.6s ease-out;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .animate-in.fade-in-active {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Responsive */
@@ -1191,25 +1226,25 @@
             
             <div class="impact-grid animate-in">
                 <div class="impact-card">
-                    <div class="impact-number">0</div>
+                    <div class="impact-number" data-target="0">0</div>
                     <div class="impact-label">Extra Minutes</div>
                     <p>Same homework time, better outcomes</p>
                 </div>
                 
                 <div class="impact-card">
-                    <div class="impact-number">24hr</div>
+                    <div class="impact-number" data-target="24" data-suffix="hr">0hr</div>
                     <div class="impact-label">Feedback Loop</div>
                     <p>Daily insights vs weeks for tests</p>
                 </div>
                 
                 <div class="impact-card">
-                    <div class="impact-number">40%</div>
+                    <div class="impact-number" data-target="40" data-suffix="%">0%</div>
                     <div class="impact-label">Faster Mastery</div>
                     <p>Students learn concepts quicker</p>
                 </div>
                 
                 <div class="impact-card">
-                    <div class="impact-number">2σ</div>
+                    <div class="impact-number" data-target="2" data-suffix="σ">0σ</div>
                     <div class="impact-label">Learning Gains</div>
                     <p>Approaching 1:1 tutoring results</p>
                 </div>
@@ -1394,6 +1429,51 @@
             init();
             draw();
         })();
+
+        // Counter animations for impact section
+        const counters = document.querySelectorAll('.impact-number');
+        const counterObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseFloat(el.getAttribute('data-target'));
+                    const suffix = el.getAttribute('data-suffix') || '';
+                    let current = 0;
+                    const duration = 1500;
+                    const step = target / (duration / 20);
+                    
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        
+                        if (target === 0) {
+                            el.textContent = '0';
+                        } else {
+                            el.textContent = Math.floor(current) + suffix;
+                        }
+                    }, 20);
+                    
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Enhanced scroll-triggered fade animations
+        const fadeObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-active');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        document.querySelectorAll('.animate-in').forEach(el => fadeObserver.observe(el));
 
         // Navigation background on scroll
         window.addEventListener('scroll', function() {
