@@ -1,0 +1,75 @@
+<svg width="360" height="740" viewBox="0 0 360 740" xmlns="http://www.w3.org/2000/svg">
+    <!-- Phone Frame -->
+    <rect x="20" y="20" width="320" height="700" rx="40" fill="#1a1a2e"/>
+    <rect x="30" y="70" width="300" height="600" rx="20" fill="white"/>
+    
+    <!-- Status Bar -->
+    <rect x="30" y="70" width="300" height="30" fill="#0B63D6"/>
+    <text x="45" y="90" fill="white" font-size="12" font-weight="600">2:36 PM</text>
+    <text x="285" y="90" fill="white" font-size="12" text-anchor="end">98%</text>
+    
+    <!-- Header -->
+    <rect x="30" y="100" width="300" height="50" fill="#f8f9fa"/>
+    <text x="50" y="130" font-size="16" font-weight="600" fill="#1f2937">Today's Assignment</text>
+    <text x="310" y="130" font-size="12" fill="#6B7280" text-anchor="end">Q3/15</text>
+    
+    <!-- Progress Bar -->
+    <rect x="45" y="140" width="270" height="6" rx="3" fill="#e9ecef"/>
+    <rect x="45" y="140" width="54" height="6" rx="3" fill="#ffc107"/>
+    
+    <!-- Alert Banner -->
+    <rect x="45" y="165" width="270" height="100" rx="12" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+    <text x="60" y="190" font-size="20" fill="#ffc107">⚠️</text>
+    <text x="85" y="193" font-size="14" font-weight="700" fill="#856404">Prerequisite Gap Detected!</text>
+    <text x="60" y="215" font-size="12" fill="#856404">You need to understand "Finding LCM"</text>
+    <text x="60" y="232" font-size="12" fill="#856404">before today's topic on fractions.</text>
+    <text x="60" y="250" font-size="11" fill="#6B7280">Don't worry, we'll fix this together! 💪</text>
+    
+    <!-- Recommendation Card -->
+    <rect x="45" y="280" width="270" height="140" rx="12" fill="#e7f3ff" stroke="#0B63D6" stroke-width="1"/>
+    <text x="60" y="305" font-size="14" font-weight="700" fill="#0B63D6">Quick Learning Path</text>
+    <text x="60" y="325" font-size="12" fill="#495057">📚 Mini Lesson: Finding LCM</text>
+    <text x="60" y="345" font-size="11" fill="#6B7280">• Watch 3-min video explanation</text>
+    <text x="60" y="362" font-size="11" fill="#6B7280">• Practice with 5 guided examples</text>
+    <text x="60" y="379" font-size="11" fill="#6B7280">• Quick check: 3 questions</text>
+    <text x="60" y="400" font-size="11" fill="#059669" font-weight="600">⏱️ Estimated time: 8-10 minutes</text>
+    
+    <!-- Action Buttons -->
+    <rect x="60" y="435" width="240" height="45" rx="22" fill="#059669"/>
+    <text x="180" y="462" font-size="15" font-weight="700" fill="white" text-anchor="middle">FIX GAP &amp; CONTINUE →</text>
+    
+    <rect x="60" y="490" width="240" height="45" rx="22" fill="white" stroke="#dee2e6" stroke-width="1"/>
+    <text x="180" y="517" font-size="14" fill="#6B7280" text-anchor="middle">Skip for now (not recommended)</text>
+    
+    <!-- Progress Indicator -->
+    <text x="60" y="565" font-size="13" font-weight="600" fill="#495057">Your Learning Path:</text>
+    
+    <g transform="translate(60, 580)">
+        <!-- Step 1 -->
+        <circle cx="15" cy="15" r="12" fill="#ffc107" stroke="#fff" stroke-width="2"/>
+        <text x="15" y="20" font-size="10" fill="white" text-anchor="middle" font-weight="700">1</text>
+        <text x="35" y="20" font-size="11" fill="#856404">Fix prerequisite gap</text>
+        
+        <!-- Connector -->
+        <line x1="15" y1="30" x2="15" y2="45" stroke="#dee2e6" stroke-width="2"/>
+        
+        <!-- Step 2 -->
+        <circle cx="15" cy="60" r="12" fill="#e9ecef" stroke="#fff" stroke-width="2"/>
+        <text x="15" y="65" font-size="10" fill="#6B7280" text-anchor="middle" font-weight="700">2</text>
+        <text x="35" y="65" font-size="11" fill="#6B7280">Complete today's assignment</text>
+        
+        <!-- Connector -->
+        <line x1="15" y1="75" x2="15" y2="90" stroke="#dee2e6" stroke-width="2"/>
+        
+        <!-- Step 3 -->
+        <circle cx="15" cy="105" r="12" fill="#e9ecef" stroke="#fff" stroke-width="2"/>
+        <text x="15" y="110" font-size="10" fill="#6B7280" text-anchor="middle" font-weight="700">3</text>
+        <text x="35" y="110" font-size="11" fill="#6B7280">Master the concept!</text>
+    </g>
+    
+    <!-- Phone Notch -->
+    <rect x="150" y="35" width="60" height="30" rx="15" fill="#1a1a2e"/>
+    
+    <!-- Home Indicator -->
+    <rect x="165" y="680" width="30" height="4" rx="2" fill="#666"/>
+</svg>

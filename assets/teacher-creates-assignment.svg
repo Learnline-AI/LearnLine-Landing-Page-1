@@ -1,0 +1,57 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Laptop Frame -->
+    <rect x="50" y="30" width="800" height="500" rx="8" fill="#2c3e50"/>
+    <rect x="60" y="40" width="780" height="470" rx="4" fill="#1a1a1a"/>
+    
+    <!-- Screen Content -->
+    <rect x="70" y="50" width="760" height="450" fill="white"/>
+    
+    <!-- Header -->
+    <rect x="70" y="50" width="760" height="70" fill="#0B63D6"/>
+    <g transform="translate(100, 65)">
+        <rect x="0" y="0" width="35" height="35" fill="none" stroke="white" stroke-width="3"/>
+        <polyline points="5,22 12,29 28,12" stroke="#059669" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="45" y="25" font-size="24" font-weight="700" fill="white">LearnLine</text>
+    </g>
+    <text x="700" y="90" font-size="16" fill="white" text-anchor="end">Ms. Sharma</text>
+    <text x="100" y="105" font-size="14" fill="#B8D4F1">Create Today's Assignment - Class 8B</text>
+    
+    <!-- Step 1: Topic Selection -->
+    <text x="100" y="150" font-size="18" font-weight="600" fill="#1f2937">Step 1: Select Today's Topic</text>
+    
+    <rect x="100" y="165" width="640" height="80" rx="8" fill="#f8f9fa" stroke="#dee2e6"/>
+    <text x="120" y="190" font-size="14" font-weight="600" fill="#495057">What did you teach today?</text>
+    <rect x="120" y="200" width="600" height="35" rx="6" fill="white" stroke="#0B63D6" stroke-width="2"/>
+    <text x="130" y="222" font-size="13" fill="#1f2937">Chapter 5: Fractions - Adding Unlike Denominators</text>
+    <circle cx="690" cy="217" r="10" fill="#059669"/>
+    <text x="690" y="222" font-size="12" fill="white" text-anchor="middle">✓</text>
+    
+    <!-- Step 2: Configuration -->
+    <text x="100" y="270" font-size="18" font-weight="600" fill="#1f2937">Step 2: Assignment Settings</text>
+    
+    <rect x="100" y="285" width="640" height="120" rx="8" fill="#f8f9fa" stroke="#dee2e6"/>
+    
+    <g transform="translate(120, 305)">
+        <rect x="0" y="0" width="18" height="18" rx="3" fill="#059669"/>
+        <text x="5" y="14" font-size="12" fill="white">✓</text>
+        <text x="30" y="14" font-size="13" fill="#495057">Enable prerequisite checking (AI will detect gaps)</text>
+        
+        <rect x="0" y="30" width="18" height="18" rx="3" fill="#059669"/>
+        <text x="5" y="44" font-size="12" fill="white">✓</text>
+        <text x="30" y="44" font-size="13" fill="#495057">Adaptive difficulty - 15 questions personalized per student</text>
+        
+        <rect x="0" y="60" width="18" height="18" rx="3" fill="#059669"/>
+        <text x="5" y="74" font-size="12" fill="white">✓</text>
+        <text x="30" y="74" font-size="13" fill="#495057">Auto-remediation for struggling students</text>
+    </g>
+    
+    <text x="550" y="335" font-size="12" fill="#495057">Due: Today 8:00 PM</text>
+    
+    <!-- Publish Button -->
+    <rect x="300" y="420" width="300" height="50" rx="25" fill="#059669"/>
+    <text x="450" y="452" font-size="18" font-weight="600" fill="white" text-anchor="middle">PUBLISH TO 35 STUDENTS</text>
+    
+    <!-- Laptop Base -->
+    <path d="M 30 530 L 50 530 L 70 550 L 830 550 L 850 530 L 870 530 L 870 535 L 850 555 L 50 555 L 30 535 Z" fill="#bdbdbd"/>
+    <rect x="400" y="538" width="100" height="6" rx="3" fill="#999"/>
+</svg>

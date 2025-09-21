@@ -1,0 +1,95 @@
+<svg width="900" height="600" viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Laptop Frame -->
+    <rect x="50" y="30" width="800" height="500" rx="8" fill="#2c3e50"/>
+    <rect x="60" y="40" width="780" height="470" rx="4" fill="#1a1a1a"/>
+    
+    <!-- Screen Content -->
+    <rect x="70" y="50" width="760" height="450" fill="white"/>
+    
+    <!-- Header -->
+    <rect x="70" y="50" width="760" height="70" fill="#0B63D6"/>
+    <text x="100" y="90" font-size="24" font-weight="700" fill="white">LearnLine - Live Analytics</text>
+    <text x="700" y="90" font-size="16" fill="white" text-anchor="end">Ms. Sharma</text>
+    <text x="100" y="105" font-size="14" fill="#B8D4F1">Real-time Student Progress - Auto-refreshing</text>
+    
+    <!-- Main Content Area -->
+    <text x="100" y="150" font-size="18" font-weight="600" fill="#1f2937">Today's Assignment Status</text>
+    
+    <!-- Status Cards -->
+    <g transform="translate(100, 170)">
+        <!-- Card 1 -->
+        <rect x="0" y="0" width="200" height="100" rx="8" fill="#f8f9fa" stroke="#dee2e6"/>
+        <text x="100" y="35" font-size="32" font-weight="700" fill="#059669" text-anchor="middle">31</text>
+        <text x="100" y="55" font-size="14" fill="#6B7280" text-anchor="middle">Students Started</text>
+        <rect x="20" y="70" width="160" height="8" rx="4" fill="#e9ecef"/>
+        <rect x="20" y="70" width="142" height="8" rx="4" fill="#059669"/>
+        
+        <!-- Card 2 -->
+        <rect x="220" y="0" width="200" height="100" rx="8" fill="#f8f9fa" stroke="#dee2e6"/>
+        <text x="320" y="35" font-size="32" font-weight="700" fill="#FFB74D" text-anchor="middle">3</text>
+        <text x="320" y="55" font-size="14" fill="#6B7280" text-anchor="middle">In Progress</text>
+        <rect x="240" y="70" width="160" height="8" rx="4" fill="#e9ecef"/>
+        <rect x="240" y="70" width="27" height="8" rx="4" fill="#FFB74D"/>
+        
+        <!-- Card 3 -->
+        <rect x="440" y="0" width="200" height="100" rx="8" fill="#f8f9fa" stroke="#dee2e6"/>
+        <text x="540" y="35" font-size="32" font-weight="700" fill="#dc3545" text-anchor="middle">1</text>
+        <text x="540" y="55" font-size="14" fill="#6B7280" text-anchor="middle">Not Started</text>
+        <rect x="460" y="70" width="160" height="8" rx="4" fill="#e9ecef"/>
+        <rect x="460" y="70" width="9" height="8" rx="4" fill="#dc3545"/>
+    </g>
+    
+    <!-- Real-time Alert Box -->
+    <rect x="100" y="290" width="640" height="60" rx="8" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+    <circle cx="120" cy="320" r="12" fill="#ffc107"/>
+    <text x="120" y="325" font-size="14" fill="white" text-anchor="middle">!</text>
+    <text x="145" y="315" font-size="14" font-weight="600" fill="#856404">⚠️ Real-time Alert: Rahul M. just encountered a prerequisite gap</text>
+    <text x="145" y="335" font-size="13" fill="#856404">AI is now providing remediation for "Finding LCM" - estimated 8 minutes to resolve</text>
+    
+    <!-- Student Grid -->
+    <text x="100" y="380" font-size="16" font-weight="600" fill="#1f2937">Live Student Progress Grid</text>
+    
+    <g transform="translate(100, 400)">
+        <!-- Student tiles - showing real-time status -->
+        <rect x="0" y="0" width="80" height="60" rx="6" fill="#d4edda" stroke="#28a745"/>
+        <text x="40" y="25" font-size="11" text-anchor="middle" fill="#155724">Ananya</text>
+        <text x="40" y="40" font-size="10" text-anchor="middle" fill="#155724">Complete</text>
+        <text x="40" y="52" font-size="9" text-anchor="middle" fill="#155724">18 min</text>
+        
+        <rect x="90" y="0" width="80" height="60" rx="6" fill="#d4edda" stroke="#28a745"/>
+        <text x="130" y="25" font-size="11" text-anchor="middle" fill="#155724">Vikram</text>
+        <text x="130" y="40" font-size="10" text-anchor="middle" fill="#155724">Complete</text>
+        <text x="130" y="52" font-size="9" text-anchor="middle" fill="#155724">22 min</text>
+        
+        <!-- Rahul highlighted with gap -->
+        <rect x="180" y="0" width="80" height="60" rx="6" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+        <circle cx="220" cy="12" r="6" fill="#ffc107"/>
+        <text x="220" y="16" font-size="8" fill="white" text-anchor="middle">AI</text>
+        <text x="220" y="30" font-size="11" text-anchor="middle" fill="#856404" font-weight="600">Rahul</text>
+        <text x="220" y="45" font-size="10" text-anchor="middle" fill="#856404">Fixing Gap</text>
+        <text x="220" y="57" font-size="9" text-anchor="middle" fill="#dc3545">LCM</text>
+        
+        <rect x="270" y="0" width="80" height="60" rx="6" fill="#cfe2ff" stroke="#0B63D6"/>
+        <text x="310" y="25" font-size="11" text-anchor="middle" fill="#004085">Dev</text>
+        <text x="310" y="40" font-size="10" text-anchor="middle" fill="#004085">Q12/15</text>
+        <text x="310" y="52" font-size="9" text-anchor="middle" fill="#004085">On track</text>
+        
+        <rect x="360" y="0" width="80" height="60" rx="6" fill="#d4edda" stroke="#28a745"/>
+        <text x="400" y="25" font-size="11" text-anchor="middle" fill="#155724">Priya</text>
+        <text x="400" y="40" font-size="10" text-anchor="middle" fill="#155724">Complete</text>
+        <text x="400" y="52" font-size="9" text-anchor="middle" fill="#155724">20 min</text>
+        
+        <rect x="450" y="0" width="80" height="60" rx="6" fill="#e2e3e5" stroke="#6c757d"/>
+        <text x="490" y="25" font-size="11" text-anchor="middle" fill="#383d41">Neha</text>
+        <text x="490" y="40" font-size="10" text-anchor="middle" fill="#383d41">Not Started</text>
+        
+        <text x="550" y="35" font-size="12" fill="#6B7280">+29 more...</text>
+    </g>
+    
+    <!-- Update timestamp -->
+    <text x="720" y="485" font-size="10" fill="#6B7280" text-anchor="end">Last updated: 2 seconds ago</text>
+    
+    <!-- Laptop Base -->
+    <path d="M 30 530 L 50 530 L 70 550 L 830 550 L 850 530 L 870 530 L 870 535 L 850 555 L 50 555 L 30 535 Z" fill="#bdbdbd"/>
+    <rect x="400" y="538" width="100" height="6" rx="3" fill="#999"/>
+</svg>

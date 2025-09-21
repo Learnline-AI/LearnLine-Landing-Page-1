@@ -272,110 +272,204 @@
             min-height: 500px;
         }
         
-        /* Dual Device Ecosystem */
-        .devices-ecosystem {
+        /* Diamond Learning Loop Layout */
+        .learning-loop-diamond {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            height: 700px;
+            margin: 0 auto;
+        }
+        
+        .screen-container {
+            position: absolute;
+            opacity: 0;
+            animation: fadeInScale 1s ease forwards, screenFloat 4s ease-in-out infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .screen-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(11, 99, 214, 0.2);
+        }
+        
+        .screen-image {
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .screen-label {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 900px;
-            position: relative;
-            padding: 40px 0;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            z-index: 10;
         }
         
-        .student-device, .teacher-device {
-            position: relative;
-            animation: deviceFloat 6s ease-in-out infinite;
-        }
-        
-        .student-device {
+        /* Diamond Positions - Clockwise */
+        .screen-top {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             animation-delay: 0s;
         }
         
-        .teacher-device {
+        .screen-right {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            animation-delay: 0.5s;
+        }
+        
+        .screen-bottom {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             animation-delay: 1s;
         }
         
-        .device-image {
-            transition: transform 0.3s ease;
-            filter: drop-shadow(0 20px 40px rgba(11, 99, 214, 0.15));
-        }
-        
-        .student-mobile {
-            width: 280px;
-            height: auto;
-        }
-        
-        .teacher-desktop {
-            width: 350px;
-            height: auto;
-        }
-        
-        .device-image:hover {
-            transform: scale(1.03);
-        }
-        
-        .device-label {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-dark);
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .student-device .device-label {
+        .screen-left {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
             animation-delay: 1.5s;
-            color: var(--primary-blue);
         }
         
-        .teacher-device .device-label {
-            animation-delay: 2s;
-            color: var(--accent-green);
+        /* Screen Sizes */
+        .laptop-screen {
+            width: 300px;
+            height: auto;
         }
         
-        /* Connection Flow */
-        .connection-flow {
+        .phone-screen {
+            width: 150px;
+            height: auto;
+        }
+        
+        /* Central Hub */
+        .central-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-        }
-        
-        .flow-animation {
-            width: 200px;
-            height: 100px;
-            margin-bottom: 10px;
-        }
-        
-        .sync-badge {
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
             color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 13px;
-            font-weight: 700;
-            box-shadow: 0 4px 16px rgba(11, 99, 214, 0.25);
-            backdrop-filter: blur(4px);
+            text-align: center;
+            z-index: 5;
             opacity: 0;
             animation: fadeInScale 1s ease forwards;
-            animation-delay: 2.5s;
+            animation-delay: 2s;
+            box-shadow: 0 15px 35px rgba(11, 99, 214, 0.3);
+        }
+        
+        .hub-title {
+            font-size: 20px;
+            font-weight: 700;
             font-family: 'Montserrat', sans-serif;
-            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .hub-subtitle {
+            font-size: 12px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        /* Connection Lines */
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(45deg, var(--primary-blue), var(--accent-green));
+            height: 3px;
+            opacity: 0.6;
+            animation: connectionFlow 3s ease-in-out infinite;
+        }
+        
+        .line-top-right {
+            top: 25%;
+            left: 55%;
+            width: 200px;
+            transform: rotate(45deg);
+            animation-delay: 0s;
+        }
+        
+        .line-right-bottom {
+            top: 55%;
+            right: 25%;
+            width: 200px;
+            transform: rotate(135deg);
+            animation-delay: 0.75s;
+        }
+        
+        .line-bottom-left {
+            bottom: 25%;
+            right: 55%;
+            width: 200px;
+            transform: rotate(225deg);
+            animation-delay: 1.5s;
+        }
+        
+        .line-left-top {
+            bottom: 55%;
+            left: 25%;
+            width: 200px;
+            transform: rotate(315deg);
+            animation-delay: 2.25s;
+        }
+        
+        @keyframes connectionFlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
         }
         
         
         /* Animations */
-        @keyframes deviceFloat {
+        @keyframes screenFloat {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        /* Individual floating animation delays for diamond positions */
+        .screen-top {
+            animation-delay: 0s, 0s;
+        }
+        
+        .screen-right {
+            animation-delay: 0.5s, 1s;
+        }
+        
+        .screen-bottom {
+            animation-delay: 1s, 2s;
+        }
+        
+        .screen-left {
+            animation-delay: 1.5s, 3s;
         }
         
         @keyframes pulse {
@@ -901,26 +995,30 @@
         
         /* Mobile Responsiveness */
         @media (max-width: 1024px) {
-            .devices-ecosystem {
-                flex-direction: column;
-                gap: 40px;
-                align-items: center;
+            .learning-loop-diamond {
+                height: 600px;
             }
             
-            .connection-flow {
-                position: relative;
-                left: auto;
-                top: auto;
-                transform: none;
-                margin: 20px 0;
+            .laptop-screen {
+                width: 250px;
             }
             
-            .flow-animation {
-                transform: rotate(90deg);
-                width: 100px;
-                height: 150px;
+            .phone-screen {
+                width: 120px;
             }
             
+            .central-hub {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .hub-title {
+                font-size: 16px;
+            }
+            
+            .connection-line {
+                width: 150px;
+            }
         }
         
         /* Responsive */
@@ -945,27 +1043,67 @@
                 font-size: 40px;
             }
             
-            /* Mobile device optimization */
-            .student-mobile {
-                width: 220px;
+            /* Mobile diamond layout */
+            .learning-loop-diamond {
+                height: 800px;
+                padding: 20px;
             }
             
-            .teacher-desktop {
-                width: 280px;
+            .screen-container {
+                position: relative !important;
+                transform: none !important;
+                margin-bottom: 40px;
+                text-align: center;
             }
             
-            
-            .devices-ecosystem {
-                gap: 30px;
+            .screen-top {
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%) !important;
             }
             
-            .device-label {
+            .screen-right {
+                top: 200px;
+                left: 50%;
+                transform: translateX(-50%) !important;
+            }
+            
+            .screen-bottom {
+                top: 400px;
+                left: 50%;
+                transform: translateX(-50%) !important;
+            }
+            
+            .screen-left {
+                top: 600px;
+                left: 50%;
+                transform: translateX(-50%) !important;
+            }
+            
+            .laptop-screen {
+                width: 200px;
+            }
+            
+            .phone-screen {
+                width: 100px;
+            }
+            
+            .central-hub {
+                display: none;
+            }
+            
+            .connection-line {
+                display: none;
+            }
+            
+            .screen-label {
                 font-size: 12px;
             }
             
-            .sync-badge {
-                font-size: 10px;
-                padding: 6px 12px;
+            .step-number {
+                width: 25px;
+                height: 25px;
+                font-size: 12px;
             }
             
             .problem-grid,
@@ -1016,11 +1154,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text animate-in">
-                    <h1>Learning done.<br>Time returned.</h1>
+                    <h1>See the Complete<br>Learning Loop</h1>
                     <p class="hero-subtitle">
-                        We don't add another study app. We transform at home student learning into an AI-powered mastery system that improves student outcomes, saves teacher time, and gives schools daily insights
+                        From teacher setup to AI intervention to real-time insights - watch how LearnLine transforms homework into a 20-minute mastery system that improves outcomes for everyone.
                     </p>
-                     <h2>We Complete<br>the Learning Loop</h2>
+                     <h2>Same homework time.<br>10x better results.</h2>
                     <div class="hero-cta">
                         <a href="#pilot" class="btn btn-primary">Schedule School Demo</a>
                         <a href="#solution" class="btn btn-secondary">See How It Works</a>
@@ -1043,45 +1181,47 @@
                 </div>
                 
                 <div class="hero-visual animate-in">
-                    <div class="devices-ecosystem">
-                        <!-- Student Mobile Device -->
-                        <div class="student-device">
-                            <img src="assets/teacherdashboard.png" alt="Student Learning Experience - 78% Progress Tracking" class="device-image student-mobile">
-                            <div class="device-label">Student Experience</div>
+                    <div class="learning-loop-diamond">
+                        <!-- Screen 1: Teacher Creates Assignment (Top - 12 o'clock) -->
+                        <div class="screen-container screen-top">
+                            <div class="step-number">1</div>
+                            <img src="assets/teacher-creates-assignment.png" alt="Teacher creates assignment with AI settings" class="screen-image laptop-screen">
+                            <div class="screen-label">Teacher Setup</div>
                         </div>
                         
-                        <!-- Connection Flow -->
-                        <div class="connection-flow">
-                            <svg class="flow-animation" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" style="stop-color:#0B63D6">
-                                            <animate attributeName="stop-opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
-                                        </stop>
-                                        <stop offset="100%" style="stop-color:#059669">
-                                            <animate attributeName="stop-opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" begin="1s"/>
-                                        </stop>
-                                    </linearGradient>
-                                </defs>
-                                <path d="M20,50 Q100,30 180,50" stroke="url(#flowGradient)" stroke-width="3" fill="none" stroke-dasharray="8,4">
-                                    <animate attributeName="stroke-dashoffset" values="12;0" dur="1.5s" repeatCount="indefinite"/>
-                                </path>
-                                <circle r="4" fill="#059669">
-                                    <animateMotion dur="2s" repeatCount="indefinite">
-                                        <mpath href="#dataFlow"/>
-                                    </animateMotion>
-                                </circle>
-                            </svg>
-                            <span class="sync-badge">⚡ Real-time Sync</span>
+                        <!-- Screen 2: Student Receives Assignment (Right - 3 o'clock) -->
+                        <div class="screen-container screen-right">
+                            <div class="step-number">2</div>
+                            <img src="assets/student-receives-assignment.png" alt="Student receives and starts assignment" class="screen-image phone-screen">
+                            <div class="screen-label">Student Starts</div>
                         </div>
                         
-                        <!-- Teacher Dashboard Device -->
-                        <div class="teacher-device">
-                            <img src="assets/teacherdashboard.webp" alt="Teacher Analytics Dashboard - Live Student Monitoring" class="device-image teacher-desktop">
-                            <div class="device-label">Teacher Analytics</div>
+                        <!-- Screen 3: Student Gap Detection (Bottom - 6 o'clock) -->
+                        <div class="screen-container screen-bottom">
+                            <div class="step-number">3</div>
+                            <img src="assets/student-gap-detection.png" alt="AI detects prerequisite gap and provides remediation" class="screen-image phone-screen">
+                            <div class="screen-label">AI Intervenes</div>
                         </div>
+                        
+                        <!-- Screen 4: Teacher Live Analytics (Left - 9 o'clock) -->
+                        <div class="screen-container screen-left">
+                            <div class="step-number">4</div>
+                            <img src="assets/teacher-live-analytics.png" alt="Teacher gets real-time analytics and alerts" class="screen-image laptop-screen">
+                            <div class="screen-label">Live Insights</div>
+                        </div>
+                        
+                        <!-- Central Hub -->
+                        <div class="central-hub">
+                            <div class="hub-title">Complete<br>Learning Loop</div>
+                            <div class="hub-subtitle">20 minutes</div>
+                        </div>
+                        
+                        <!-- Connection Lines -->
+                        <div class="connection-line line-top-right"></div>
+                        <div class="connection-line line-right-bottom"></div>
+                        <div class="connection-line line-bottom-left"></div>
+                        <div class="connection-line line-left-top"></div>
                     </div>
-                    
                 </div>
             </div>
         </div>

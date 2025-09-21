@@ -1,0 +1,66 @@
+<svg width="360" height="740" viewBox="0 0 360 740" xmlns="http://www.w3.org/2000/svg">
+    <!-- Phone Frame -->
+    <rect x="20" y="20" width="320" height="700" rx="40" fill="#1a1a2e"/>
+    <rect x="30" y="70" width="300" height="600" rx="20" fill="white"/>
+    
+    <!-- Status Bar -->
+    <rect x="30" y="70" width="300" height="30" fill="#0B63D6"/>
+    <text x="45" y="90" fill="white" font-size="12" font-weight="600">2:34 PM</text>
+    <text x="285" y="90" fill="white" font-size="12" text-anchor="end">100%</text>
+    
+    <!-- App Header with Logo -->
+    <rect x="30" y="100" width="300" height="60" fill="#f8f9fa"/>
+    <g transform="translate(50, 110)">
+        <rect x="0" y="0" width="25" height="25" fill="none" stroke="#0B63D6" stroke-width="2"/>
+        <polyline points="3,16 9,22 20,10" stroke="#059669" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="30" y="18" font-size="16" font-weight="700" fill="#0B63D6">LearnLine</text>
+    </g>
+    <text x="50" y="145" font-size="14" fill="#6B7280">Welcome back, Rahul!</text>
+    <text x="310" y="135" font-size="12" fill="#6B7280" text-anchor="end">Class 8-B</text>
+    
+    <!-- New Assignment Notification -->
+    <rect x="45" y="175" width="270" height="60" rx="10" fill="#fff3cd" stroke="#ffc107" stroke-width="2"/>
+    <circle cx="65" cy="205" r="10" fill="#ffc107"/>
+    <text x="65" y="210" font-size="12" fill="white" text-anchor="middle">!</text>
+    <text x="85" y="200" font-size="13" font-weight="600" fill="#856404">New Assignment from Ms. Sharma</text>
+    <text x="85" y="218" font-size="11" fill="#856404">Just now • Math homework ready</text>
+    
+    <!-- Main Assignment Card -->
+    <rect x="45" y="250" width="270" height="180" rx="15" fill="#e7f3ff" stroke="#0B63D6" stroke-width="2"/>
+    <text x="60" y="280" font-size="16" font-weight="700" fill="#0B63D6">TODAY'S ASSIGNMENT</text>
+    <text x="60" y="305" font-size="14" fill="#495057">📚 Chapter 5: Fractions</text>
+    <text x="60" y="325" font-size="13" fill="#6B7280">Topic: Adding Unlike Denominators</text>
+    <text x="60" y="345" font-size="13" fill="#6B7280">Questions: 15 | Time: ~20 mins</text>
+    <text x="60" y="365" font-size="13" fill="#dc3545" font-weight="600">⏰ Due: Today 8:00 PM</text>
+    
+    <!-- Start Button -->
+    <rect x="60" y="380" width="240" height="40" rx="20" fill="#059669"/>
+    <text x="180" y="405" font-size="16" font-weight="700" fill="white" text-anchor="middle">START ASSIGNMENT →</text>
+    
+    <!-- Progress Section -->
+    <text x="50" y="460" font-size="14" font-weight="600" fill="#495057">Your Progress This Week</text>
+    
+    <!-- Progress Bar -->
+    <rect x="50" y="470" width="260" height="25" rx="12" fill="#e9ecef"/>
+    <rect x="50" y="470" width="203" height="25" rx="12" fill="#059669"/>
+    <text x="180" y="487" font-size="12" font-weight="600" fill="white" text-anchor="middle">78%</text>
+    
+    <!-- Stats Cards -->
+    <g transform="translate(45, 510)">
+        <rect x="0" y="0" width="125" height="80" rx="10" fill="#f8f9fa" stroke="#dee2e6"/>
+        <text x="62" y="35" font-size="24" text-anchor="middle">🔥 5</text>
+        <text x="62" y="55" font-size="12" fill="#6B7280" text-anchor="middle">Day Streak</text>
+        <text x="62" y="70" font-size="10" fill="#6B7280" text-anchor="middle">Best: 12 days</text>
+        
+        <rect x="145" y="0" width="125" height="80" rx="10" fill="#f8f9fa" stroke="#dee2e6"/>
+        <text x="207" y="30" font-size="20" font-weight="700" fill="#0B63D6" text-anchor="middle">8/10</text>
+        <text x="207" y="50" font-size="12" fill="#6B7280" text-anchor="middle">Concepts</text>
+        <text x="207" y="65" font-size="10" fill="#6B7280" text-anchor="middle">Mastered</text>
+    </g>
+    
+    <!-- Phone Notch -->
+    <rect x="150" y="35" width="60" height="30" rx="15" fill="#1a1a2e"/>
+    
+    <!-- Home Indicator -->
+    <rect x="165" y="680" width="30" height="4" rx="2" fill="#666"/>
+</svg>
