@@ -276,9 +276,10 @@
         .learning-loop-diamond {
             position: relative;
             width: 100%;
-            max-width: 1200px;
-            height: 800px;
+            max-width: 1400px;
+            height: 900px;
             margin: 0 auto;
+            padding: 20px;
         }
         
         .screen-container {
@@ -286,17 +287,23 @@
             opacity: 0;
             animation: fadeInScale 1s ease forwards, screenFloat 4s ease-in-out infinite;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 10;
         }
         
         .screen-container:hover {
             transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(11, 99, 214, 0.2);
+        }
+        
+        .screen-container:hover .screen-image {
+            box-shadow: 0 25px 50px rgba(11, 99, 214, 0.25);
+            border-color: var(--primary-blue);
         }
         
         .screen-image {
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.8);
         }
         
         .screen-label {
@@ -323,13 +330,13 @@
             color: white;
             font-weight: 700;
             font-size: 13px;
-            z-index: 15;
+            z-index: 20;
             box-shadow: 0 4px 12px rgba(11, 99, 214, 0.3);
         }
         
         /* Diamond Positions - Clockwise */
         .screen-top {
-            top: 20px;
+            top: 40px;
             left: 50%;
             transform: translateX(-50%);
             animation-delay: 0s;
@@ -337,13 +344,13 @@
         
         .screen-right {
             top: 50%;
-            right: 50px;
+            right: 80px;
             transform: translateY(-50%);
             animation-delay: 0.5s;
         }
         
         .screen-bottom {
-            bottom: 20px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             animation-delay: 1s;
@@ -351,19 +358,19 @@
         
         .screen-left {
             top: 50%;
-            left: 50px;
+            left: 80px;
             transform: translateY(-50%);
             animation-delay: 1.5s;
         }
         
         /* Screen Sizes */
         .laptop-screen {
-            width: 280px;
+            width: 260px;
             height: auto;
         }
         
         .phone-screen {
-            width: 140px;
+            width: 130px;
             height: auto;
         }
         
@@ -373,8 +380,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 160px;
-            height: 160px;
+            width: 120px;
+            height: 120px;
             background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
             border-radius: 50%;
             display: flex;
@@ -383,7 +390,7 @@
             justify-content: center;
             color: white;
             text-align: center;
-            z-index: 3;
+            z-index: 2;
             opacity: 0;
             animation: fadeInScale 1s ease forwards;
             animation-delay: 2s;
@@ -391,15 +398,15 @@
         }
         
         .hub-title {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 700;
             font-family: 'Montserrat', sans-serif;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             line-height: 1.1;
         }
         
         .hub-subtitle {
-            font-size: 11px;
+            font-size: 10px;
             opacity: 0.9;
             font-weight: 500;
         }
@@ -409,38 +416,39 @@
             position: absolute;
             background: linear-gradient(45deg, var(--primary-blue), var(--accent-green));
             height: 2px;
-            opacity: 0.4;
+            opacity: 0.3;
             animation: connectionFlow 3s ease-in-out infinite;
+            z-index: 1;
         }
         
         .line-top-right {
-            top: 30%;
-            left: 55%;
-            width: 180px;
+            top: 35%;
+            left: 58%;
+            width: 200px;
             transform: rotate(45deg);
             animation-delay: 0s;
         }
         
         .line-right-bottom {
-            top: 55%;
-            right: 30%;
-            width: 180px;
+            top: 58%;
+            right: 35%;
+            width: 200px;
             transform: rotate(135deg);
             animation-delay: 0.75s;
         }
         
         .line-bottom-left {
-            bottom: 30%;
-            right: 55%;
-            width: 180px;
+            bottom: 35%;
+            right: 58%;
+            width: 200px;
             transform: rotate(225deg);
             animation-delay: 1.5s;
         }
         
         .line-left-top {
-            bottom: 55%;
-            left: 30%;
-            width: 180px;
+            bottom: 58%;
+            left: 35%;
+            width: 200px;
             transform: rotate(315deg);
             animation-delay: 2.25s;
         }
@@ -998,11 +1006,12 @@
         /* Mobile Responsiveness */
         @media (max-width: 1024px) {
             .learning-loop-diamond {
-                height: 650px;
+                height: 700px;
+                max-width: 1000px;
             }
             
             .laptop-screen {
-                width: 240px;
+                width: 220px;
             }
             
             .phone-screen {
@@ -1010,24 +1019,28 @@
             }
             
             .central-hub {
-                width: 130px;
-                height: 130px;
+                width: 100px;
+                height: 100px;
             }
             
             .hub-title {
-                font-size: 15px;
+                font-size: 12px;
+            }
+            
+            .hub-subtitle {
+                font-size: 9px;
             }
             
             .connection-line {
-                width: 140px;
+                width: 160px;
             }
             
             .screen-right {
-                right: 30px;
+                right: 60px;
             }
             
             .screen-left {
-                left: 30px;
+                left: 60px;
             }
         }
         
@@ -1055,14 +1068,14 @@
             
             /* Mobile diamond layout */
             .learning-loop-diamond {
-                height: 800px;
+                height: 900px;
                 padding: 20px;
             }
             
             .screen-container {
                 position: relative !important;
                 transform: none !important;
-                margin-bottom: 40px;
+                margin-bottom: 50px;
                 text-align: center;
             }
             
@@ -1073,19 +1086,19 @@
             }
             
             .screen-right {
-                top: 200px;
+                top: 220px;
                 left: 50%;
                 transform: translateX(-50%) !important;
             }
             
             .screen-bottom {
-                top: 400px;
+                top: 440px;
                 left: 50%;
                 transform: translateX(-50%) !important;
             }
             
             .screen-left {
-                top: 600px;
+                top: 660px;
                 left: 50%;
                 transform: translateX(-50%) !important;
             }
