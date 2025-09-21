@@ -8,16 +8,9 @@
     
     <!-- Header -->
     <rect x="70" y="50" width="760" height="70" fill="#0B63D6"/>
-    <g transform="translate(100, 65)">
-        <!-- LearnLine Brand Logo -->
-        <!-- Blue L Shape -->
-        <path d="M0,5 L0,30 L20,30 L20,25 L5,25 L5,5 Z" fill="white"/>
-        <!-- Green Checkmark/Arrow integrated into L -->
-        <path d="M15,8 L25,18 L22,21 L15,14 L10,19 L7,16 Z" fill="#059669"/>
-        <!-- earnLine Text -->
-        <text x="30" y="20" font-size="20" font-weight="700" fill="white" font-family="'Inter', sans-serif">earnLine</text>
-    </g>
-    <text x="100" y="105" font-size="16" font-weight="500" fill="#B8D4F1">Live Analytics</text>
+    <!-- LearnLine Brand Logo -->
+    <image href="logo.png" x="100" y="70" width="120" height="30" style="filter: brightness(0) invert(1);"/>
+    <text x="100" y="105" font-size="14" fill="#B8D4F1">Real-time Student Progress - Auto-refreshing</text>
     <text x="700" y="90" font-size="16" fill="white" text-anchor="end">Ms. Sharma</text>
     <text x="100" y="105" font-size="14" fill="#B8D4F1">Real-time Student Progress - Auto-refreshing</text>
     

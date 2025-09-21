@@ -10,15 +10,8 @@
     
     <!-- App Header with Logo -->
     <rect x="30" y="100" width="300" height="60" fill="#f8f9fa"/>
-    <g transform="translate(50, 110)">
-        <!-- LearnLine Brand Logo -->
-        <!-- Blue L Shape -->
-        <path d="M0,3 L0,20 L15,20 L15,17 L3,17 L3,3 Z" fill="#0B63D6"/>
-        <!-- Green Checkmark/Arrow integrated into L -->
-        <path d="M12,5 L18,11 L16,13 L12,9 L9,12 L7,10 Z" fill="#059669"/>
-        <!-- earnLine Text -->
-        <text x="22" y="14" font-size="14" font-weight="700" fill="#0B63D6" font-family="'Inter', sans-serif">earnLine</text>
-    </g>
+    <!-- LearnLine Brand Logo -->
+    <image href="logo.png" x="50" y="110" width="80" height="20"/>
     <text x="50" y="145" font-size="14" fill="#6B7280">Welcome back, Rahul!</text>
     <text x="310" y="135" font-size="12" fill="#6B7280" text-anchor="end">Class 8-B</text>
     

@@ -572,52 +572,89 @@
         
         /* Solution Section */
         .solution-section {
-            position: relative;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
         }
         
-        .solution-visual {
-            margin: 60px 0;
-        }
-        
-        .comparison-grid {
+        .comparison-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 40px;
+            margin-top: 60px;
+            position: relative;
         }
         
         .comparison-card {
             background: white;
-            border-radius: var(--radius);
-            padding: 40px;
-            box-shadow: var(--shadow);
+            border-radius: 20px;
+            overflow: hidden;
             position: relative;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .comparison-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
         }
         
         .comparison-card.old {
-            border-top: 4px solid var(--error);
+            border: 2px solid #e5e7eb;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
         
         .comparison-card.new {
-            border-top: 4px solid var(--accent-green);
-            transform: scale(1.02);
+            border: 2px solid #059669;
+            box-shadow: 0 8px 30px rgba(5, 150, 105, 0.15);
+            transform: translateY(-5px);
         }
         
-        .comparison-header {
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #059669;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+        
+        /* Image Section */
+        .card-image-section {
+            height: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .old .card-image-section {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        }
+        
+        .new .card-image-section {
+            background: linear-gradient(135deg, rgba(11, 99, 214, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+        }
+        
+        /* Content Section */
+        .card-content {
+            padding: 30px;
+        }
+        
+        .card-header {
             display: flex;
             align-items: center;
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f3f4f6;
         }
         
-        .comparison-icon {
-            width: 48px;
-            height: 48px;
+        .card-icon {
+            width: 50px;
+            height: 50px;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -625,38 +662,101 @@
             font-size: 24px;
         }
         
-        .comparison-card.old .comparison-icon {
-            background: rgba(225, 29, 72, 0.1);
-            color: var(--error);
+        .old .card-icon {
+            background: rgba(220, 53, 69, 0.1);
         }
         
-        .comparison-card.new .comparison-icon {
+        .new .card-icon {
             background: rgba(5, 150, 105, 0.1);
-            color: var(--accent-green);
         }
         
-        .comparison-list {
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .old .card-title {
+            color: #6B7280;
+        }
+        
+        .new .card-title {
+            background: linear-gradient(135deg, #0B63D6 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-list {
             list-style: none;
-            margin: 24px 0;
+            margin: 25px 0;
         }
         
-        .comparison-list li {
+        .feature-list li {
             padding: 12px 0;
             display: flex;
             align-items: flex-start;
             gap: 12px;
+            font-size: 15px;
+            color: #495057;
         }
         
-        .comparison-list li::before {
-            content: '✗';
-            color: var(--error);
-            font-weight: bold;
+        .feature-icon {
             font-size: 18px;
+            margin-top: 2px;
         }
         
-        .comparison-card.new .comparison-list li::before {
-            content: '✓';
-            color: var(--accent-green);
+        .old .feature-icon {
+            color: #dc3545;
+        }
+        
+        .new .feature-icon {
+            color: #059669;
+        }
+        
+        .result-box {
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        
+        .old .result-box {
+            background: rgba(220, 53, 69, 0.05);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+        }
+        
+        .new .result-box {
+            background: rgba(5, 150, 105, 0.05);
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+        
+        .result-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .old .result-label {
+            color: #dc3545;
+        }
+        
+        .new .result-label {
+            color: #059669;
+        }
+        
+        .result-text {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .old .result-text {
+            color: #721c24;
+        }
+        
+        .new .result-text {
+            color: #155724;
         }
         
         /* Learning Loop Section */
@@ -1130,8 +1230,16 @@
             }
             
             .problem-grid,
-            .comparison-grid {
+            .comparison-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .comparison-card.new {
+                transform: translateY(0);
+            }
+            
+            .card-image-section {
+                height: 200px;
             }
             
             .stakeholders-grid,
@@ -1208,28 +1316,28 @@
                         <!-- Screen 1: Teacher Creates Assignment (Top - 12 o'clock) -->
                         <div class="screen-container screen-top">
                             <div class="step-number">1</div>
-                            <img src="assets/teacher-creates-assignment.png" alt="Teacher creates assignment with AI settings" class="screen-image laptop-screen">
+                            <img src="assets/hero-section/teacher-creates-assignment.png" alt="Teacher creates assignment with AI settings" class="screen-image laptop-screen">
                             <div class="screen-label">Teacher Setup</div>
                         </div>
                         
                         <!-- Screen 2: Student Receives Assignment (Right - 3 o'clock) -->
                         <div class="screen-container screen-right">
                             <div class="step-number">2</div>
-                            <img src="assets/student-receives-assignment.png" alt="Student receives and starts assignment" class="screen-image phone-screen">
+                            <img src="assets/hero-section/student-receives-assignment.png" alt="Student receives and starts assignment" class="screen-image phone-screen">
                             <div class="screen-label">Student Starts</div>
                         </div>
                         
                         <!-- Screen 3: Student Gap Detection (Bottom - 6 o'clock) -->
                         <div class="screen-container screen-bottom">
                             <div class="step-number">3</div>
-                            <img src="assets/student-gap-detection.png" alt="AI detects prerequisite gap and provides remediation" class="screen-image phone-screen">
+                            <img src="assets/hero-section/student-gap-detection.png" alt="AI detects prerequisite gap and provides remediation" class="screen-image phone-screen">
                             <div class="screen-label">AI Intervenes</div>
                         </div>
                         
                         <!-- Screen 4: Teacher Live Analytics (Left - 9 o'clock) -->
                         <div class="screen-container screen-left">
                             <div class="step-number">4</div>
-                            <img src="assets/teacher-live-analytics.png" alt="Teacher gets real-time analytics and alerts" class="screen-image laptop-screen">
+                            <img src="assets/hero-section/teacher-live-analytics.png" alt="Teacher gets real-time analytics and alerts" class="screen-image laptop-screen">
                             <div class="screen-label">Live Insights</div>
                         </div>
                         
@@ -1299,46 +1407,102 @@
     <!-- Solution Section -->
     <section id="solution" class="solution-section">
         <div class="container">
-            <div class="section-header animate-in">
+            <div class="section-header">
                 <div class="pill">The Solution</div>
                 <h2>Homework 2.0: Same time, 10x better outcomes</h2>
-                <p>We replace static worksheets with AI-powered adaptive learning that diagnoses, remediates, and tracks mastery in real-time.</p>
+                <p class="subtitle">
+                    We replace static worksheets with AI-powered adaptive learning that diagnoses, remediates, and tracks mastery in real-time.
+                </p>
             </div>
             
-            <div class="comparison-grid animate-in">
+            <div class="comparison-container">
+                <!-- Old Way Card -->
                 <div class="comparison-card old">
-                    <div class="comparison-header">
-                        <div class="comparison-icon">📝</div>
-                        <h3>Homework Today</h3>
+                    <!-- Image Section -->
+                    <div class="card-image-section">
+                        <img src="assets/Solution-Section/OldHomework.webp" alt="Traditional homework worksheet" />
                     </div>
-                    <ul class="comparison-list">
-                        <li>Static worksheets for everyone</li>
-                        <li>Easy to copy or Google answers</li>
-                        <li>No feedback until tests</li>
-                        <li>Teachers grade manually</li>
-                        <li>Zero visibility on gaps</li>
-                    </ul>
-                    <div style="padding-top: 20px; border-top: 1px solid #E5E7EB;">
-                        <strong style="color: var(--error);">Result:</strong>
-                        <p>Wasted time, frustrated students, teachers left in dark s</p>
+                    
+                    <!-- Content Section -->
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-icon">📝</div>
+                            <h3 class="card-title">Homework Today</h3>
+                        </div>
+                        
+                        <ul class="feature-list">
+                            <li>
+                                <span class="feature-icon">✗</span>
+                                <span>Static worksheets for everyone</span>
+                            </li>
+                            <li>
+                                <span class="feature-icon">✗</span>
+                                <span>Easy to copy or Google answers</span>
+                            </li>
+                            <li>
+                                <span class="feature-icon">✗</span>
+                                <span>No feedback until tests</span>
+                            </li>
+                            <li>
+                                <span class="feature-icon">✗</span>
+                                <span>Teachers grade manually</span>
+                            </li>
+                            <li>
+                                <span class="feature-icon">✗</span>
+                                <span>Zero visibility on gaps</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="result-box">
+                            <div class="result-label">Result:</div>
+                            <div class="result-text">Wasted time, frustrated students, teachers left in dark</div>
+                        </div>
                     </div>
                 </div>
                 
+                <!-- New Way Card -->
                 <div class="comparison-card new">
-                    <div class="comparison-header">
-                        <div class="comparison-icon">🎯</div>
-                        <h3>LearnLine Homework</h3>
+                    <div class="card-badge">Recommended</div>
+                    
+                    <!-- Image Section -->
+                    <div class="card-image-section">
+                        <img src="assets/Solution-Section/LearnLineHomeWork.webp" alt="LearnLine adaptive homework interface" />
                     </div>
-                    <ul class="comparison-list">
-                        <li>Adaptive to each student's level</li>
-                        <li>OCR validates handwritten work</li>
-                        <li>Instant diagnostics & remediation</li>
-                        <li>Auto-graded with insights</li>
-                        <li>Daily mastery tracking</li>
-                    </ul>
-                    <div style="padding-top: 20px; border-top: 1px solid #E5E7EB;">
-                        <strong style="color: var(--accent-green);">Result:</strong>
-                        <p>Efficient learning, confident students, empowered teachers</p>
+                    
+                    <!-- Content Section -->
+                    <div class="card-content">
+                        <div class="card-header">
+                            <div class="card-icon">🎯</div>
+                            <h3 class="card-title">LearnLine Homework</h3>
+                        </div>
+                        
+                        <ul class="feature-list">
+                            <li>
+                                <span class="feature-icon">✓</span>
+                                <span>Adaptive to each student's level</span>
+                            </li>
+                            <li>
+                                <span class="feature-icon">✓</span>
+                                <span>OCR validates handwritten work</span>
+                            </li>
+                            <li>
+                                <span class="feature-icon">✓</span>
+                                <span>Instant diagnostics & remediation</span>
+                            </li>
+                            <li>
+                                <span class="feature-icon">✓</span>
+                                <span>Auto-graded with insights</span>
+                            </li>
+                            <li>
+                                <span class="feature-icon">✓</span>
+                                <span>Daily mastery tracking</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="result-box">
+                            <div class="result-label">Result:</div>
+                            <div class="result-text">Efficient learning, confident students, empowered teachers</div>
+                        </div>
                     </div>
                 </div>
             </div>
