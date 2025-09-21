@@ -275,8 +275,8 @@
         /* Learning Loop Visualization - Enhanced */
         .learning-loop-container {
             position: relative;
-            width: 500px;
-            height: 500px;
+            width: 600px;
+            height: 600px;
         }
         
         /* Loop Steps - Color Coded */
@@ -288,7 +288,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
             padding: 16px;
-            width: 160px;
+            width: 180px;
         }
         
         .loop-step:hover {
@@ -331,9 +331,9 @@
             box-shadow: 0 4px 12px rgba(11, 99, 214, 0.3);
         }
         
-        /* Position steps in diamond */
+        /* Position steps in diamond with better spacing */
         .step-1 {
-            top: 0;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             border: 2px solid var(--primary-blue);
@@ -341,13 +341,13 @@
         
         .step-2 {
             top: 50%;
-            right: 0;
+            right: 20px;
             transform: translateY(-50%);
             border: 2px solid var(--accent-warm);
         }
         
         .step-3 {
-            bottom: 0;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             border: 2px solid var(--accent-green);
@@ -355,7 +355,7 @@
         
         .step-4 {
             top: 50%;
-            left: 0;
+            left: 20px;
             transform: translateY(-50%);
             border: 2px solid var(--primary-blue);
         }
@@ -400,15 +400,15 @@
         
         /* Step Content Areas */
         .step-image {
-            height: 100px;
+            height: 120px;
             background: var(--bg-soft);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 12px;
-            border: 2px dashed rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            position: relative;
         }
         
         .step-image img {
@@ -416,6 +416,12 @@
             height: 100%;
             object-fit: cover;
             border-radius: 6px;
+            border: none;
+        }
+        
+        /* Remove background and dashed border when image is present */
+        .step-image:has(img) {
+            background: transparent;
             border: none;
         }
         
@@ -432,34 +438,41 @@
         }
         
         /* Enhanced Connection Lines for New Layout */
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
         .line-1-2 {
-            top: 25%;
-            right: 25%;
-            width: 140px;
+            top: 28%;
+            right: 28%;
+            width: 160px;
             height: 2px;
             transform: rotate(45deg);
         }
         
         .line-2-3 {
-            bottom: 25%;
-            right: 25%;
-            width: 140px;
+            bottom: 28%;
+            right: 28%;
+            width: 160px;
             height: 2px;
             transform: rotate(-45deg);
         }
         
         .line-3-4 {
-            bottom: 25%;
-            left: 25%;
-            width: 140px;
+            bottom: 28%;
+            left: 28%;
+            width: 160px;
             height: 2px;
             transform: rotate(45deg);
         }
         
         .line-4-1 {
-            top: 25%;
-            left: 25%;
-            width: 140px;
+            top: 28%;
+            left: 28%;
+            width: 160px;
             height: 2px;
             transform: rotate(-45deg);
         }
@@ -1625,6 +1638,36 @@
                 font-size: 40px;
             }
             
+            .learning-loop-container {
+                max-width: 400px;
+                height: 400px;
+            }
+            
+            .loop-step {
+                width: 140px;
+            }
+            
+            .step-image {
+                height: 100px;
+            }
+            
+            .central-hub {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .hub-title {
+                font-size: 12px;
+            }
+            
+            .hub-time {
+                font-size: 18px;
+            }
+            
+            .hub-label {
+                font-size: 9px;
+            }
+            
             /* Mobile diamond layout */
             .learning-loop-diamond {
                 height: 900px;
@@ -1831,7 +1874,7 @@
                         <div class="loop-step step-1">
                             <div class="step-number">1</div>
                             <div class="step-image">
-                                <img src="assets/hero-section/teacher-creates-assignment.png" alt="Teacher creates assignment with AI settings">
+                                <img src="assets/hero-section2/teacher-creates-assignment.webp" alt="Teacher creates assignment with AI settings">
                             </div>
                             <div class="step-label">Teacher assigns</div>
                             <div class="step-detail">2 clicks, auto-adaptive</div>
@@ -1841,7 +1884,7 @@
                         <div class="loop-step step-2">
                             <div class="step-number">2</div>
                             <div class="step-image">
-                                <img src="assets/hero-section/student-receives-assignment.png" alt="Student receives and starts assignment">
+                                <img src="assets/hero-section2/student-receives-assignment.webp" alt="Student receives and starts assignment">
                             </div>
                             <div class="step-label">Student starts</div>
                             <div class="step-detail">Personalized questions</div>
@@ -1851,7 +1894,7 @@
                         <div class="loop-step step-3">
                             <div class="step-number">3</div>
                             <div class="step-image">
-                                <img src="assets/hero-section/student-gap-detection.png" alt="AI detects prerequisite gap and provides remediation">
+                                <img src="assets/hero-section2/assets_task_01k5p86zs5etwbd7ptd6m9a755_1758462315_img_0.webp" alt="AI detects prerequisite gap and provides remediation">
                             </div>
                             <div class="step-label">AI intervenes</div>
                             <div class="step-detail">Gaps detected, fixed</div>
@@ -1861,7 +1904,7 @@
                         <div class="loop-step step-4">
                             <div class="step-number">4</div>
                             <div class="step-image">
-                                <img src="assets/hero-section/teacher-live-analytics.png" alt="Teacher gets real-time analytics and alerts">
+                                <img src="assets/hero-section2/teacher-live-analytics.webp" alt="Teacher gets real-time analytics and alerts">
                             </div>
                             <div class="step-label">Live insights</div>
                             <div class="step-detail">Who needs help now</div>
