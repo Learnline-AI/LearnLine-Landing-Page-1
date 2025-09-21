@@ -272,32 +272,28 @@
             min-height: 500px;
         }
         
-        /* Diamond Learning Loop Layout */
-        .learning-loop-diamond {
+        /* Learning Loop Visualization - Enhanced */
+        .learning-loop-container {
             position: relative;
             width: 500px;
             height: 500px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         
-        .screen-container {
+        /* Loop Steps - Color Coded */
+        .loop-step {
             position: absolute;
-            opacity: 0;
-            animation: fadeInScale 1s ease forwards, screenFloat 4s ease-in-out infinite;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            z-index: 10;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 16px;
+            width: 160px;
         }
         
-        .screen-container:hover {
+        .loop-step:hover {
             transform: scale(1.05);
-        }
-        
-        .screen-container:hover .screen-image {
-            box-shadow: 0 25px 50px rgba(11, 99, 214, 0.25);
-            border-color: var(--primary-blue);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
         }
         
         .screen-image {
@@ -335,33 +331,137 @@
             box-shadow: 0 4px 12px rgba(11, 99, 214, 0.3);
         }
         
-        /* Diamond Positions - Clockwise */
-        .screen-top {
-            top: 10px;
+        /* Position steps in diamond */
+        .step-1 {
+            top: 0;
             left: 50%;
             transform: translateX(-50%);
-            animation-delay: 0s;
+            border: 2px solid var(--primary-blue);
         }
         
-        .screen-right {
+        .step-2 {
             top: 50%;
-            right: 10px;
+            right: 0;
             transform: translateY(-50%);
-            animation-delay: 0.5s;
+            border: 2px solid var(--accent-warm);
         }
         
-        .screen-bottom {
-            bottom: 10px;
+        .step-3 {
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            animation-delay: 1s;
+            border: 2px solid var(--accent-green);
         }
         
-        .screen-left {
+        .step-4 {
             top: 50%;
-            left: 10px;
+            left: 0;
             transform: translateY(-50%);
-            animation-delay: 1.5s;
+            border: 2px solid var(--primary-blue);
+        }
+        
+        /* Enhanced Step Numbers */
+        .loop-step .step-number {
+            position: absolute;
+            top: -12px;
+            right: 16px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        
+        .step-1 .step-number {
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+        
+        .step-2 .step-number {
+            color: var(--accent-warm);
+            border: 2px solid var(--accent-warm);
+        }
+        
+        .step-3 .step-number {
+            color: var(--accent-green);
+            border: 2px solid var(--accent-green);
+        }
+        
+        .step-4 .step-number {
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+        
+        /* Step Content Areas */
+        .step-image {
+            height: 100px;
+            background: var(--bg-soft);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            border: 2px dashed rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .step-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+            border: none;
+        }
+        
+        .step-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        
+        .step-detail {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        
+        /* Enhanced Connection Lines for New Layout */
+        .line-1-2 {
+            top: 25%;
+            right: 25%;
+            width: 140px;
+            height: 2px;
+            transform: rotate(45deg);
+        }
+        
+        .line-2-3 {
+            bottom: 25%;
+            right: 25%;
+            width: 140px;
+            height: 2px;
+            transform: rotate(-45deg);
+        }
+        
+        .line-3-4 {
+            bottom: 25%;
+            left: 25%;
+            width: 140px;
+            height: 2px;
+            transform: rotate(45deg);
+        }
+        
+        .line-4-1 {
+            top: 25%;
+            left: 25%;
+            width: 140px;
+            height: 2px;
+            transform: rotate(-45deg);
         }
         
         /* Screen Sizes */
@@ -375,27 +475,28 @@
             height: auto;
         }
         
-        /* Central Hub */
+        /* Central Hub - More Prominent */
         .central-hub {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
             border-radius: 50%;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            color: white;
-            text-align: center;
-            z-index: 2;
-            opacity: 0;
-            animation: fadeInScale 1s ease forwards;
-            animation-delay: 2s;
-            box-shadow: 0 15px 35px rgba(11, 99, 214, 0.3);
+            align-items: center;
+            box-shadow: 0 15px 40px rgba(11, 99, 214, 0.3);
+            z-index: 10;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 15px 40px rgba(11, 99, 214, 0.3); }
+            50% { box-shadow: 0 20px 50px rgba(11, 99, 214, 0.4); }
         }
         
         .hub-title {
@@ -407,9 +508,16 @@
         }
         
         .hub-time {
+            color: rgba(255, 255, 255, 0.9);
             font-size: 24px;
             font-weight: 800;
-            margin-bottom: 2px;
+            margin-top: 4px;
+        }
+        
+        .hub-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 11px;
+            font-weight: 500;
         }
         
         .hub-subtitle {
@@ -1703,48 +1811,61 @@
                     </div>
                 </div>
                 
-                <div class="hero-visual animate-in">
-                    <div class="learning-loop-diamond">
-                        <!-- Screen 1: Teacher Creates Assignment (Top - 12 o'clock) -->
-                        <div class="screen-container screen-top">
-                            <div class="step-number">1</div>
-                            <img src="assets/hero-section/teacher-creates-assignment.png" alt="Teacher creates assignment with AI settings" class="screen-image laptop-screen">
-                            <div class="screen-label">Teacher Setup</div>
-                        </div>
-                        
-                        <!-- Screen 2: Student Receives Assignment (Right - 3 o'clock) -->
-                        <div class="screen-container screen-right">
-                            <div class="step-number">2</div>
-                            <img src="assets/hero-section/student-receives-assignment.png" alt="Student receives and starts assignment" class="screen-image phone-screen">
-                            <div class="screen-label">Student Starts</div>
-                        </div>
-                        
-                        <!-- Screen 3: Student Gap Detection (Bottom - 6 o'clock) -->
-                        <div class="screen-container screen-bottom">
-                            <div class="step-number">3</div>
-                            <img src="assets/hero-section/student-gap-detection.png" alt="AI detects prerequisite gap and provides remediation" class="screen-image phone-screen">
-                            <div class="screen-label">AI Intervenes</div>
-                        </div>
-                        
-                        <!-- Screen 4: Teacher Live Analytics (Left - 9 o'clock) -->
-                        <div class="screen-container screen-left">
-                            <div class="step-number">4</div>
-                            <img src="assets/hero-section/teacher-live-analytics.png" alt="Teacher gets real-time analytics and alerts" class="screen-image laptop-screen">
-                            <div class="screen-label">Live Insights</div>
-                        </div>
+                <!-- Right: Learning Loop Visual -->
+                <div class="hero-visual">
+                    <div class="learning-loop-container">
+                        <!-- Connection Lines -->
+                        <div class="connection-line line-1-2"></div>
+                        <div class="connection-line line-2-3"></div>
+                        <div class="connection-line line-3-4"></div>
+                        <div class="connection-line line-4-1"></div>
                         
                         <!-- Central Hub -->
                         <div class="central-hub">
                             <div class="hub-title">Learning Loop</div>
                             <div class="hub-time">20min</div>
-                            <div class="hub-subtitle">Daily Mastery</div>
+                            <div class="hub-label">Daily Mastery</div>
                         </div>
                         
-                        <!-- Connection Lines -->
-                        <div class="connection-line line-top-right"></div>
-                        <div class="connection-line line-right-bottom"></div>
-                        <div class="connection-line line-bottom-left"></div>
-                        <div class="connection-line line-left-top"></div>
+                        <!-- Step 1: Teacher Setup (Top) -->
+                        <div class="loop-step step-1">
+                            <div class="step-number">1</div>
+                            <div class="step-image">
+                                <img src="assets/hero-section/teacher-creates-assignment.png" alt="Teacher creates assignment with AI settings">
+                            </div>
+                            <div class="step-label">Teacher assigns</div>
+                            <div class="step-detail">2 clicks, auto-adaptive</div>
+                        </div>
+                        
+                        <!-- Step 2: Student Receives (Right) -->
+                        <div class="loop-step step-2">
+                            <div class="step-number">2</div>
+                            <div class="step-image">
+                                <img src="assets/hero-section/student-receives-assignment.png" alt="Student receives and starts assignment">
+                            </div>
+                            <div class="step-label">Student starts</div>
+                            <div class="step-detail">Personalized questions</div>
+                        </div>
+                        
+                        <!-- Step 3: AI Adapts (Bottom) -->
+                        <div class="loop-step step-3">
+                            <div class="step-number">3</div>
+                            <div class="step-image">
+                                <img src="assets/hero-section/student-gap-detection.png" alt="AI detects prerequisite gap and provides remediation">
+                            </div>
+                            <div class="step-label">AI intervenes</div>
+                            <div class="step-detail">Gaps detected, fixed</div>
+                        </div>
+                        
+                        <!-- Step 4: Teacher Insights (Left) -->
+                        <div class="loop-step step-4">
+                            <div class="step-number">4</div>
+                            <div class="step-image">
+                                <img src="assets/hero-section/teacher-live-analytics.png" alt="Teacher gets real-time analytics and alerts">
+                            </div>
+                            <div class="step-label">Live insights</div>
+                            <div class="step-detail">Who needs help now</div>
+                        </div>
                     </div>
                 </div>
             </div>
