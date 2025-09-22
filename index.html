@@ -1324,38 +1324,415 @@
         .loop-step:nth-child(8) { top: 50%; left: 0; transform: translateY(-50%); }
         .loop-step:nth-child(9) { top: 15%; left: 10%; }
         
-        /* Stakeholders Section */
-        .stakeholders-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin-top: 60px;
+        /* Stakeholder Value Section */
+        .stakeholder-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg-white) 50%, var(--bg-soft) 100%);
+            position: relative;
+            overflow: hidden;
         }
         
-        .stakeholder-card {
-            background: white;
-            padding: 32px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+        /* Background Pattern */
+        .stakeholder-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(11, 99, 214, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(5, 150, 105, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Section Header */
+        .section-header {
             text-align: center;
-            transition: all 0.3s ease;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
         }
         
-        .stakeholder-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(11, 99, 214, 0.15);
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: white;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            border-radius: 28px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
         
-        .stakeholder-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        
+        /* Timeline Container */
+        .value-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+        
+        /* Central Spine */
+        .timeline-spine {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, 
+                var(--primary-blue) 0%, 
+                var(--accent-green) 35%, 
+                var(--primary-blue) 70%, 
+                var(--accent-warm) 100%
+            );
+            transform: translateX(-50%);
+            opacity: 0.3;
+        }
+        
+        /* Timeline Nodes */
+        .timeline-node {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        
+        .timeline-node:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Node Content */
+        .node-content-left {
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .node-content-right {
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        /* Node Card - Smaller without images */
+        .node-card {
+            background: white;
+            padding: 20px 24px;
             border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 380px;
+            width: 100%;
+        }
+        
+        .node-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+        
+        .node-school .node-card {
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .node-parent .node-card {
+            border-left: 4px solid var(--accent-green);
+        }
+        
+        .node-teacher .node-card {
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .node-student .node-card {
+            border-left: 4px solid var(--accent-warm);
+        }
+        
+        /* Priority Badge */
+        .priority-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .node-school .priority-badge {
+            color: var(--primary-blue);
+            border: 1.5px solid var(--primary-blue);
+        }
+        
+        .node-parent .priority-badge {
+            color: var(--accent-green);
+            border: 1.5px solid var(--accent-green);
+        }
+        
+        /* Node Header */
+        .node-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .node-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+        }
+        
+        .node-school .node-icon {
+            background: rgba(11, 99, 214, 0.1);
+        }
+        
+        .node-parent .node-icon {
+            background: rgba(5, 150, 105, 0.1);
+        }
+        
+        .node-teacher .node-icon {
+            background: rgba(11, 99, 214, 0.08);
+        }
+        
+        .node-student .node-icon {
+            background: rgba(255, 183, 77, 0.15);
+        }
+        
+        .node-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        /* Stakeholder Comparison Container - Simplified */
+        .stakeholder-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0 16px 0;
+        }
+        
+        .before-state, .after-state {
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .before-state {
+            background: rgba(225, 29, 72, 0.03);
+            border: 1px solid rgba(225, 29, 72, 0.15);
+        }
+        
+        .after-state {
+            background: rgba(5, 150, 105, 0.03);
+            border: 1px solid rgba(5, 150, 105, 0.15);
+        }
+        
+        .state-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+        
+        .before-state .state-label {
+            color: var(--error);
+        }
+        
+        .after-state .state-label {
+            color: var(--accent-green);
+        }
+        
+        .state-text {
+            color: var(--text-dark);
+            font-style: italic;
+            font-size: 12px;
+        }
+        
+        /* Key Metric */
+        .key-metric {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        
+        .metric-value {
+            font-size: 24px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .node-school .metric-value {
+            color: var(--primary-blue);
+        }
+        
+        .node-parent .metric-value {
+            color: var(--accent-green);
+        }
+        
+        .node-teacher .metric-value {
+            color: var(--primary-blue);
+        }
+        
+        .node-student .metric-value {
+            color: var(--accent-warm);
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        /* Center Dot */
+        .node-center {
+            position: relative;
+            width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .node-dot {
+            width: 24px;
+            height: 24px;
+            background: white;
+            border: 3px solid;
+            border-radius: 50%;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .node-school .node-dot {
+            border-color: var(--primary-blue);
+            background: var(--primary-blue);
+        }
+        
+        .node-parent .node-dot {
+            border-color: var(--accent-green);
+            background: var(--accent-green);
+        }
+        
+        .node-teacher .node-dot {
+            border-color: var(--primary-blue);
+            background: white;
+        }
+        
+        .node-student .node-dot {
+            border-color: var(--accent-warm);
+            background: white;
+        }
+        
+        /* Image Placeholder - Outside cards */
+        .image-placeholder {
+            width: 280px;
+            height: 160px;
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            border: 2px dashed #E5E7EB;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 20px;
+        }
+        
+        .placeholder-content {
+            text-align: center;
+        }
+        
+        .placeholder-text {
+            font-size: 11px;
+            color: #9CA3AF;
+            margin-top: 8px;
+        }
+        
+        /* Bottom Summary */
+        .value-summary {
+            max-width: 800px;
+            margin: 80px auto 0;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .summary-title {
             font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .summary-text {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .timeline-spine {
+                left: 20px;
+            }
+            
+            .timeline-node {
+                grid-template-columns: 1fr;
+            }
+            
+            .node-content-left {
+                text-align: left;
+                padding-left: 60px;
+            }
+            
+            .node-center {
+                position: absolute;
+                left: 20px;
+                top: 30px;
+            }
+            
+            .stakeholder-comparison {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* Features Section */
@@ -1787,7 +2164,6 @@
                 height: 220px;
             }
             
-            .stakeholders-grid,
             .impact-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -2270,43 +2646,238 @@
     </div>
 </section>
     
-    <!-- Stakeholders Section -->
-    <section class="stakeholders-section">
+    <!-- Stakeholder Value Section -->
+    <section class="stakeholder-section">
         <div class="container">
-            <div class="section-header animate-in">
-                <div class="pill">For Everyone</div>
-                <h2>Every stakeholder wins</h2>
-                <p>Built for the entire learning ecosystem, not just students.</p>
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-badge">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M8 4V8L10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>20 Minutes, 4 Perspectives</span>
+                </div>
+                <h2 class="section-title">Every stakeholder wins</h2>
+                <p class="section-subtitle">Built for the entire learning ecosystem, not just students.</p>
             </div>
             
-            <div class="stakeholders-grid animate-in">
-                <div class="stakeholder-card">
-                    <div class="stakeholder-icon">👩‍🎓</div>
-                    <h3>Students</h3>
-                    <p>Learn at your pace. Get help instantly. Master concepts, don't just memorize.</p>
-                    <strong style="color: var(--primary-blue);">Less stress, more confidence</strong>
+            <!-- Value Timeline -->
+            <div class="value-timeline">
+                <div class="timeline-spine"></div>
+                
+                <!-- School Node -->
+                <div class="timeline-node node-school">
+                    <div class="node-content-left">
+                        <div class="node-card">
+                            <div class="priority-badge">Decision Maker</div>
+                            <div class="node-header">
+                                <div class="node-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M3 9L12 2L21 9V20C21 20.5 20.5 21 20 21H4C3.5 21 3 20.5 3 20V9Z" stroke="#0B63D6" stroke-width="1.5"/>
+                                        <rect x="9" y="14" width="6" height="7" fill="#0B63D6" opacity="0.2"/>
+                                    </svg>
+                                </div>
+                                <h3 class="node-title">Schools</h3>
+                            </div>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                                Better outcomes. Happy parents. Progressive reputation.
+                            </p>
+                            <div class="stakeholder-comparison">
+                                <div class="before-state">
+                                    <div class="state-label">Before</div>
+                                    <div class="state-text">"Test results show problems months later"</div>
+                                </div>
+                                <div class="after-state">
+                                    <div class="state-label">With LearnLine</div>
+                                    <div class="state-text">"Daily data shows who needs help now"</div>
+                                </div>
+                            </div>
+                            <div class="key-metric">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Measurable improvement</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-center">
+                        <div class="node-dot"></div>
+                    </div>
+                    <div class="node-content-right">
+                        <div class="image-placeholder">
+                            <div class="placeholder-content">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <rect x="8" y="12" width="32" height="24" rx="2" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="3,3"/>
+                                    <path d="M16 20L20 24L24 18L28 22L32 16" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="3,3"/>
+                                </svg>
+                                <p class="placeholder-text">School dashboard showing class-wide learning trends</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="stakeholder-card">
-                    <div class="stakeholder-icon">👨‍👩‍👧</div>
-                    <h3>Parents</h3>
-                    <p>See daily progress. Pay 10x less than tuition. No more homework battles.</p>
-                    <strong style="color: var(--primary-blue);">Peace of mind, saved money</strong>
+                <!-- Parent Node -->
+                <div class="timeline-node node-parent">
+                    <div class="node-content-left">
+                        <div class="image-placeholder">
+                            <div class="placeholder-content">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <rect x="16" y="8" width="16" height="32" rx="2" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="3,3"/>
+                                    <circle cx="24" cy="24" r="6" stroke="#D1D5DB" stroke-width="1.5" stroke-dasharray="2,2"/>
+                                    <path d="M21 24L23 26L27 22" stroke="#D1D5DB" stroke-width="1.5"/>
+                                </svg>
+                                <p class="placeholder-text">Parent app showing today's progress & mastery</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-center">
+                        <div class="node-dot"></div>
+                    </div>
+                    <div class="node-content-right">
+                        <div class="node-card">
+                            <div class="priority-badge">Payor</div>
+                            <div class="node-header">
+                                <div class="node-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="9" cy="7" r="3" stroke="#059669" stroke-width="1.5"/>
+                                        <circle cx="15" cy="7" r="3" stroke="#059669" stroke-width="1.5"/>
+                                        <path d="M3 20C3 16 6 13 9 13C10 13 11 13.2 11.5 13.5" stroke="#059669" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.5 13.5C13 13.2 14 13 15 13C18 13 21 16 21 20" stroke="#059669" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <h3 class="node-title">Parents</h3>
+                            </div>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                                See daily progress. Pay 10x less than tuition. No more homework battles.
+                            </p>
+                            <div class="stakeholder-comparison">
+                                <div class="before-state">
+                                    <div class="state-label">Before</div>
+                                    <div class="state-text">"Did you finish?" "Yes" (unsure)</div>
+                                </div>
+                                <div class="after-state">
+                                    <div class="state-label">With LearnLine</div>
+                                    <div class="state-text">"App shows 85% mastery today"</div>
+                                </div>
+                            </div>
+                            <div class="key-metric">
+                                <span class="metric-value">10x</span>
+                                <span class="metric-label">Peace of mind, saved money</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="stakeholder-card">
-                    <div class="stakeholder-icon">👩‍🏫</div>
-                    <h3>Teachers</h3>
-                    <p>Zero grading. Daily insights. Know exactly who needs help.</p>
-                    <strong style="color: var(--primary-blue);">Teach more, grade less</strong>
+                <!-- Teacher Node -->
+                <div class="timeline-node node-teacher">
+                    <div class="node-content-left">
+                        <div class="node-card">
+                            <div class="node-header">
+                                <div class="node-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="7" r="3" stroke="#0B63D6" stroke-width="1.5"/>
+                                        <path d="M5 20C5 16 8 13 12 13C16 13 19 16 19 20" stroke="#0B63D6" stroke-width="1.5" stroke-linecap="round"/>
+                                        <rect x="17" y="10" width="6" height="8" rx="1" stroke="#0B63D6" stroke-width="1.5"/>
+                                    </svg>
+                                </div>
+                                <h3 class="node-title">Teachers</h3>
+                            </div>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                                Zero grading. Daily insights. Know exactly who needs help.
+                            </p>
+                            <div class="stakeholder-comparison">
+                                <div class="before-state">
+                                    <div class="state-label">Before</div>
+                                    <div class="state-text">"I'll grade these tonight"</div>
+                                </div>
+                                <div class="after-state">
+                                    <div class="state-label">With LearnLine</div>
+                                    <div class="state-text">"I see who needs help now"</div>
+                                </div>
+                            </div>
+                            <div class="key-metric">
+                                <span class="metric-value">Zero</span>
+                                <span class="metric-label">Teach more, grade less</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-center">
+                        <div class="node-dot"></div>
+                    </div>
+                    <div class="node-content-right">
+                        <div class="image-placeholder">
+                            <div class="placeholder-content">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <rect x="8" y="16" width="32" height="20" rx="2" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="3,3"/>
+                                    <circle cx="16" cy="26" r="3" fill="#D1D5DB" opacity="0.5"/>
+                                    <circle cx="24" cy="26" r="3" fill="#D1D5DB" opacity="0.7"/>
+                                    <circle cx="32" cy="26" r="3" fill="#D1D5DB" opacity="0.3"/>
+                                </svg>
+                                <p class="placeholder-text">Teacher view: Student progress at a glance</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="stakeholder-card">
-                    <div class="stakeholder-icon">🏫</div>
-                    <h3>Schools</h3>
-                    <p>Better outcomes. Happy parents. Progressive reputation.</p>
-                    <strong style="color: var(--primary-blue);">Measurable improvement</strong>
+                <!-- Student Node -->
+                <div class="timeline-node node-student">
+                    <div class="node-content-left">
+                        <div class="image-placeholder">
+                            <div class="placeholder-content">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <rect x="16" y="8" width="16" height="32" rx="2" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="3,3"/>
+                                    <rect x="19" y="16" width="10" height="2" fill="#D1D5DB" opacity="0.5"/>
+                                    <rect x="19" y="20" width="8" height="8" rx="1" fill="#D1D5DB" opacity="0.3"/>
+                                    <circle cx="24" cy="34" r="2" fill="#D1D5DB" opacity="0.5"/>
+                                </svg>
+                                <p class="placeholder-text">Student app: Adaptive question with AI hints</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-center">
+                        <div class="node-dot"></div>
+                    </div>
+                    <div class="node-content-right">
+                        <div class="node-card">
+                            <div class="node-header">
+                                <div class="node-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="7" r="3" stroke="#FFB74D" stroke-width="1.5"/>
+                                        <path d="M5 20C5 16 8 13 12 13C16 13 19 16 19 20" stroke="#FFB74D" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M8 5L6 3M16 5L18 3" stroke="#FFB74D" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <h3 class="node-title">Students</h3>
+                            </div>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                                Learn at your pace. Get help instantly. Master concepts, don't just memorize.
+                            </p>
+                            <div class="stakeholder-comparison">
+                                <div class="before-state">
+                                    <div class="state-label">Before</div>
+                                    <div class="state-text">"I'm stuck, I'll just copy"</div>
+                                </div>
+                                <div class="after-state">
+                                    <div class="state-label">With LearnLine</div>
+                                    <div class="state-text">"AI helped, I get it now!"</div>
+                                </div>
+                            </div>
+                            <div class="key-metric">
+                                <span class="metric-value">72%</span>
+                                <span class="metric-label">Less stress, more confidence</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- Summary -->
+            <div class="value-summary">
+                <h3 class="summary-title">Same homework time. Everyone wins.</h3>
+                <p class="summary-text">
+                    The Learning Loop creates immediate value without adding hours to anyone's day. 
+                    20 minutes that transform learning for students, save time for teachers, 
+                    provide transparency for parents, and deliver results for schools.
+                </p>
             </div>
         </div>
     </section>
