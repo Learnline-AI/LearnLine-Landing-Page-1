@@ -3,113 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearnLine - AI-Powered Personalized Learning Platform</title>
-    <meta name="description" content="Transform education with AI-powered personalized learning. Interactive lessons, real-time analytics, and adaptive content for students and teachers.">
+    <title>LearnLine - Transform Homework into Mastery Learning</title>
     
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-blue: #2563eb;
-            --primary-blue-dark: #1d4ed8;
-            --primary-blue-light: #3b82f6;
-            --secondary-purple: #7c3aed;
-            --accent-green: #10b981;
-            --accent-orange: #f59e0b;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --text-light: #9ca3af;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f9fafb;
-            --bg-accent: #f3f4f6;
-            --border-light: #e5e7eb;
-            --border-medium: #d1d5db;
-            --success: #059669;
-            --warning: #d97706;
-            --error: #dc2626;
+            --primary-blue: #0B63D6;
+            --accent-green: #059669;
+            --accent-warm: #FFB74D;
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+            --bg-white: #FFFFFF;
+            --bg-soft: #F8FAFC;
+            --bg-alt: #EEF2F7;
+            --error: #E11D48;
+            --shadow: 0 10px 28px rgba(11, 99, 214, 0.08);
+            --radius: 14px;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text-dark);
+            background: var(--bg-white);
             line-height: 1.6;
-            color: var(--text-primary);
-            background: var(--bg-primary);
             overflow-x: hidden;
         }
-
-        /* Header & Navigation */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-light);
-            z-index: 1000;
-            transition: all 0.3s ease;
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
         }
-
-        .nav-container {
+        
+        h1 { font-size: 48px; margin-bottom: 20px; }
+        h2 { font-size: 36px; margin-bottom: 16px; }
+        h3 { font-size: 24px; margin-bottom: 12px; }
+        
+        p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 72px;
         }
-
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+        }
+        
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-blue);
+            gap: 10px;
             text-decoration: none;
+            margin-left: 20px;
         }
-
-        .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+        
+        .logo-text {
+            font-family: 'Montserrat';
             font-weight: 800;
+            font-size: 24px;
         }
-
+        
+        .logo-text span:first-child {
+            color: var(--primary-blue);
+        }
+        
+        .logo-text span:last-child {
+            color: var(--accent-green);
+        }
+        
         .nav-links {
             display: flex;
-            align-items: center;
             gap: 32px;
-            list-style: none;
+            align-items: center;
         }
-
+        
         .nav-links a {
+            color: var(--text-dark);
             text-decoration: none;
-            color: var(--text-secondary);
             font-weight: 500;
-            transition: color 0.2s ease;
             position: relative;
+            transition: color 0.3s;
         }
-
-        .nav-links a:hover {
-            color: var(--primary-blue);
-        }
-
+        
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -118,841 +138,3152 @@
             width: 0;
             height: 2px;
             background: var(--primary-blue);
-            transition: width 0.2s ease;
+            transition: width 0.3s;
         }
-
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
         .nav-links a:hover::after {
             width: 100%;
         }
-
-        .cta-buttons {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
+        
+        /* Buttons */
         .btn {
-            padding: 12px 24px;
-            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: 999px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
             border: none;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
         }
-
+        
         .btn-primary {
-            background: var(--primary-blue);
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
             color: white;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 8px 20px rgba(11, 99, 214, 0.3);
         }
-
+        
         .btn-primary:hover {
-            background: var(--primary-blue-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(11, 99, 214, 0.4);
         }
-
+        
         .btn-secondary {
             background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border-medium);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
         }
-
+        
         .btn-secondary:hover {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border-color: var(--primary-blue);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 120px 0 80px;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.5;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 56px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--text-primary), var(--primary-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-content .subtitle {
-            font-size: 20px;
-            color: var(--text-secondary);
-            margin-bottom: 32px;
-            line-height: 1.6;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 32px;
-            margin: 40px 0;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--primary-blue);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-
-        .hero-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .dashboard-preview {
-            width: 100%;
-            max-width: 500px;
-            height: 350px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            padding: 24px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dashboard-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .dashboard-avatar {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent-green), var(--primary-blue));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-        }
-
-        .dashboard-info h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .dashboard-info p {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        .progress-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .progress-card {
-            background: var(--bg-secondary);
-            padding: 16px;
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-        }
-
-        .progress-card h4 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 6px;
-            background: var(--border-light);
-            border-radius: 3px;
-            overflow: hidden;
-            margin-bottom: 8px;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-green), var(--primary-blue));
-            border-radius: 3px;
-            animation: progressFill 2s ease-out;
-        }
-
-        @keyframes progressFill {
-            from { width: 0; }
-        }
-
-        .progress-card:nth-child(1) .progress-fill { width: 75%; }
-        .progress-card:nth-child(2) .progress-fill { width: 60%; }
-
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background: var(--bg-primary);
-        }
-
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-header h2 {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-primary);
-        }
-
-        .section-header p {
-            font-size: 18px;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-purple));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            color: white;
-            font-size: 24px;
-        }
-
-        .feature-card h3 {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--text-primary);
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .feature-link {
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: gap 0.2s ease;
-        }
-
-        .feature-link:hover {
-            gap: 12px;
-        }
-
-        /* How It Works Section */
-        .how-it-works {
-            padding: 100px 0;
-            background: var(--bg-secondary);
-        }
-
-        .how-it-works-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .step-card {
-            text-align: center;
-            position: relative;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
             background: var(--primary-blue);
             color: white;
-            border-radius: 50%;
-            display: flex;
+        }
+        
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 80px 0;
+            background: radial-gradient(circle at 30% 20%, rgba(11, 99, 214, 0.15), rgba(5, 150, 105, 0.15) 60%, rgba(255, 255, 255, 0) 90%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0 auto 24px;
             position: relative;
             z-index: 2;
         }
-
-        .step-card::after {
-            content: '';
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            width: 100%;
-            height: 2px;
-            background: var(--border-medium);
-            z-index: 1;
-        }
-
-        .step-card:last-child::after {
-            display: none;
-        }
-
-        .step-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .step-card p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-purple));
-            color: white;
-            text-align: center;
-        }
-
-        .cta-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .cta-section h2 {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .cta-section p {
-            font-size: 18px;
-            margin-bottom: 32px;
-            opacity: 0.9;
-        }
-
-        .cta-buttons-section {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .btn-white {
-            background: white;
-            color: var(--primary-blue);
-        }
-
-        .btn-white:hover {
-            background: var(--bg-secondary);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: var(--primary-blue);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--text-primary);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand h3 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--primary-blue-light);
-        }
-
-        .footer-brand p {
-            color: #9ca3af;
-            line-height: 1.6;
+        
+        .hero-text h1 {
+            font-size: 52px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 24px;
         }
-
-        .social-links {
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        .hero-text h2 {
+            font-size: 32px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+        }
+        
+        .hero-cta {
             display: flex;
             gap: 16px;
+            margin-bottom: 40px;
         }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: #374151;
-            border-radius: 8px;
+        
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+        }
+        
+        /* Learning Loop Visualization - Enhanced */
+        .learning-loop-container {
+            position: relative;
+            width: 700px;
+            height: 700px;
+        }
+        
+        /* Loop Steps - Rectangular Cards */
+        .loop-step {
+            position: absolute;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            padding: 20px;
+            width: 220px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .loop-step:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+        
+        .screen-image {
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .screen-label {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            text-decoration: none;
-            transition: all 0.2s ease;
+            font-weight: 700;
+            font-size: 13px;
+            z-index: 20;
+            box-shadow: 0 4px 12px rgba(11, 99, 214, 0.3);
         }
-
-        .social-link:hover {
-            background: var(--primary-blue);
-            transform: translateY(-2px);
+        
+        /* Perfect Diamond Positioning */
+        .step-1 {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 3px solid var(--primary-blue);
         }
-
-        .footer-column h4 {
-            font-size: 16px;
-            font-weight: 600;
+        
+        .step-2 {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            border: 3px solid var(--accent-warm);
+        }
+        
+        .step-3 {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 3px solid var(--accent-green);
+        }
+        
+        .step-4 {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            border: 3px solid var(--primary-blue);
+        }
+        
+        /* Enhanced Step Numbers */
+        .loop-step .step-number {
+            position: absolute;
+            top: -12px;
+            right: 16px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+        
+        .step-1 .step-number {
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+        
+        .step-2 .step-number {
+            color: var(--accent-warm);
+            border: 2px solid var(--accent-warm);
+        }
+        
+        .step-3 .step-number {
+            color: var(--accent-green);
+            border: 2px solid var(--accent-green);
+        }
+        
+        .step-4 .step-number {
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+        
+        /* Step Content Areas - Prominent Images */
+        .step-image {
+            width: 180px;
+            height: 120px;
+            background: var(--bg-soft);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
             margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-
-        .footer-column ul {
-            list-style: none;
+        
+        .step-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
-
-        .footer-column ul li {
-            margin-bottom: 8px;
+        
+        /* Clean background when image is present */
+        .step-image:has(img) {
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
-
-        .footer-column ul li a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .footer-column ul li a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 30px;
+        
+        .step-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
             text-align: center;
-            color: #9ca3af;
         }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 40px;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .step-card::after {
-                display: none;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .cta-buttons-section {
-                flex-direction: column;
-                align-items: center;
-            }
+        
+        .step-detail {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.3;
         }
-
+        
+        /* Enhanced Connection Lines for New Layout */
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .line-1-2 {
+            top: 30%;
+            right: 30%;
+            width: 180px;
+            height: 2px;
+            transform: rotate(45deg);
+        }
+        
+        .line-2-3 {
+            bottom: 30%;
+            right: 30%;
+            width: 180px;
+            height: 2px;
+            transform: rotate(-45deg);
+        }
+        
+        .line-3-4 {
+            bottom: 30%;
+            left: 30%;
+            width: 180px;
+            height: 2px;
+            transform: rotate(45deg);
+        }
+        
+        .line-4-1 {
+            top: 30%;
+            left: 30%;
+            width: 180px;
+            height: 2px;
+            transform: rotate(-45deg);
+        }
+        
+        /* Screen Sizes */
+        .laptop-screen {
+            width: 260px;
+            height: auto;
+        }
+        
+        .phone-screen {
+            width: 130px;
+            height: auto;
+        }
+        
+        /* Central Hub - More Prominent */
+        .central-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 15px 40px rgba(11, 99, 214, 0.3);
+            z-index: 10;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 15px 40px rgba(11, 99, 214, 0.3); }
+            50% { box-shadow: 0 20px 50px rgba(11, 99, 214, 0.4); }
+        }
+        
+        .hub-title {
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 2px;
+            line-height: 1.1;
+        }
+        
+        .hub-time {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 24px;
+            font-weight: 800;
+            margin-top: 4px;
+        }
+        
+        .hub-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .hub-subtitle {
+            font-size: 10px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        /* Connection Lines */
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(45deg, var(--primary-blue), var(--accent-green));
+            height: 2px;
+            opacity: 0.3;
+            animation: connectionFlow 3s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        .line-top-right {
+            top: 25%;
+            left: 55%;
+            width: 300px;
+            transform: rotate(45deg);
+            animation-delay: 0s;
+        }
+        
+        .line-right-bottom {
+            top: 55%;
+            right: 25%;
+            width: 300px;
+            transform: rotate(135deg);
+            animation-delay: 0.75s;
+        }
+        
+        .line-bottom-left {
+            bottom: 25%;
+            right: 55%;
+            width: 300px;
+            transform: rotate(225deg);
+            animation-delay: 1.5s;
+        }
+        
+        .line-left-top {
+            bottom: 55%;
+            left: 25%;
+            width: 300px;
+            transform: rotate(315deg);
+            animation-delay: 2.25s;
+        }
+        
+        @keyframes connectionFlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+        
+        
         /* Animations */
+        @keyframes screenFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        /* Individual floating animation delays for diamond positions */
+        .screen-top {
+            animation-delay: 0s, 0s;
+        }
+        
+        .screen-right {
+            animation-delay: 0.5s, 1s;
+        }
+        
+        .screen-bottom {
+            animation-delay: 1s, 2s;
+        }
+        
+        .screen-left {
+            animation-delay: 1.5s, 3s;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+        
+        /* Problem Section */
+        .problem-section {
+            background: var(--bg-soft);
+        }
 
-        .animate-on-scroll {
-            animation: fadeInUp 0.6s ease-out;
+        /* Problem + Solution Section */
+        .problem-solution-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-soft) 50%, var(--bg-white) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-solution-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(11, 99, 214, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .ps-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ps-insight-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            color: white;
+            border-radius: 28px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(11, 99, 214, 0.2);
+        }
+
+        .ps-insight-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .ps-header h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ps-header .subtitle {
+            font-size: 20px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .ps-comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: stretch;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ps-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .ps-card-before {
+            border: 2px solid #FEE2E2;
+        }
+
+        .ps-card-after {
+            border: 2px solid #DCFCE7;
+            transform: translateY(-8px);
+        }
+
+        .ps-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .ps-card-after:hover {
+            transform: translateY(-12px);
+        }
+
+        .ps-card-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .ps-card-title {
+            font-size: 24px;
+            font-weight: 700;
+            padding: 24px 24px 0;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .ps-metrics {
+            padding: 0 24px 24px;
+        }
+
+        .ps-metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #F3F4F6;
+        }
+
+        .ps-metric-row:last-child {
+            border-bottom: none;
+        }
+
+        .ps-metric-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .ps-metric-value {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        .ps-metric-value-bad {
+            background: #FEE2E2;
+            color: #DC2626;
+        }
+
+        .ps-metric-value-good {
+            background: #DCFCE7;
+            color: #16A34A;
+        }
+
+        .ps-arrow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .ps-arrow-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(11, 99, 214, 0.2);
+        }
+
+        .ps-arrow-circle svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .ps-arrow-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #F3F4F6;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .experience-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .experience-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .experience-value {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .experience-context {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .pill {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(11, 99, 214, 0.1);
+            color: var(--primary-blue);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+        
+        .problem-card h3 {
+            margin-bottom: 16px;
+        }
+        
+        .problem-stat {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid #E5E7EB;
+        }
+        
+        .problem-stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--error);
+        }
+        
+        /* Transformation Section - The Merged Approach */
+        .transformation-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg-white) 50%, var(--bg-soft) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle background pattern */
+        .transformation-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(11, 99, 214, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Section Header - Leading with Insight */
+        .transformation-header {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .insight-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            color: white;
+            border-radius: 28px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(11, 99, 214, 0.2);
+        }
+        
+        .insight-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .transformation-header h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--text-dark) 0%, var(--primary-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .transformation-header .subtitle {
+            font-size: 20px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .transformation-header .key-insight {
+            font-size: 18px;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 20px;
+            background: rgba(5, 150, 105, 0.08);
+            border-left: 4px solid var(--accent-green);
+            border-radius: 8px;
+            margin-top: 32px;
+        }
+        
+        /* Visual Comparison Container */
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            align-items: stretch;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Comparison Cards */
+        .comparison-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .comparison-card.current {
+            border: 2px solid #E5E7EB;
+        }
+        
+        .comparison-card.current:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+        
+        .comparison-card.transformed {
+            border: 2px solid var(--accent-green);
+            transform: scale(1.02);
+            box-shadow: 0 8px 32px rgba(5, 150, 105, 0.15);
+        }
+        
+        .comparison-card.transformed:hover {
+            transform: scale(1.02) translateY(-8px);
+            box-shadow: 0 16px 40px rgba(5, 150, 105, 0.2);
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #059669;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Progressive reveal animations */
+        .comparison-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.8s ease forwards;
+        }
+        
+        .comparison-card.new {
+            animation-delay: 0.2s;
+        }
+        
+        .feature-list li {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        .comparison-card:hover .feature-list li {
+            animation: slideInLeft 0.3s ease forwards;
+        }
+        
+        .comparison-card:hover .feature-list li:nth-child(1) { animation-delay: 0.1s; }
+        .comparison-card:hover .feature-list li:nth-child(2) { animation-delay: 0.2s; }
+        .comparison-card:hover .feature-list li:nth-child(3) { animation-delay: 0.3s; }
+        .comparison-card:hover .feature-list li:nth-child(4) { animation-delay: 0.4s; }
+        .comparison-card:hover .feature-list li:nth-child(5) { animation-delay: 0.5s; }
+        
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Card Headers for Transformation */
+        .card-header {
+            padding: 24px 24px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        
+        .card-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .current .card-label {
+            color: var(--text-muted);
+        }
+        
+        .transformed .card-label {
+            color: var(--accent-green);
+        }
+        
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .current .card-title {
+            color: var(--text-dark);
+        }
+        
+        .transformed .card-title {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Metric Rows */
+        .metric-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        .metric-value {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .current .metric-value {
+            color: var(--error);
+        }
+        
+        .transformed .metric-value {
+            color: var(--accent-green);
+        }
+        
+        /* Transform Arrow */
+        .transform-arrow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        .transform-arrow {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(11, 99, 214, 0.25);
+            position: relative;
+            animation: transformPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes transformPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .transform-arrow svg {
+            width: 32px;
+            height: 32px;
+            color: white;
+        }
+        
+        .transform-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+        
+        .experience-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-blue);
+        }
+        
+        .experience-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, rgba(11, 99, 214, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .experience-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--primary-blue);
+        }
+        
+        .experience-card h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+        
+        .experience-value {
+            font-size: 24px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-green);
+            margin-bottom: 4px;
+        }
+        
+        .experience-context {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        
+        /* Card Image Section Styles for Transformation */
+        .card-image-section {
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image-section.transformed {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.03) 0%, rgba(11, 99, 214, 0.03) 100%);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .comparison-card.current .card-image {
+            border: 2px solid rgba(225, 29, 72, 0.2);
+        }
+        
+        .comparison-card.transformed .card-image {
+            border: 2px solid rgba(5, 150, 105, 0.3);
+        }
+        
+        /* Card Content for Transformation */
+        .card-content {
+            padding: 24px;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f3f4f6;
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .old .card-icon {
+            background: rgba(220, 53, 69, 0.1);
+        }
+        
+        .new .card-icon {
+            background: rgba(5, 150, 105, 0.1);
+        }
+        
+        .card-title {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .old .card-title {
+            color: #6B7280;
+        }
+        
+        .new .card-title {
+            background: linear-gradient(135deg, #0B63D6 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 10px 0;
+        }
+        
+        .feature-list li {
+            padding: 4px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 15px;
+            color: #495057;
+            line-height: 1.3;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+        
+        .feature-list li:hover {
+            transform: translateX(5px);
+            background: rgba(11, 99, 214, 0.03);
+            padding-left: 8px;
+            margin: 0 -8px;
+        }
+        
+        .feature-icon {
+            font-size: 18px;
+            margin-top: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-list li:hover .feature-icon {
+            transform: scale(1.2);
+        }
+        
+        .old .feature-icon {
+            color: #dc3545;
+        }
+        
+        .new .feature-icon {
+            color: #059669;
+        }
+        
+        .result-box {
+            padding: 10px;
+            border-radius: 12px;
+            margin-top: 8px;
+        }
+        
+        .old .result-box {
+            background: rgba(220, 53, 69, 0.05);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+        }
+        
+        .new .result-box {
+            background: rgba(5, 150, 105, 0.05);
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+        
+        .result-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        
+        .old .result-label {
+            color: #dc3545;
+        }
+        
+        .new .result-label {
+            color: #059669;
+        }
+        
+        .result-text {
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        
+        .old .result-text {
+            color: #721c24;
+        }
+        
+        .new .result-text {
+            color: #155724;
+        }
+        
+        /* Learning Loop Section */
+        .loop-section {
+            background: var(--bg-soft);
+        }
+        
+        .loop-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .loop-visual {
+            margin: 60px 0;
+            position: relative;
+            height: 500px;
+        }
+        
+        .loop-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 20px 40px rgba(11, 99, 214, 0.3);
+            z-index: 10;
+        }
+        
+        .loop-step {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .loop-step:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(11, 99, 214, 0.2);
+        }
+        
+        .loop-step-number {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        /* Position loop steps */
+        .loop-step:nth-child(2) { top: 0; left: 50%; transform: translateX(-50%); }
+        .loop-step:nth-child(3) { top: 15%; right: 10%; }
+        .loop-step:nth-child(4) { top: 50%; right: 0; transform: translateY(-50%); }
+        .loop-step:nth-child(5) { bottom: 15%; right: 10%; }
+        .loop-step:nth-child(6) { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .loop-step:nth-child(7) { bottom: 15%; left: 10%; }
+        .loop-step:nth-child(8) { top: 50%; left: 0; transform: translateY(-50%); }
+        .loop-step:nth-child(9) { top: 15%; left: 10%; }
+        
+        /* Stakeholder Value Section */
+        .stakeholder-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg-white) 50%, var(--bg-soft) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background Pattern */
+        .stakeholder-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(11, 99, 214, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(5, 150, 105, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: white;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            border-radius: 28px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        
+        /* Timeline Container */
+        .value-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+        
+        /* Central Spine */
+        .timeline-spine {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, 
+                var(--primary-blue) 0%, 
+                var(--accent-green) 35%, 
+                var(--primary-blue) 70%, 
+                var(--accent-warm) 100%
+            );
+            transform: translateX(-50%);
+            opacity: 0.3;
+        }
+        
+        /* Timeline Nodes */
+        .timeline-node {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+        
+        .timeline-node:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Node Content */
+        .node-content-left {
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .node-content-right {
+            text-align: left;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        
+        /* Node Card - Smaller without images */
+        .node-card {
+            background: white;
+            padding: 20px 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            position: relative;
+            transition: all 0.3s ease;
+            max-width: 380px;
+            width: 100%;
+        }
+        
+        .node-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+        
+        .node-school .node-card {
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .node-parent .node-card {
+            border-left: 4px solid var(--accent-green);
+        }
+        
+        .node-teacher .node-card {
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .node-student .node-card {
+            border-left: 4px solid var(--accent-warm);
+        }
+        
+        /* Priority Badge */
+        .priority-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .node-school .priority-badge {
+            color: var(--primary-blue);
+            border: 1.5px solid var(--primary-blue);
+        }
+        
+        .node-parent .priority-badge {
+            color: var(--accent-green);
+            border: 1.5px solid var(--accent-green);
+        }
+        
+        /* Node Header */
+        .node-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .node-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .node-school .node-icon {
+            background: rgba(11, 99, 214, 0.1);
+        }
+        
+        .node-parent .node-icon {
+            background: rgba(5, 150, 105, 0.1);
+        }
+        
+        .node-teacher .node-icon {
+            background: rgba(11, 99, 214, 0.08);
+        }
+        
+        .node-student .node-icon {
+            background: rgba(255, 183, 77, 0.15);
+        }
+        
+        .node-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        /* Stakeholder Comparison Container - Simplified */
+        .stakeholder-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 12px 0 16px 0;
+        }
+        
+        .before-state, .after-state {
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .before-state {
+            background: rgba(225, 29, 72, 0.03);
+            border: 1px solid rgba(225, 29, 72, 0.15);
+        }
+        
+        .after-state {
+            background: rgba(5, 150, 105, 0.03);
+            border: 1px solid rgba(5, 150, 105, 0.15);
+        }
+        
+        .state-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+        
+        .before-state .state-label {
+            color: var(--error);
+        }
+        
+        .after-state .state-label {
+            color: var(--accent-green);
+        }
+        
+        .state-text {
+            color: var(--text-dark);
+            font-style: italic;
+            font-size: 12px;
+        }
+        
+        /* Key Metric */
+        .key-metric {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        
+        .metric-value {
+            font-size: 24px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .node-school .metric-value {
+            color: var(--primary-blue);
+        }
+        
+        .node-parent .metric-value {
+            color: var(--accent-green);
+        }
+        
+        .node-teacher .metric-value {
+            color: var(--primary-blue);
+        }
+        
+        .node-student .metric-value {
+            color: var(--accent-warm);
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        /* Center Dot */
+        .node-center {
+            position: relative;
+            width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .node-dot {
+            width: 24px;
+            height: 24px;
+            background: white;
+            border: 3px solid;
+            border-radius: 50%;
+            position: relative;
+            z-index: 3;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .node-school .node-dot {
+            border-color: var(--primary-blue);
+            background: var(--primary-blue);
+        }
+        
+        .node-parent .node-dot {
+            border-color: var(--accent-green);
+            background: var(--accent-green);
+        }
+        
+        .node-teacher .node-dot {
+            border-color: var(--primary-blue);
+            background: white;
+        }
+        
+        .node-student .node-dot {
+            border-color: var(--accent-warm);
+            background: white;
+        }
+        
+        /* Image Placeholder - Outside cards */
+        .image-placeholder {
+            width: 280px;
+            height: 160px;
+            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            border: 2px dashed #E5E7EB;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 20px;
+        }
+        
+        .placeholder-content {
+            text-align: center;
+        }
+        
+        .placeholder-text {
+            font-size: 11px;
+            color: #9CA3AF;
+            margin-top: 8px;
+        }
+        
+        /* Bottom Summary */
+        .value-summary {
+            max-width: 800px;
+            margin: 80px auto 0;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .summary-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .summary-text {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .timeline-spine {
+                left: 20px;
+            }
+            
+            .timeline-node {
+                grid-template-columns: 1fr;
+            }
+            
+            .node-content-left {
+                text-align: left;
+                padding-left: 60px;
+            }
+            
+            .node-center {
+                position: absolute;
+                left: 20px;
+                top: 30px;
+            }
+            
+            .stakeholder-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            /* Problem + Solution Section Responsive */
+            .problem-solution-section {
+                padding: 80px 20px;
+            }
+
+            .ps-header h2 {
+                font-size: 32px;
+            }
+
+            .ps-comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .ps-arrow-container {
+                transform: rotate(90deg);
+                margin: 20px 0;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .experience-card {
+                padding: 20px;
+            }
+
+            .experience-value {
+                font-size: 24px;
+            }
+
+            .ps-card-image {
+                height: 180px;
+            }
+        }
+        
+        /* Features Section */
+        .features-section {
+            background: var(--bg-soft);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 32px;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(11, 99, 214, 0.15);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(11, 99, 214, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            font-size: 24px;
+        }
+        
+        /* Impact Section */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .impact-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+        
+        .impact-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        
+        .impact-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .cta-content h2 {
+            color: white;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        
+        .cta-buttons .btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+        }
+        
+        .cta-buttons .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .cta-buttons .btn-secondary {
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            background: transparent;
+        }
+        
+        .cta-buttons .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .pilot-details {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .pilot-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .pilot-item {
+            text-align: left;
+        }
+        
+        .pilot-item strong {
+            display: block;
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: #A0AEC0;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section a {
+            color: #A0AEC0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .animate-in.fade-in-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .learning-loop-diamond {
+                height: 700px;
+                max-width: 1000px;
+            }
+            
+            .laptop-screen {
+                width: 220px;
+            }
+            
+            .phone-screen {
+                width: 110px;
+            }
+            
+            .central-hub {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .hub-title {
+                font-size: 12px;
+            }
+            
+            .hub-subtitle {
+                font-size: 9px;
+            }
+            
+            .connection-line {
+                width: 250px;
+            }
+            
+            .screen-right {
+                right: 5px;
+            }
+            
+            .screen-left {
+                left: 5px;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 40px;
+            }
+            
+            .learning-loop-container {
+                max-width: 500px;
+                height: 500px;
+            }
+            
+            .loop-step {
+                width: 160px;
+                height: 140px;
+                padding: 12px;
+            }
+            
+            .step-image {
+                width: 130px;
+                height: 80px;
+            }
+            
+            .central-hub {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .hub-title {
+                font-size: 12px;
+            }
+            
+            .hub-time {
+                font-size: 18px;
+            }
+            
+            .hub-label {
+                font-size: 9px;
+            }
+            
+            /* Mobile diamond layout */
+            .learning-loop-diamond {
+                height: 900px;
+                padding: 20px;
+            }
+            
+            .screen-container {
+                position: relative !important;
+                transform: none !important;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            
+            .screen-top {
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%) !important;
+            }
+            
+            .screen-right {
+                top: 220px;
+                left: 50%;
+                transform: translateX(-50%) !important;
+            }
+            
+            .screen-bottom {
+                top: 440px;
+                left: 50%;
+                transform: translateX(-50%) !important;
+            }
+            
+            .screen-left {
+                top: 660px;
+                left: 50%;
+                transform: translateX(-50%) !important;
+            }
+            
+            .laptop-screen {
+                width: 200px;
+            }
+            
+            .phone-screen {
+                width: 100px;
+            }
+            
+            .central-hub {
+                display: none;
+            }
+            
+            .connection-line {
+                display: none;
+            }
+            
+            .screen-label {
+                font-size: 12px;
+            }
+            
+            .step-number {
+                width: 25px;
+                height: 25px;
+                font-size: 12px;
+            }
+            
+            .problem-grid,
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-card.new {
+                transform: translateY(0);
+            }
+            
+            .card-image-section {
+                height: 180px;
+            }
+            
+            .card-content {
+                padding: 12px;
+            }
+            
+            .transformation-section {
+                padding: 60px 20px;
+            }
+            
+            .transformation-header h2 {
+                font-size: 32px;
+            }
+            
+            .comparison-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .transform-arrow-container {
+                transform: rotate(90deg);
+                margin: 20px 0;
+            }
+            
+            .experience-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .card-image-section {
+                height: 220px;
+            }
+            
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pilot-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card-image-section {
+                height: 180px;
+                padding: 16px;
+            }
+            
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon">L</div>
-                LearnLine
+                <img src="assets/logo.png" alt="LearnLine Logo" width="180" height="60" style="object-fit: contain;">
             </a>
             
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-secondary">Sign In</a>
-                <a href="#" class="btn btn-primary">Start Free Trial</a>
+            <div class="nav-links">
+                <a href="#problem">Problem</a>
+                <a href="#solution">Solution</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#impact">Impact</a>
+                <a href="#pilot" class="btn btn-primary">Schedule Pilot</a>
             </div>
-        </nav>
-    </header>
-
+        </div>
+    </nav>
+    
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-container">
+        <canvas id="particles"></canvas>
+        <div class="container">
             <div class="hero-content">
-                <h1>Transform Learning with AI-Powered Education</h1>
-                <p class="subtitle">Personalized learning experiences that adapt to every student's needs. Real-time analytics, interactive content, and intelligent tutoring all in one platform.</p>
-                
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary">Start Free Trial</a>
-                    <a href="fractions.html" class="btn btn-secondary">Try Demo Lesson</a>
-                </div>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">50K+</span>
-                        <span class="stat-label">Active Students</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">2K+</span>
-                        <span class="stat-label">Teachers</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">95%</span>
-                        <span class="stat-label">Success Rate</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hero-visual">
-                <div class="dashboard-preview">
-                    <div class="dashboard-header">
-                        <div class="dashboard-avatar">JS</div>
-                        <div class="dashboard-info">
-                            <h3>John's Learning Dashboard</h3>
-                            <p>Grade 5 • Mathematics</p>
-                        </div>
+                <div class="hero-text animate-in">
+                    <h1>Complete the Learning Loop</h1>
+                    <p class="hero-subtitle">
+                        Transform homework into adaptive mastery learning. 
+                        <span style="color: var(--accent-green); font-weight: 600;">Same 20 minutes</span>, measurable outcomes daily.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#pilot" class="btn btn-primary">Schedule School Demo</a>
+                        <a href="#solution" class="btn btn-secondary">See How It Works</a>
                     </div>
                     
-                    <div class="progress-cards">
-                        <div class="progress-card">
-                            <h4>Fractions</h4>
-                            <div class="progress-bar">
-                                <div class="progress-fill"></div>
-                            </div>
-                            <p style="font-size: 12px; color: var(--text-secondary);">75% Complete</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">20min</span>
+                            <span class="stat-label">Complete daily loop</span>
                         </div>
-                        <div class="progress-card">
-                            <h4>Geometry</h4>
-                            <div class="progress-bar">
-                                <div class="progress-fill"></div>
-                            </div>
-                            <p style="font-size: 12px; color: var(--text-secondary);">60% Complete</p>
+                        <div class="stat-item">
+                            <span class="stat-number">3min</span>
+                            <span class="stat-label">Gap detection</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">Zero</span>
+                            <span class="stat-label">Teacher grading</span>
                         </div>
                     </div>
-                    
-                    <div style="background: var(--bg-accent); padding: 16px; border-radius: 8px; text-align: center;">
-                        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 8px;">🎯 Next Recommended Lesson</p>
-                        <p style="font-size: 16px; font-weight: 600;">Mixed Numbers & Improper Fractions</p>
+                </div>
+                
+                <!-- Right: Learning Loop Visual -->
+                <div class="hero-visual">
+                    <div class="learning-loop-container">
+                        <!-- Connection Lines -->
+                        <div class="connection-line line-1-2"></div>
+                        <div class="connection-line line-2-3"></div>
+                        <div class="connection-line line-3-4"></div>
+                        <div class="connection-line line-4-1"></div>
+                        
+                        <!-- Central Hub -->
+                        <div class="central-hub">
+                            <div class="hub-title">Learning Loop</div>
+                            <div class="hub-time">20min</div>
+                            <div class="hub-label">Daily Mastery</div>
+                        </div>
+                        
+                        <!-- Step 1: Teacher Setup (Top) -->
+                        <div class="loop-step step-1">
+                            <div class="step-number">1</div>
+                            <div class="step-image">
+                                <img src="assets/hero-section2/teacher-creates-assignment.webp" alt="Teacher creates assignment with AI settings">
+                            </div>
+                            <div class="step-label">Teacher assigns</div>
+                            <div class="step-detail">2 clicks, auto-adaptive</div>
+                        </div>
+                        
+                        <!-- Step 2: Student Receives (Right) -->
+                        <div class="loop-step step-2">
+                            <div class="step-number">2</div>
+                            <div class="step-image">
+                                <img src="assets/hero-section2/student-receives-assignment.webp" alt="Student receives and starts assignment">
+                            </div>
+                            <div class="step-label">Student starts</div>
+                            <div class="step-detail">Personalized questions</div>
+                        </div>
+                        
+                        <!-- Step 3: AI Adapts (Bottom) -->
+                        <div class="loop-step step-3">
+                            <div class="step-number">3</div>
+                            <div class="step-image">
+                                <img src="assets/hero-section2/assets_task_01k5p86zs5etwbd7ptd6m9a755_1758462315_img_0.webp" alt="AI detects prerequisite gap and provides remediation">
+                            </div>
+                            <div class="step-label">AI intervenes</div>
+                            <div class="step-detail">Gaps detected, fixed</div>
+                        </div>
+                        
+                        <!-- Step 4: Teacher Insights (Left) -->
+                        <div class="loop-step step-4">
+                            <div class="step-number">4</div>
+                            <div class="step-image">
+                                <img src="assets/hero-section2/teacher-live-analytics.webp" alt="Teacher gets real-time analytics and alerts">
+                            </div>
+                            <div class="step-label">Live insights</div>
+                            <div class="step-detail">Who needs help now</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="features-container">
-            <div class="section-header">
-                <h2>Powerful Features for Modern Learning</h2>
-                <p>Everything you need to create engaging, personalized learning experiences that drive real results.</p>
+    <!-- Problem + Solution Section -->
+    <section class="problem-solution-section">
+        <div class="container">
+            <!-- Header with Insight -->
+            <div class="ps-header">
+                <div class="ps-insight-badge">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <span>OUR BREAKTHROUGH INSIGHT</span>
+                </div>
+                <h2>Every homework hour is a mastery opportunity</h2>
+                <p class="subtitle">
+                    Students already spend 3 hours daily on homework. Teachers already assign it. Parents already supervise it.
+                </p>
+                <p class="subtitle">
+                    What if we transformed these existing hours into adaptive, diagnostic-driven learning?
+                </p>
             </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3>AI-Powered Tutoring</h3>
-                    <p>Intelligent virtual assistants provide personalized help, answer questions, and guide students through complex concepts with adaptive explanations.</p>
-                    <a href="#" class="feature-link">Learn more →</a>
+
+            <!-- Visual Before/After -->
+            <div class="ps-comparison-grid">
+                <!-- Before -->
+                <div class="ps-card ps-card-before">
+                    <img src="assets/Solution-Section/OldHomework.webp" alt="Traditional homework worksheet showing static, one-size-fits-all approach" class="ps-card-image" />
+                    <h3 class="ps-card-title">Current Homework</h3>
+                    <div class="ps-metrics">
+                        <div class="ps-metric-row">
+                            <span class="ps-metric-label">Learning measured</span>
+                            <span class="ps-metric-value ps-metric-value-bad">Never</span>
+                        </div>
+                        <div class="ps-metric-row">
+                            <span class="ps-metric-label">Gap detection</span>
+                            <span class="ps-metric-value ps-metric-value-bad">After exams</span>
+                        </div>
+                        <div class="ps-metric-row">
+                            <span class="ps-metric-label">Teacher time</span>
+                            <span class="ps-metric-value ps-metric-value-bad">2hr grading</span>
+                        </div>
+                        <div class="ps-metric-row">
+                            <span class="ps-metric-label">Cost to parents</span>
+                            <span class="ps-metric-value ps-metric-value-bad">+₹5000 tuition</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="ps-arrow-container">
+                    <div class="ps-arrow-circle">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                    <div class="ps-arrow-text">Transform with AI</div>
+                </div>
+
+                <!-- After -->
+                <div class="ps-card ps-card-after">
+                    <img src="assets/Solution-Section/LearnLineHomeWork.webp" alt="LearnLine adaptive homework showing personalized, AI-driven approach" class="ps-card-image" />
+                    <h3 class="ps-card-title">LearnLine Homework</h3>
+                    <div class="ps-metrics">
+                        <div class="ps-metric-row">
+                            <span class="ps-metric-label">Learning measured</span>
+                            <span class="ps-metric-value ps-metric-value-good">Every session</span>
+                        </div>
+                        <div class="ps-metric-row">
+                            <span class="ps-metric-label">Gap detection</span>
+                            <span class="ps-metric-value ps-metric-value-good">3 minutes</span>
+                        </div>
+                        <div class="ps-metric-row">
+                            <span class="ps-metric-label">Teacher time</span>
+                            <span class="ps-metric-value ps-metric-value-good">0 grading</span>
+                        </div>
+                        <div class="ps-metric-row">
+                            <span class="ps-metric-label">Cost to parents</span>
+                            <span class="ps-metric-value ps-metric-value-good">10x cheaper</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Cards - Who Wins -->
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                        </svg>
+                    </div>
+                    <h4>Students</h4>
+                    <div class="experience-value">72%</div>
+                    <div class="experience-context">Faster concept mastery, more confidence</div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h4>Parents</h4>
+                    <div class="experience-value">10x</div>
+                    <div class="experience-context">Cheaper than tuition, clear progress</div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h4>Teachers</h4>
+                    <div class="experience-value">2hrs</div>
+                    <div class="experience-context">Daily saved from grading</div>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h4>Schools</h4>
+                    <div class="experience-value">100%</div>
+                    <div class="experience-context">Learning visibility, happy parents</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Learning Loop Section -->
+<section id="how-it-works" class="loop-section" style="background: #F8FAFC; padding: 100px 0;">
+    <div class="container">
+        <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 80px;">
+            <div class="pill" style="display: inline-block; padding: 10px 20px; background: linear-gradient(135deg, rgba(11, 99, 214, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%); color: #0B63D6; border-radius: 24px; font-size: 14px; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.5px; text-transform: uppercase;">How It Works</div>
+            <h2 style="font-size: 48px; background: linear-gradient(135deg, #0B63D6 0%, #059669 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 16px; font-weight: 800;">The Learning Loop</h2>
+            <p style="color: #6B7280; font-size: 20px; line-height: 1.6;">Every homework session creates a complete cycle of learning, from classroom to mastery in just 20 minutes.</p>
+        </div>
+        
+        <div style="display: flex; gap: 60px; align-items: center; justify-content: center;">
+            <!-- Loop Diagram -->
+            <div style="position: relative; width: 700px; height: 700px;">
+                <!-- Animated Background -->
+                <svg style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;" viewBox="0 0 700 700">
+                    <defs>
+                        <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#0B63D6;stop-opacity:0.3">
+                                <animate attributeName="stop-opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite" />
+                            </stop>
+                            <stop offset="100%" style="stop-color:#059669;stop-opacity:0.3">
+                                <animate attributeName="stop-opacity" values="0.3;0.6;0.3" dur="3s" repeatCount="indefinite" begin="1.5s" />
+                            </stop>
+                        </linearGradient>
+                    </defs>
+                    <circle cx="350" cy="350" r="250" fill="none" stroke="url(#flowGradient)" stroke-width="2" stroke-dasharray="10,5" opacity="0.5">
+                        <animateTransform attributeName="transform" type="rotate" from="0 350 350" to="360 350 350" dur="30s" repeatCount="indefinite" />
+                    </circle>
+                </svg>
+                
+                <!-- Central Hub -->
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; background: linear-gradient(135deg, #0B63D6 0%, #059669 100%); border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(11, 99, 214, 0.15), 0 20px 40px rgba(11, 99, 214, 0.1), 0 30px 60px rgba(11, 99, 214, 0.05); z-index: 10;">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" style="margin-bottom: 12px;">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+                        <path d="M2 12L12 17L22 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+                    </svg>
+                    <h2 style="color: white; font-size: 26px; font-weight: 700; font-family: 'Montserrat', sans-serif; text-align: center; line-height: 1.2;">Learning<br>Loop</h2>
+                    <p style="color: rgba(255, 255, 255, 0.9); font-size: 13px; margin-top: 0px; font-weight: 500;">Daily Mastery in 20 Min</p>
                 </div>
                 
+                <!-- Step 1: Teacher Sets Goals (top - 12 o'clock) -->
+                <div class="loop-step" style="position: absolute; top: 25px; left: 50%; transform: translateX(-50%); width: 150px; height: 150px; background: white; border: 2px solid #059669; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #059669 0%, #10B981 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">1</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <path d="M17 20H7C5.89543 20 5 19.1046 5 18V8C5 6.89543 5.89543 6 7 6H17C18.1046 6 19 6.89543 19 8V18C19 19.1046 18.1046 20 17 20Z" stroke="#059669" stroke-width="2"/>
+                        <path d="M12 6V2" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M8 10H16M8 14H13" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Teacher Sets<br>Learning Goals</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">Daily update</div>
+                </div>
+                
+                <!-- Step 2: AI Creates Homework (top-right - 1:30) -->
+                <div class="loop-step" style="position: absolute; top: 160px; right: 75px; width: 150px; height: 150px; background: white; border: 2px solid #0B63D6; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #0B63D6 0%, #3B82F6 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">2</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <circle cx="12" cy="12" r="3" stroke="#0B63D6" stroke-width="2"/>
+                        <path d="M12 1V6M12 18V23M4.22 4.22L7.76 7.76M16.24 16.24L19.78 19.78M1 12H6M18 12H23M4.22 19.78L7.76 16.24M16.24 7.76L19.78 4.22" stroke="#0B63D6" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">AI Creates<br>Adaptive HW</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">Instant</div>
+                </div>
+                
+                <!-- Step 3: Student Begins (right - 3 o'clock) -->
+                <div class="loop-step" style="position: absolute; top: 50%; right: 25px; transform: translateY(-50%); width: 150px; height: 150px; background: white; border: 2px solid #FFB74D; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #FFB74D 0%, #FFC947 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">3</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <rect x="7" y="2" width="10" height="20" rx="2" stroke="#FFB74D" stroke-width="2"/>
+                        <circle cx="12" cy="18" r="1.5" fill="#FFB74D"/>
+                        <line x1="10" y1="5" x2="14" y2="5" stroke="#FFB74D" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Student<br>Begins Session</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">After school</div>
+                </div>
+                
+                <!-- Step 4: Smart Diagnostic (bottom-right - 4:30) -->
+                <div class="loop-step" style="position: absolute; bottom: 75px; right: 78px; left: auto; transform: none; width: 150px; height: 150px; background: white; border: 2px solid #8B5CF6; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">4</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <circle cx="11" cy="11" r="8" stroke="#8B5CF6" stroke-width="2"/>
+                        <path d="M21 21L16.65 16.65" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="11" cy="11" r="3" stroke="#8B5CF6" stroke-width="1" opacity="0.5"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Smart<br>Diagnostic</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">3-5 min</div>
+                </div>
+                
+                <!-- Step 5: Personalized Gap Filling (bottom - 6 o'clock) -->
+                <div class="loop-step" style="position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); width: 150px; height: 150px; background: white; border: 2px solid #8B5CF6; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">5</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <path d="M3 12H21M12 3V21" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="3" fill="#8B5CF6" opacity="0.3"/>
+                        <circle cx="12" cy="12" r="1.5" fill="#8B5CF6"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Personalized<br>Gap Filling</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">Adaptive</div>
+                </div>
+            
+                <!-- Step 6: Mastery Practice (bottom-left - 7:30) -->
+                <div class="loop-step" style="position: absolute; bottom: 80px; left: 75px; top: auto; transform: none; width: 150px; height: 150px; background: white; border: 2px solid #FFB74D; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #FFB74D 0%, #FFC947 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">6</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <circle cx="12" cy="12" r="10" stroke="#FFB74D" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="6" stroke="#FFB74D" stroke-width="1.5" opacity="0.5"/>
+                        <circle cx="12" cy="12" r="2" fill="#FFB74D"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Mastery<br>Practice</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">10-12 min</div>
+                </div>
+                
+                <!-- Step 7: Quick Reassessment (left - 9 o'clock) -->
+                <div class="loop-step" style="position: absolute; top: 50%; left: 25px; transform: translateY(-50%); width: 150px; height: 150px; background: white; border: 2px solid #0B63D6; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #0B63D6 0%, #3B82F6 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">7</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <path d="M9 11L12 14L22 4" stroke="#0B63D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 12V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H16" stroke="#0B63D6" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Quick<br>Reassessment</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">2 min</div>
+                </div>
+                
+                <!-- Step 8: Real-time Analytics (top-left - 10:30) -->
+                <div class="loop-step" style="position: absolute; top: 90px; left: 77px; width: 150px; height: 150px; background: white; border: 2px solid #059669; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04), 0 16px 32px rgba(0, 0, 0, 0.06); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; padding: 20px; text-align: center; z-index: 5;">
+                    <span style="position: absolute; top: 10px; right: 10px; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 700; color: white; font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #059669 0%, #10B981 100%); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">8</span>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="margin-bottom: 10px;">
+                        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#059669" stroke-width="2"/>
+                        <path d="M9 9V15M12 7V15M15 11V15" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <div style="font-size: 13px; font-weight: 600; color: #1F2937; line-height: 1.3; margin-bottom: 3px;">Real-time<br>Analytics</div>
+                    <div style="font-size: 11px; color: #6B7280; font-weight: 500; opacity: 0.8;">24/7 access</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Summary Section -->
+        <div style="margin-top: 60px; text-align: center;">
+            <p style="font-size: 20px; color: #1F2937; font-weight: 600; font-family: 'Montserrat', sans-serif; margin-bottom: 8px;">
+                Daily Flow: 20-25 minutes per subject = Complete mastery tracking
+            </p>
+            <p style="color: #6B7280; font-size: 16px;">
+                Same homework time. 10x better outcomes. Zero teacher grading.
+            </p>
+        </div>
+    </div>
+</section>
+    
+    <!-- Stakeholder Value Section -->
+    <section class="stakeholder-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-badge">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M8 4V8L10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span>20 Minutes, 4 Perspectives</span>
+                </div>
+                <h2 class="section-title">Every stakeholder wins</h2>
+                <p class="section-subtitle">Built for the entire learning ecosystem, not just students.</p>
+            </div>
+            
+            <!-- Value Timeline -->
+            <div class="value-timeline">
+                <div class="timeline-spine"></div>
+                
+                <!-- School Node -->
+                <div class="timeline-node node-school">
+                    <div class="node-content-left">
+                        <div class="node-card">
+                            <div class="priority-badge">Decision Maker</div>
+                            <div class="node-header">
+                                <div class="node-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M3 9L12 2L21 9V20C21 20.5 20.5 21 20 21H4C3.5 21 3 20.5 3 20V9Z" stroke="#0B63D6" stroke-width="1.5"/>
+                                        <rect x="9" y="14" width="6" height="7" fill="#0B63D6" opacity="0.2"/>
+                                    </svg>
+                                </div>
+                                <h3 class="node-title">Schools</h3>
+                            </div>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                                Better outcomes. Happy parents. Progressive reputation.
+                            </p>
+                            <div class="stakeholder-comparison">
+                                <div class="before-state">
+                                    <div class="state-label">Before</div>
+                                    <div class="state-text">"Test results show problems months later"</div>
+                                </div>
+                                <div class="after-state">
+                                    <div class="state-label">With LearnLine</div>
+                                    <div class="state-text">"Daily data shows who needs help now"</div>
+                                </div>
+                            </div>
+                            <div class="key-metric">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Measurable improvement</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-center">
+                        <div class="node-dot"></div>
+                    </div>
+                    <div class="node-content-right">
+                        <div class="image-placeholder">
+                            <div class="placeholder-content">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <rect x="8" y="12" width="32" height="24" rx="2" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="3,3"/>
+                                    <path d="M16 20L20 24L24 18L28 22L32 16" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="3,3"/>
+                                </svg>
+                                <p class="placeholder-text">School dashboard showing class-wide learning trends</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Parent Node -->
+                <div class="timeline-node node-parent">
+                    <div class="node-content-left">
+                        <div class="image-placeholder">
+                            <div class="placeholder-content">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <rect x="16" y="8" width="16" height="32" rx="2" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="3,3"/>
+                                    <circle cx="24" cy="24" r="6" stroke="#D1D5DB" stroke-width="1.5" stroke-dasharray="2,2"/>
+                                    <path d="M21 24L23 26L27 22" stroke="#D1D5DB" stroke-width="1.5"/>
+                                </svg>
+                                <p class="placeholder-text">Parent app showing today's progress & mastery</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-center">
+                        <div class="node-dot"></div>
+                    </div>
+                    <div class="node-content-right">
+                        <div class="node-card">
+                            <div class="priority-badge">Payor</div>
+                            <div class="node-header">
+                                <div class="node-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="9" cy="7" r="3" stroke="#059669" stroke-width="1.5"/>
+                                        <circle cx="15" cy="7" r="3" stroke="#059669" stroke-width="1.5"/>
+                                        <path d="M3 20C3 16 6 13 9 13C10 13 11 13.2 11.5 13.5" stroke="#059669" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M12.5 13.5C13 13.2 14 13 15 13C18 13 21 16 21 20" stroke="#059669" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <h3 class="node-title">Parents</h3>
+                            </div>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                                See daily progress. Pay 10x less than tuition. No more homework battles.
+                            </p>
+                            <div class="stakeholder-comparison">
+                                <div class="before-state">
+                                    <div class="state-label">Before</div>
+                                    <div class="state-text">"Did you finish?" "Yes" (unsure)</div>
+                                </div>
+                                <div class="after-state">
+                                    <div class="state-label">With LearnLine</div>
+                                    <div class="state-text">"App shows 85% mastery today"</div>
+                                </div>
+                            </div>
+                            <div class="key-metric">
+                                <span class="metric-value">10x</span>
+                                <span class="metric-label">Peace of mind, saved money</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Teacher Node -->
+                <div class="timeline-node node-teacher">
+                    <div class="node-content-left">
+                        <div class="node-card">
+                            <div class="node-header">
+                                <div class="node-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="7" r="3" stroke="#0B63D6" stroke-width="1.5"/>
+                                        <path d="M5 20C5 16 8 13 12 13C16 13 19 16 19 20" stroke="#0B63D6" stroke-width="1.5" stroke-linecap="round"/>
+                                        <rect x="17" y="10" width="6" height="8" rx="1" stroke="#0B63D6" stroke-width="1.5"/>
+                                    </svg>
+                                </div>
+                                <h3 class="node-title">Teachers</h3>
+                            </div>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                                Zero grading. Daily insights. Know exactly who needs help.
+                            </p>
+                            <div class="stakeholder-comparison">
+                                <div class="before-state">
+                                    <div class="state-label">Before</div>
+                                    <div class="state-text">"I'll grade these tonight"</div>
+                                </div>
+                                <div class="after-state">
+                                    <div class="state-label">With LearnLine</div>
+                                    <div class="state-text">"I see who needs help now"</div>
+                                </div>
+                            </div>
+                            <div class="key-metric">
+                                <span class="metric-value">Zero</span>
+                                <span class="metric-label">Teach more, grade less</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-center">
+                        <div class="node-dot"></div>
+                    </div>
+                    <div class="node-content-right">
+                        <div class="image-placeholder">
+                            <div class="placeholder-content">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <rect x="8" y="16" width="32" height="20" rx="2" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="3,3"/>
+                                    <circle cx="16" cy="26" r="3" fill="#D1D5DB" opacity="0.5"/>
+                                    <circle cx="24" cy="26" r="3" fill="#D1D5DB" opacity="0.7"/>
+                                    <circle cx="32" cy="26" r="3" fill="#D1D5DB" opacity="0.3"/>
+                                </svg>
+                                <p class="placeholder-text">Teacher view: Student progress at a glance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Student Node -->
+                <div class="timeline-node node-student">
+                    <div class="node-content-left">
+                        <div class="image-placeholder">
+                            <div class="placeholder-content">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <rect x="16" y="8" width="16" height="32" rx="2" stroke="#D1D5DB" stroke-width="2" stroke-dasharray="3,3"/>
+                                    <rect x="19" y="16" width="10" height="2" fill="#D1D5DB" opacity="0.5"/>
+                                    <rect x="19" y="20" width="8" height="8" rx="1" fill="#D1D5DB" opacity="0.3"/>
+                                    <circle cx="24" cy="34" r="2" fill="#D1D5DB" opacity="0.5"/>
+                                </svg>
+                                <p class="placeholder-text">Student app: Adaptive question with AI hints</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="node-center">
+                        <div class="node-dot"></div>
+                    </div>
+                    <div class="node-content-right">
+                        <div class="node-card">
+                            <div class="node-header">
+                                <div class="node-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="12" cy="7" r="3" stroke="#FFB74D" stroke-width="1.5"/>
+                                        <path d="M5 20C5 16 8 13 12 13C16 13 19 16 19 20" stroke="#FFB74D" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M8 5L6 3M16 5L18 3" stroke="#FFB74D" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <h3 class="node-title">Students</h3>
+                            </div>
+                            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+                                Learn at your pace. Get help instantly. Master concepts, don't just memorize.
+                            </p>
+                            <div class="stakeholder-comparison">
+                                <div class="before-state">
+                                    <div class="state-label">Before</div>
+                                    <div class="state-text">"I'm stuck, I'll just copy"</div>
+                                </div>
+                                <div class="after-state">
+                                    <div class="state-label">With LearnLine</div>
+                                    <div class="state-text">"AI helped, I get it now!"</div>
+                                </div>
+                            </div>
+                            <div class="key-metric">
+                                <span class="metric-value">72%</span>
+                                <span class="metric-label">Less stress, more confidence</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Summary -->
+            <div class="value-summary">
+                <h3 class="summary-title">Same homework time. Everyone wins.</h3>
+                <p class="summary-text">
+                    The Learning Loop creates immediate value without adding hours to anyone's day. 
+                    20 minutes that transform learning for students, save time for teachers, 
+                    provide transparency for parents, and deliver results for schools.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header animate-in">
+                <div class="pill">Technology</div>
+                <h2>Built for Indian classrooms</h2>
+                <p>Cutting-edge AI meets practical classroom needs.</p>
+            </div>
+            
+            <div class="features-grid animate-in">
                 <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Real-Time Analytics</h3>
-                    <p>Track student progress, identify learning gaps, and get actionable insights to improve teaching effectiveness and student outcomes.</p>
-                    <a href="#" class="feature-link">Learn more →</a>
+                    <div class="feature-icon">🧠</div>
+                    <h3>Knowledge Graph</h3>
+                    <p>500+ NCERT concepts mapped with prerequisites. AI knows exactly what to teach next.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3>Adaptive Learning Paths</h3>
-                    <p>Content automatically adjusts to each student's learning pace and style, ensuring optimal challenge levels and knowledge retention.</p>
-                    <a href="#" class="feature-link">Learn more →</a>
+                    <h3>Smart Diagnostics</h3>
+                    <p>3-5 minute assessments identify gaps instantly, not after exam results.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🎮</div>
-                    <h3>Interactive Content</h3>
-                    <p>Engaging multimedia lessons, interactive simulations, and gamified exercises that make learning fun and memorable.</p>
-                    <a href="#" class="feature-link">Learn more →</a>
+                    <div class="feature-icon">🗣️</div>
+                    <h3>AI Voice Tutor</h3>
+                    <p>24/7 support in Hindi, English, or Hinglish. Ask questions, get hints, learn naturally.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Collaborative Learning</h3>
-                    <p>Foster peer-to-peer learning with group projects, discussion forums, and collaborative problem-solving activities.</p>
-                    <a href="#" class="feature-link">Learn more →</a>
+                    <div class="feature-icon">📊</div>
+                    <h3>Teacher Dashboard</h3>
+                    <p>See class-wide patterns. Individual progress. Zero manual work.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Spaced Repetition</h3>
+                    <p>Concepts resurface at optimal intervals. Build long-term retention.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">📱</div>
-                    <h3>Multi-Device Access</h3>
-                    <p>Seamless learning experience across all devices - desktop, tablet, and mobile. Learn anywhere, anytime.</p>
-                    <a href="#" class="feature-link">Learn more →</a>
+                    <h3>OCR Validation</h3>
+                    <p>Students write on paper, app validates. Prevents copying, maintains school alignment.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="how-it-works-container">
-            <div class="section-header">
-                <h2>How LearnLine Works</h2>
-                <p>Get started in minutes and transform your teaching and learning experience.</p>
+    
+    <!-- Impact Section -->
+    <section id="impact" class="impact-section">
+        <div class="container">
+            <div class="section-header animate-in">
+                <div class="pill">Impact</div>
+                <h2>Measurable results that matter</h2>
+                <p>Real improvements for real classrooms.</p>
             </div>
             
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>Create Your Account</h3>
-                    <p>Sign up as a teacher or student and set up your personalized learning environment in just a few clicks.</p>
+            <div class="impact-grid animate-in">
+                <div class="impact-card">
+                    <div class="impact-number" data-target="0">0</div>
+                    <div class="impact-label">Extra Minutes</div>
+                    <p>Same homework time, better outcomes</p>
                 </div>
                 
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>Choose Your Subjects</h3>
-                    <p>Select from our comprehensive library of subjects and grade levels, or create custom content tailored to your needs.</p>
+                <div class="impact-card">
+                    <div class="impact-number" data-target="24" data-suffix="hr">0hr</div>
+                    <div class="impact-label">Feedback Loop</div>
+                    <p>Daily insights vs weeks for tests</p>
                 </div>
                 
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Start Learning</h3>
-                    <p>Engage with interactive lessons, get AI-powered assistance, and track your progress in real-time.</p>
+                <div class="impact-card">
+                    <div class="impact-number" data-target="40" data-suffix="%">0%</div>
+                    <div class="impact-label">Faster Mastery</div>
+                    <p>Students learn concepts quicker</p>
                 </div>
                 
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h3>Track & Improve</h3>
-                    <p>Monitor performance with detailed analytics and receive personalized recommendations for continued growth.</p>
+                <div class="impact-card">
+                    <div class="impact-number" data-target="2" data-suffix="σ">0σ</div>
+                    <div class="impact-label">Learning Gains</div>
+                    <p>Approaching 1:1 tutoring results</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-container">
-            <h2>Ready to Transform Your Learning Experience?</h2>
-            <p>Join thousands of educators and students who are already experiencing the future of education with LearnLine.</p>
-            
-            <div class="cta-buttons-section">
-                <a href="#" class="btn btn-white">Start Free Trial</a>
-                <a href="#" class="btn btn-outline">Schedule Demo</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>LearnLine</h3>
-                    <p>Empowering educators and students with AI-powered personalized learning experiences that drive real results.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link">📘</a>
-                        <a href="#" class="social-link">🐦</a>
-                        <a href="#" class="social-link">💼</a>
-                        <a href="#" class="social-link">📷</a>
+    <section id="pilot" class="cta-section">
+        <div class="container">
+            <div class="cta-content animate-in">
+                <h2>Transform your school in 90 days</h2>
+                <p>Join progressive schools completing the learning loop with AI.</p>
+                
+                <div class="cta-buttons">
+                    <a href="mailto:pilot@learnline.ai" class="btn btn-primary">Schedule Pilot Demo</a>
+                    <a href="#" class="btn btn-secondary">Download School Pack</a>
+                </div>
+                
+                <div class="pilot-details">
+                    <h3 style="margin-bottom: 30px;">Pilot Program Details</h3>
+                    <div class="pilot-grid">
+                        <div class="pilot-item">
+                            <strong>DURATION</strong>
+                            <span>2-3 month pilot</span>
+                        </div>
+                        <div class="pilot-item">
+                            <strong>COVERAGE</strong>
+                            <span>Classes 6-10, Mathematics</span>
+                        </div>
+                        <div class="pilot-item">
+                            <strong>COST</strong>
+                            <span>Free for selected schools</span>
+                        </div>
+                        <div class="pilot-item">
+                            <strong>REQUIREMENTS</strong>
+                            <span>1 grade, 40-80 students</span>
+                        </div>
+                        <div class="pilot-item">
+                            <strong>SUPPORT</strong>
+                            <span>Full onboarding & training</span>
+                        </div>
+                        <div class="pilot-item">
+                            <strong>OUTCOMES</strong>
+                            <span>Measurable learning gains</span>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="footer-column">
-                    <h4>Product</h4>
-                    <ul>
-                        <li><a href="#">Features</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Demo</a></li>
-                        <li><a href="#">API</a></li>
-                    </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <img src="assets/logo.png" alt="LearnLine Logo" width="140" height="45" style="object-fit: contain;">
+                    </div>
+                    <p>Completing the learning loop between classroom and home with AI-powered adaptive learning.</p>
+                    <p style="margin-top: 20px;">Built for Indian schools, designed for every student.</p>
                 </div>
                 
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
+                <div class="footer-section">
+                    <h4>Solution</h4>
+                    <a href="#problem">The Problem</a>
+                    <a href="#solution">Our Approach</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#impact">Impact</a>
                 </div>
                 
-                <div class="footer-column">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Terms</a></li>
-                    </ul>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <a href="#">School Pack</a>
+                    <a href="#">Teacher Guide</a>
+                    <a href="#">Parent FAQ</a>
+                    <a href="#">Research</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Get Started</h4>
+                    <p>Email: pilot@learnline.ai</p>
+                    <p>Phone: +91 98765 43210</p>
+                    <p style="margin-top: 20px;">
+                        <a href="#pilot" style="color: white; text-decoration: underline;">Schedule a Demo →</a>
+                    </p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 LearnLine. All rights reserved. Built with ❤️ for educators and students worldwide.</p>
+                <p>&copy; 2025 LearnLine. All rights reserved. | Privacy Policy | Terms of Service</p>
             </div>
         </div>
     </footer>
-
+    
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -965,36 +3296,136 @@
                 }
             });
         });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
-
-        // Animate elements on scroll
+        
+        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -100px 0px'
         };
-
-        const observer = new IntersectionObserver((entries) => {
+        
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-on-scroll');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
-
-        // Observe feature cards and step cards
-        document.querySelectorAll('.feature-card, .step-card').forEach(el => {
+        
+        document.querySelectorAll('.animate-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+        
+        // Particle animation for hero section
+        (function() {
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            const particles = [];
+            const num = 30;
+            
+            function resize() {
+                width = canvas.width = canvas.offsetWidth;
+                height = canvas.height = canvas.offsetHeight;
+            }
+            
+            function init() {
+                particles.length = 0;
+                for (let i = 0; i < num; i++) {
+                    particles.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        dx: (Math.random() - 0.5) * 0.4,
+                        dy: (Math.random() - 0.5) * 0.4,
+                        r: Math.random() * 2 + 1,
+                        a: Math.random() * 0.5 + 0.3
+                    });
+                }
+            }
+            
+            function draw() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(p => {
+                    p.x += p.dx;
+                    p.y += p.dy;
+                    if (p.x < 0 || p.x > width) p.dx *= -1;
+                    if (p.y < 0 || p.y > height) p.dy *= -1;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+                    ctx.fillStyle = `rgba(11,99,214,${p.a})`;
+                    ctx.fill();
+                });
+                requestAnimationFrame(draw);
+            }
+            
+            window.addEventListener('resize', () => {
+                resize();
+                init();
+            });
+            
+            resize();
+            init();
+            draw();
+        })();
+
+        // Counter animations for impact section
+        const counters = document.querySelectorAll('.impact-number');
+        const counterObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseFloat(el.getAttribute('data-target'));
+                    const suffix = el.getAttribute('data-suffix') || '';
+                    let current = 0;
+                    const duration = 1500;
+                    const step = target / (duration / 20);
+                    
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        
+                        if (target === 0) {
+                            el.textContent = '0';
+                        } else {
+                            el.textContent = Math.floor(current) + suffix;
+                        }
+                    }, 20);
+                    
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Enhanced scroll-triggered fade animations
+        const fadeObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-active');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        document.querySelectorAll('.animate-in').forEach(el => fadeObserver.observe(el));
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+            }
         });
     </script>
 </body>
