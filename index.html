@@ -148,6 +148,61 @@
         .nav-links a:hover::after {
             width: 100%;
         }
+
+        /* Navigation Dropdown */
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-toggle {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            min-width: 160px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .nav-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: background 0.2s;
+            position: relative;
+        }
+
+        .dropdown-menu a::after {
+            display: none;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--bg-soft);
+            color: var(--primary-blue);
+        }
         
         /* Buttons */
         .btn {
@@ -185,49 +240,99 @@
             color: white;
         }
         
-        /* Hero Section */
+        /* Hero Section - Enhanced */
         .hero {
-            margin-top: 80px;
-            padding: 80px 0;
-            background: radial-gradient(circle at 30% 20%, rgba(11, 99, 214, 0.15), rgba(5, 150, 105, 0.15) 60%, rgba(255, 255, 255, 0) 90%);
+            margin-top: 60px;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at center, var(--bg-dark, #0A0E27) 0%, var(--bg-darker, #020617) 100%);
             position: relative;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 60px;
             overflow: hidden;
         }
-        
-        #particles {
+
+        /* Floating Particles Background */
+        #particles-bg {
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
             pointer-events: none;
-            z-index: 1;
         }
-        
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(11, 99, 214, 0.5);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        .particle:nth-child(even) {
+            background: rgba(5, 150, 105, 0.5);
+            animation-duration: 25s;
+        }
+
+        .particle:nth-child(3n) {
+            background: rgba(255, 183, 77, 0.5);
+            animation-duration: 30s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.2fr;
             gap: 60px;
             align-items: center;
             position: relative;
             z-index: 2;
         }
-        
+
+        /* Left Content - Enhanced */
         .hero-text h1 {
-            font-size: 52px;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            font-size: 64px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-blue) 50%, var(--accent-green) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
+            line-height: 1.1;
         }
-        
+
         .hero-subtitle {
-            font-size: 20px;
-            color: var(--text-muted);
+            font-size: 22px;
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 32px;
             line-height: 1.6;
         }
+
+        .hero-subtitle .highlight {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
         .hero-text h2 {
             font-size: 32px;
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
@@ -236,367 +341,316 @@
             background-clip: text;
             margin-bottom: 24px;
         }
-        
+
         .hero-cta {
             display: flex;
             gap: 16px;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
-        
+
+        .btn-primary {
+            animation: subtle-pulse 3s ease-in-out infinite;
+        }
+
+        .btn-primary:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes subtle-pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(11, 99, 214, 0.3);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 6px 20px rgba(11, 99, 214, 0.4);
+            }
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
         .hero-stats {
             display: flex;
             gap: 40px;
         }
-        
+
         .stat-item {
             display: flex;
             flex-direction: column;
         }
-        
+
         .stat-number {
             font-size: 28px;
             font-weight: 700;
             color: var(--primary-blue);
+            text-shadow: 0 0 20px rgba(11, 99, 214, 0.5);
         }
-        
+
         .stat-label {
             font-size: 14px;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.6);
         }
-        
-        .hero-visual {
+
+        /* Neural Network Visualization - Optimized */
+        .neural-visual {
             position: relative;
+            width: 100%;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 500px;
         }
-        
-        /* Learning Loop Visualization - Enhanced */
-        .learning-loop-container {
-            position: relative;
-            width: 700px;
-            height: 700px;
-        }
-        
-        /* Loop Steps - Rectangular Cards */
-        .loop-step {
+
+        /* Glow Effects */
+        .glow-container {
             position: absolute;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            padding: 20px;
-            width: 220px;
-            height: 180px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .loop-step:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-        }
-        
-        .screen-image {
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-        }
-        
-        .screen-label {
-            text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--text-dark);
-        }
-        
-        .step-number {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 28px;
-            height: 28px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 13px;
-            z-index: 20;
-            box-shadow: 0 4px 12px rgba(11, 99, 214, 0.3);
-        }
-        
-        /* Perfect Diamond Positioning */
-        .step-1 {
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 3px solid var(--primary-blue);
-        }
-        
-        .step-2 {
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            border: 3px solid var(--accent-warm);
-        }
-        
-        .step-3 {
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 3px solid var(--accent-green);
-        }
-        
-        .step-4 {
-            top: 50%;
             left: 0;
-            transform: translateY(-50%);
-            border: 3px solid var(--primary-blue);
-        }
-        
-        /* Enhanced Step Numbers */
-        .loop-step .step-number {
-            position: absolute;
-            top: -12px;
-            right: 16px;
-            width: 24px;
-            height: 24px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-        }
-        
-        .step-1 .step-number {
-            color: var(--primary-blue);
-            border: 2px solid var(--primary-blue);
-        }
-        
-        .step-2 .step-number {
-            color: var(--accent-warm);
-            border: 2px solid var(--accent-warm);
-        }
-        
-        .step-3 .step-number {
-            color: var(--accent-green);
-            border: 2px solid var(--accent-green);
-        }
-        
-        .step-4 .step-number {
-            color: var(--primary-blue);
-            border: 2px solid var(--primary-blue);
-        }
-        
-        /* Step Content Areas - Prominent Images */
-        .step-image {
-            width: 180px;
-            height: 120px;
-            background: var(--bg-soft);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .step-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            border-radius: 6px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+            overflow: hidden;
         }
-        
-        /* Clean background when image is present */
-        .step-image:has(img) {
-            background: white;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-        }
-        
-        .step-label {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 4px;
-            text-align: center;
-        }
-        
-        .step-detail {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-align: center;
-            line-height: 1.3;
-        }
-        
-        /* Enhanced Connection Lines for New Layout */
-        .connection-line {
+
+        .glow-orb {
             position: absolute;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
-            opacity: 0.3;
-            z-index: 1;
-        }
-        
-        .line-1-2 {
-            top: 30%;
-            right: 30%;
-            width: 180px;
-            height: 2px;
-            transform: rotate(45deg);
-        }
-        
-        .line-2-3 {
-            bottom: 30%;
-            right: 30%;
-            width: 180px;
-            height: 2px;
-            transform: rotate(-45deg);
-        }
-        
-        .line-3-4 {
-            bottom: 30%;
-            left: 30%;
-            width: 180px;
-            height: 2px;
-            transform: rotate(45deg);
-        }
-        
-        .line-4-1 {
-            top: 30%;
-            left: 30%;
-            width: 180px;
-            height: 2px;
-            transform: rotate(-45deg);
-        }
-        
-        /* Screen Sizes */
-        .laptop-screen {
-            width: 260px;
-            height: auto;
-        }
-        
-        .phone-screen {
-            width: 130px;
-            height: auto;
-        }
-        
-        /* Central Hub - More Prominent */
-        .central-hub {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 160px;
-            height: 160px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 15px 40px rgba(11, 99, 214, 0.3);
-            z-index: 10;
-            animation: pulse 3s ease-in-out infinite;
+            filter: blur(60px);
+            animation: pulse-glow 8s ease-in-out infinite;
         }
-        
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 15px 40px rgba(11, 99, 214, 0.3); }
-            50% { box-shadow: 0 20px 50px rgba(11, 99, 214, 0.4); }
+
+        .glow-orb.blue {
+            background: radial-gradient(circle, rgba(11, 99, 214, 0.3) 0%, transparent 70%);
+            top: 20%;
+            left: 20%;
         }
-        
-        .hub-title {
-            font-size: 14px;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            margin-bottom: 2px;
-            line-height: 1.1;
+
+        .glow-orb.green {
+            background: radial-gradient(circle, rgba(5, 150, 105, 0.3) 0%, transparent 70%);
+            bottom: 20%;
+            right: 20%;
+            animation-delay: 4s;
         }
-        
-        .hub-time {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 24px;
-            font-weight: 800;
-            margin-top: 4px;
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1) translate(0, 0);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2) translate(-20px, 20px);
+                opacity: 0.8;
+            }
         }
-        
-        .hub-label {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 11px;
-            font-weight: 500;
+
+        /* Neural Network SVG */
+        .neural-network {
+            width: 100%;
+            height: 100%;
+            position: relative;
         }
-        
-        .hub-subtitle {
-            font-size: 10px;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-        
-        /* Connection Lines */
-        .connection-line {
+
+        /* Process Labels - Enhanced */
+        .process-labels {
             position: absolute;
-            background: linear-gradient(45deg, var(--primary-blue), var(--accent-green));
-            height: 2px;
-            opacity: 0.3;
-            animation: connectionFlow 3s ease-in-out infinite;
-            z-index: 1;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
         }
-        
-        .line-top-right {
-            top: 25%;
-            left: 55%;
-            width: 300px;
-            transform: rotate(45deg);
-            animation-delay: 0s;
+
+        .process-label {
+            position: absolute;
+            background: rgba(2, 6, 23, 0.95);
+            border: 1px solid;
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeInLabel 1s ease forwards;
         }
-        
-        .line-right-bottom {
-            top: 55%;
-            right: 25%;
-            width: 300px;
-            transform: rotate(135deg);
-            animation-delay: 0.75s;
+
+        @keyframes fadeInLabel {
+            to {
+                opacity: 1;
+            }
         }
-        
-        .line-bottom-left {
-            bottom: 25%;
-            right: 55%;
-            width: 300px;
-            transform: rotate(225deg);
+
+        .label-input {
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+            border-color: var(--accent-warm);
+            color: var(--accent-warm);
+            animation-delay: 0.5s;
+        }
+
+        .label-diagnose {
+            top: 20%;
+            left: 35%;
+            border-color: #8B5CF6;
+            color: #8B5CF6;
+            animation-delay: 1s;
+        }
+
+        .label-gaps {
+            top: 50%;
+            left: 45%;
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
             animation-delay: 1.5s;
         }
-        
-        .line-left-top {
-            bottom: 55%;
-            left: 25%;
-            width: 300px;
-            transform: rotate(315deg);
-            animation-delay: 2.25s;
+
+        .label-adapt {
+            bottom: 20%;
+            left: 35%;
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            animation-delay: 2s;
         }
-        
-        @keyframes connectionFlow {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.8; }
+
+        .label-mastery {
+            top: 50%;
+            right: 10%;
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            animation-delay: 2.5s;
         }
-        
-        
+
+        /* Neuron Styles */
+        .neuron {
+            fill: rgba(30, 41, 59, 0.3);
+            stroke-width: 2;
+            filter: drop-shadow(0 0 10px rgba(11, 99, 214, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .neuron.input {
+            stroke: var(--accent-warm);
+            fill: rgba(255, 183, 77, 0.1);
+        }
+
+        .neuron.diagnostic {
+            stroke: #8B5CF6;
+            fill: rgba(139, 92, 246, 0.1);
+        }
+
+        .neuron.processing {
+            stroke: var(--primary-blue);
+            fill: rgba(11, 99, 214, 0.1);
+        }
+
+        .neuron.output {
+            stroke: var(--accent-green);
+            fill: rgba(5, 150, 105, 0.1);
+        }
+
+        .neuron.active {
+            fill: currentColor;
+            filter: drop-shadow(0 0 20px currentColor);
+            animation: neuron-pulse 1s ease-out;
+        }
+
+        @keyframes neuron-pulse {
+            0% {
+                r: 12;
+            }
+            50% {
+                r: 16;
+            }
+            100% {
+                r: 12;
+            }
+        }
+
+        /* Synapses */
+        .synapse {
+            stroke: rgba(100, 116, 139, 0.2);
+            stroke-width: 1;
+            fill: none;
+            transition: all 0.3s ease;
+        }
+
+        .synapse.active {
+            stroke-width: 2;
+            filter: drop-shadow(0 0 5px currentColor);
+            animation: synapse-flow 1s ease;
+        }
+
+        @keyframes synapse-flow {
+            0% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.3;
+            }
+        }
+
+        /* Signal Dots */
+        .signal {
+            r: 3;
+            filter: drop-shadow(0 0 6px currentColor);
+        }
+
+        /* Info Panel - Enhanced */
+        .info-panel {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, rgba(2, 6, 23, 0.95), rgba(11, 99, 214, 0.1));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(11, 99, 214, 0.5);
+            border-radius: 12px;
+            padding: 16px 20px;
+            max-width: 250px;
+            animation: pulse-border 3s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% {
+                border-color: rgba(11, 99, 214, 0.5);
+                box-shadow: 0 4px 12px rgba(11, 99, 214, 0.2);
+            }
+            50% {
+                border-color: rgba(5, 150, 105, 0.7);
+                box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
+            }
+        }
+
+        .info-title {
+            color: var(--primary-blue);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .info-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            line-height: 1.5;
+        } 
         /* Animations */
         @keyframes screenFloat {
             0%, 100% { transform: translateY(0px); }
@@ -654,7 +708,7 @@
 
         /* Problem + Solution Section */
         .problem-solution-section {
-            padding: 120px 0;
+            padding: 80px 0;
             background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-soft) 50%, var(--bg-white) 100%);
             position: relative;
             overflow: hidden;
@@ -964,7 +1018,7 @@
         
         /* Transformation Section - The Merged Approach */
         .transformation-section {
-            padding: 100px 0;
+            padding: 70px 0;
             background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg-white) 50%, var(--bg-soft) 100%);
             position: relative;
             overflow: hidden;
@@ -1046,7 +1100,7 @@
         .comparison-container {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
-            gap: 40px;
+            gap: 20px;
             align-items: stretch;
             margin-bottom: 60px;
             position: relative;
@@ -1530,57 +1584,10 @@
             z-index: 10;
         }
         
-        .loop-step {
-            position: absolute;
-            width: 140px;
-            height: 140px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow);
-            font-size: 13px;
-            font-weight: 600;
-            text-align: center;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .loop-step:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 35px rgba(11, 99, 214, 0.2);
-        }
-        
-        .loop-step-number {
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            background: var(--primary-blue);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-        
-        /* Position loop steps */
-        .loop-step:nth-child(2) { top: 0; left: 50%; transform: translateX(-50%); }
-        .loop-step:nth-child(3) { top: 15%; right: 10%; }
-        .loop-step:nth-child(4) { top: 50%; right: 0; transform: translateY(-50%); }
-        .loop-step:nth-child(5) { bottom: 15%; right: 10%; }
-        .loop-step:nth-child(6) { bottom: 0; left: 50%; transform: translateX(-50%); }
-        .loop-step:nth-child(7) { bottom: 15%; left: 10%; }
-        .loop-step:nth-child(8) { top: 50%; left: 0; transform: translateY(-50%); }
-        .loop-step:nth-child(9) { top: 15%; left: 10%; }
         
         /* Stakeholder Value Section */
         .stakeholder-section {
-            padding: 100px 0;
+            padding: 70px 0;
             background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg-white) 50%, var(--bg-soft) 100%);
             position: relative;
             overflow: hidden;
@@ -2106,7 +2113,7 @@
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
             color: white;
             text-align: center;
-            padding: 120px 0;
+            padding: 80px 0;
             position: relative;
             overflow: hidden;
         }
@@ -2267,30 +2274,6 @@
                 width: 110px;
             }
             
-            .central-hub {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .hub-title {
-                font-size: 12px;
-            }
-            
-            .hub-subtitle {
-                font-size: 9px;
-            }
-            
-            .connection-line {
-                width: 250px;
-            }
-            
-            .screen-right {
-                right: 5px;
-            }
-            
-            .screen-left {
-                left: 5px;
-            }
         }
         
         /* Responsive */
@@ -2298,118 +2281,74 @@
             .nav-links {
                 display: none;
             }
-            
+
+            section {
+                padding: 40px 0;
+            }
+
+            .hero {
+                padding: 80px 0 40px;
+                margin-top: 40px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .neural-visual {
+                height: 400px;
+            }
+
+            .process-labels {
+                display: none;
+            }
+
+            .info-panel {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                text-align: center;
+                min-width: 200px;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .problem-solution-section {
+                padding: 50px 0;
+            }
+
+            .transformation-section {
+                padding: 50px 0;
+            }
+
+            .stakeholder-section {
+                padding: 50px 0;
+            }
+
             h1 {
                 font-size: 36px;
             }
-            
+
             h2 {
                 font-size: 28px;
             }
             
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-            
             .hero-text h1 {
-                font-size: 40px;
+                font-size: 44px;
             }
             
-            .learning-loop-container {
-                max-width: 500px;
-                height: 500px;
-            }
-            
-            .loop-step {
-                width: 160px;
-                height: 140px;
-                padding: 12px;
-            }
-            
-            .step-image {
-                width: 130px;
-                height: 80px;
-            }
-            
-            .central-hub {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .hub-title {
-                font-size: 12px;
-            }
-            
-            .hub-time {
-                font-size: 18px;
-            }
-            
-            .hub-label {
-                font-size: 9px;
-            }
-            
-            /* Mobile diamond layout */
-            .learning-loop-diamond {
-                height: 900px;
-                padding: 20px;
-            }
-            
-            .screen-container {
-                position: relative !important;
-                transform: none !important;
-                margin-bottom: 50px;
-                text-align: center;
-            }
-            
-            .screen-top {
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%) !important;
-            }
-            
-            .screen-right {
-                top: 220px;
-                left: 50%;
-                transform: translateX(-50%) !important;
-            }
-            
-            .screen-bottom {
-                top: 440px;
-                left: 50%;
-                transform: translateX(-50%) !important;
-            }
-            
-            .screen-left {
-                top: 660px;
-                left: 50%;
-                transform: translateX(-50%) !important;
-            }
-            
-            .laptop-screen {
-                width: 200px;
-            }
-            
-            .phone-screen {
-                width: 100px;
-            }
-            
-            .central-hub {
-                display: none;
-            }
-            
-            .connection-line {
-                display: none;
-            }
-            
-            .screen-label {
-                font-size: 12px;
-            }
-            
-            .step-number {
-                width: 25px;
-                height: 25px;
-                font-size: 12px;
-            }
             
             .problem-grid,
             .comparison-container {
@@ -2492,31 +2431,43 @@
             </a>
             
             <div class="nav-links">
-                <a href="#problem">Problem</a>
-                <a href="#solution">Solution</a>
+                <a href="#hero">Home</a>
+                <a href="#problem-solution">Problem → Solution</a>
                 <a href="#how-it-works">How It Works</a>
-                <a href="#impact">Impact</a>
+                <a href="#stakeholder">Impact</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="dropdown-toggle">Login ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="student-login.html">Student Login</a>
+                        <a href="teacher-login.html">Teacher Login</a>
+                        <a href="principal-login.html">Principal Login</a>
+                    </div>
+                </div>
                 <a href="#pilot" class="btn btn-primary">Schedule Pilot</a>
             </div>
         </div>
     </nav>
     
     <!-- Hero Section -->
-    <section class="hero">
-        <canvas id="particles"></canvas>
+    <section id="hero" class="hero">
+        <!-- Floating Particles -->
+        <div id="particles-bg"></div>
+
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text animate-in">
+                <!-- Left: Text Content -->
+                <div class="hero-text">
                     <h1>Complete the Learning Loop</h1>
                     <p class="hero-subtitle">
-                        Transform homework into adaptive mastery learning. 
-                        <span style="color: var(--accent-green); font-weight: 600;">Same 20 minutes</span>, measurable outcomes daily.
+                        Transform homework into adaptive mastery learning.
+                        <span class="highlight">Same 20 minutes</span>, measurable outcomes daily.
                     </p>
+
                     <div class="hero-cta">
                         <a href="#pilot" class="btn btn-primary">Schedule School Demo</a>
-                        <a href="#solution" class="btn btn-secondary">See How It Works</a>
+                        <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
                     </div>
-                    
+
                     <div class="hero-stats">
                         <div class="stat-item">
                             <span class="stat-number">20min</span>
@@ -2532,61 +2483,89 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Right: Learning Loop Visual -->
-                <div class="hero-visual">
-                    <div class="learning-loop-container">
-                        <!-- Connection Lines -->
-                        <div class="connection-line line-1-2"></div>
-                        <div class="connection-line line-2-3"></div>
-                        <div class="connection-line line-3-4"></div>
-                        <div class="connection-line line-4-1"></div>
-                        
-                        <!-- Central Hub -->
-                        <div class="central-hub">
-                            <div class="hub-title">Learning Loop</div>
-                            <div class="hub-time">20min</div>
-                            <div class="hub-label">Daily Mastery</div>
-                        </div>
-                        
-                        <!-- Step 1: Teacher Setup (Top) -->
-                        <div class="loop-step step-1">
-                            <div class="step-number">1</div>
-                            <div class="step-image">
-                                <img src="assets/hero-section2/teacher-creates-assignment.webp" alt="Teacher creates assignment with AI settings">
-                            </div>
-                            <div class="step-label">Teacher assigns</div>
-                            <div class="step-detail">2 clicks, auto-adaptive</div>
-                        </div>
-                        
-                        <!-- Step 2: Student Receives (Right) -->
-                        <div class="loop-step step-2">
-                            <div class="step-number">2</div>
-                            <div class="step-image">
-                                <img src="assets/hero-section2/student-receives-assignment.webp" alt="Student receives and starts assignment">
-                            </div>
-                            <div class="step-label">Student starts</div>
-                            <div class="step-detail">Personalized questions</div>
-                        </div>
-                        
-                        <!-- Step 3: AI Adapts (Bottom) -->
-                        <div class="loop-step step-3">
-                            <div class="step-number">3</div>
-                            <div class="step-image">
-                                <img src="assets/hero-section2/assets_task_01k5p86zs5etwbd7ptd6m9a755_1758462315_img_0.webp" alt="AI detects prerequisite gap and provides remediation">
-                            </div>
-                            <div class="step-label">AI intervenes</div>
-                            <div class="step-detail">Gaps detected, fixed</div>
-                        </div>
-                        
-                        <!-- Step 4: Teacher Insights (Left) -->
-                        <div class="loop-step step-4">
-                            <div class="step-number">4</div>
-                            <div class="step-image">
-                                <img src="assets/hero-section2/teacher-live-analytics.webp" alt="Teacher gets real-time analytics and alerts">
-                            </div>
-                            <div class="step-label">Live insights</div>
-                            <div class="step-detail">Who needs help now</div>
+
+                <!-- Right: Neural Network -->
+                <div class="neural-visual">
+                    <!-- Glow Effects -->
+                    <div class="glow-container">
+                        <div class="glow-orb blue"></div>
+                        <div class="glow-orb green"></div>
+                    </div>
+
+                    <!-- Process Labels Based on GitHub Algorithm -->
+                    <div class="process-labels">
+                        <div class="process-label label-input">Student Input</div>
+                        <div class="process-label label-diagnose">Diagnose Gaps</div>
+                        <div class="process-label label-gaps">Knowledge Graph</div>
+                        <div class="process-label label-adapt">Adaptive Path</div>
+                        <div class="process-label label-mastery">Mastery Check</div>
+                    </div>
+
+                    <!-- Neural Network SVG -->
+                    <svg class="neural-network" viewBox="0 0 600 400">
+                        <defs>
+                            <linearGradient id="gradientWarm" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FFB74D;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FFA726;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gradientCool" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#0B63D6;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Synapses -->
+                        <g id="synapses"></g>
+
+                        <!-- Input Layer (Student Response) -->
+                        <g id="inputLayer">
+                            <circle class="neuron input" cx="80" cy="100" r="12" />
+                            <circle class="neuron input" cx="80" cy="160" r="12" />
+                            <circle class="neuron input" cx="80" cy="220" r="12" />
+                            <circle class="neuron input" cx="80" cy="280" r="12" />
+                            <circle class="neuron input" cx="80" cy="340" r="12" />
+                        </g>
+
+                        <!-- Diagnostic Layer -->
+                        <g id="diagnosticLayer">
+                            <circle class="neuron diagnostic" cx="200" cy="80" r="12" />
+                            <circle class="neuron diagnostic" cx="200" cy="140" r="12" />
+                            <circle class="neuron diagnostic" cx="200" cy="200" r="12" />
+                            <circle class="neuron diagnostic" cx="200" cy="260" r="12" />
+                            <circle class="neuron diagnostic" cx="200" cy="320" r="12" />
+                        </g>
+
+                        <!-- Knowledge Graph Layer -->
+                        <g id="knowledgeLayer">
+                            <circle class="neuron processing" cx="320" cy="60" r="12" />
+                            <circle class="neuron processing" cx="320" cy="120" r="12" />
+                            <circle class="neuron processing" cx="320" cy="180" r="12" />
+                            <circle class="neuron processing" cx="320" cy="240" r="12" />
+                            <circle class="neuron processing" cx="320" cy="300" r="12" />
+                            <circle class="neuron processing" cx="320" cy="360" r="12" />
+                        </g>
+
+                        <!-- Adaptive Layer -->
+                        <g id="adaptiveLayer">
+                            <circle class="neuron processing" cx="440" cy="100" r="12" />
+                            <circle class="neuron processing" cx="440" cy="160" r="12" />
+                            <circle class="neuron processing" cx="440" cy="220" r="12" />
+                            <circle class="neuron processing" cx="440" cy="280" r="12" />
+                        </g>
+
+                        <!-- Output Layer (Mastery Path) -->
+                        <g id="outputLayer">
+                            <circle class="neuron output" cx="540" cy="140" r="12" />
+                            <circle class="neuron output" cx="540" cy="200" r="12" />
+                            <circle class="neuron output" cx="540" cy="260" r="12" />
+                        </g>
+                    </svg>
+
+                    <!-- Info Panel -->
+                    <div class="info-panel">
+                        <div class="info-title">AI Processing Live</div>
+                        <div class="info-text">
+                            Real-time gap detection and personalized learning path generation for every student
                         </div>
                     </div>
                 </div>
@@ -2595,7 +2574,7 @@
     </section>
 
     <!-- Problem + Solution Section -->
-    <section class="problem-solution-section">
+    <section id="problem-solution" class="problem-solution-section">
         <div class="container">
             <!-- Header with Insight -->
             <div class="ps-header">
@@ -2725,7 +2704,7 @@
     </section>
 
  <!-- Learning Loop Section -->
-<section id="how-it-works" class="loop-section" style="background: #F8FAFC; padding: 100px 0;">
+<section id="how-it-works" class="loop-section" style="background: #F8FAFC; padding: 70px 0;">
     <div class="container">
         <div class="section-header" style="text-align: center; max-width: 800px; margin: 0 auto 80px;">
             <div class="pill" style="display: inline-block; padding: 10px 20px; background: linear-gradient(135deg, rgba(11, 99, 214, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%); color: #0B63D6; border-radius: 24px; font-size: 14px; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.5px; text-transform: uppercase;">How It Works</div>
@@ -2872,7 +2851,7 @@
 </section>
     
     <!-- Stakeholder Value Section -->
-    <section class="stakeholder-section">
+    <section id="stakeholder" class="stakeholder-section">
         <div class="container">
             <!-- Section Header -->
             <div class="section-header">
@@ -3319,57 +3298,241 @@
             observer.observe(el);
         });
         
-        // Particle animation for hero section
-        (function() {
-            const canvas = document.getElementById('particles');
-            const ctx = canvas.getContext('2d');
-            let width, height;
-            const particles = [];
-            const num = 30;
-            
-            function resize() {
-                width = canvas.width = canvas.offsetWidth;
-                height = canvas.height = canvas.offsetHeight;
+        // Neural Network Functionality
+        // Create floating particles - Optimized
+        function createParticles() {
+            const container = document.getElementById('particles-bg');
+            if (!container) return;
+
+            const particleCount = 30; // Reduced from 50 for better performance
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (20 + Math.random() * 10) + 's';
+                container.appendChild(particle);
             }
-            
-            function init() {
-                particles.length = 0;
-                for (let i = 0; i < num; i++) {
-                    particles.push({
-                        x: Math.random() * width,
-                        y: Math.random() * height,
-                        dx: (Math.random() - 0.5) * 0.4,
-                        dy: (Math.random() - 0.5) * 0.4,
-                        r: Math.random() * 2 + 1,
-                        a: Math.random() * 0.5 + 0.3
+        }
+
+        // Draw synapses
+        function drawSynapses() {
+            const svg = document.querySelector('.neural-network');
+            if (!svg) return;
+
+            const synapsesGroup = document.getElementById('synapses');
+            if (!synapsesGroup) return;
+
+            const layers = [
+                document.querySelectorAll('#inputLayer circle'),
+                document.querySelectorAll('#diagnosticLayer circle'),
+                document.querySelectorAll('#knowledgeLayer circle'),
+                document.querySelectorAll('#adaptiveLayer circle'),
+                document.querySelectorAll('#outputLayer circle')
+            ];
+
+            // Connect layers based on algorithm logic
+            for (let l = 0; l < layers.length - 1; l++) {
+                const currentLayer = layers[l];
+                const nextLayer = layers[l + 1];
+
+                currentLayer.forEach((neuron1, i) => {
+                    nextLayer.forEach((neuron2, j) => {
+                        // Create connections with varying probability based on layer
+                        const probability = l === 1 ? 0.6 : 0.4; // More connections in knowledge graph
+
+                        if (Math.random() > probability) {
+                            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                            line.setAttribute('x1', neuron1.getAttribute('cx'));
+                            line.setAttribute('y1', neuron1.getAttribute('cy'));
+                            line.setAttribute('x2', neuron2.getAttribute('cx'));
+                            line.setAttribute('y2', neuron2.getAttribute('cy'));
+                            line.setAttribute('class', 'synapse');
+                            line.setAttribute('data-from', `${l}-${i}`);
+                            line.setAttribute('data-to', `${l+1}-${j}`);
+                            synapsesGroup.appendChild(line);
+                        }
                     });
-                }
-            }
-            
-            function draw() {
-                ctx.clearRect(0, 0, width, height);
-                particles.forEach(p => {
-                    p.x += p.dx;
-                    p.y += p.dy;
-                    if (p.x < 0 || p.x > width) p.dx *= -1;
-                    if (p.y < 0 || p.y > height) p.dy *= -1;
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-                    ctx.fillStyle = `rgba(11,99,214,${p.a})`;
-                    ctx.fill();
                 });
-                requestAnimationFrame(draw);
             }
-            
-            window.addEventListener('resize', () => {
-                resize();
-                init();
+        }
+
+        // Animate signal flow
+        function createSignal(fromNeuron, toNeuron, color) {
+            const svg = document.querySelector('.neural-network');
+            if (!svg) return;
+
+            const signal = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            signal.setAttribute('class', 'signal');
+            signal.setAttribute('fill', color);
+            signal.setAttribute('cx', fromNeuron.getAttribute('cx'));
+            signal.setAttribute('cy', fromNeuron.getAttribute('cy'));
+
+            svg.appendChild(signal);
+
+            const startX = parseFloat(fromNeuron.getAttribute('cx'));
+            const startY = parseFloat(fromNeuron.getAttribute('cy'));
+            const endX = parseFloat(toNeuron.getAttribute('cx'));
+            const endY = parseFloat(toNeuron.getAttribute('cy'));
+
+            let progress = 0;
+            const animateSignal = () => {
+                progress += 0.02;
+                if (progress <= 1) {
+                    const x = startX + (endX - startX) * progress;
+                    const y = startY + (endY - startY) * progress;
+                    signal.setAttribute('cx', x);
+                    signal.setAttribute('cy', y);
+                    requestAnimationFrame(animateSignal);
+                } else {
+                    if (svg.contains(signal)) {
+                        svg.removeChild(signal);
+                    }
+                    toNeuron.classList.add('active');
+                    setTimeout(() => toNeuron.classList.remove('active'), 500);
+                }
+            };
+
+            requestAnimationFrame(animateSignal);
+        }
+
+        // Simulate algorithm flow
+        function simulateAlgorithm() {
+            // 1. Input Processing
+            const inputNeurons = document.querySelectorAll('#inputLayer circle');
+            inputNeurons.forEach((neuron, i) => {
+                setTimeout(() => {
+                    neuron.classList.add('active');
+
+                    // Send to diagnostic
+                    const diagnosticNeurons = document.querySelectorAll('#diagnosticLayer circle');
+                    if (diagnosticNeurons.length > 0) {
+                        const target = diagnosticNeurons[Math.floor(Math.random() * diagnosticNeurons.length)];
+                        createSignal(neuron, target, '#FFB74D');
+                    }
+
+                    setTimeout(() => neuron.classList.remove('active'), 1000);
+                }, i * 200);
             });
-            
-            resize();
-            init();
-            draw();
-        })();
+
+            // 2. Diagnostic to Knowledge Graph
+            setTimeout(() => {
+                const diagnosticNeurons = document.querySelectorAll('#diagnosticLayer circle');
+                const knowledgeNeurons = document.querySelectorAll('#knowledgeLayer circle');
+
+                diagnosticNeurons.forEach((neuron, i) => {
+                    setTimeout(() => {
+                        neuron.classList.add('active');
+                        if (knowledgeNeurons.length > 0) {
+                            const target = knowledgeNeurons[Math.floor(Math.random() * knowledgeNeurons.length)];
+                            createSignal(neuron, target, '#8B5CF6');
+                        }
+                        setTimeout(() => neuron.classList.remove('active'), 1000);
+                    }, i * 150);
+                });
+            }, 1500);
+
+            // 3. Knowledge Graph to Adaptive
+            setTimeout(() => {
+                const knowledgeNeurons = document.querySelectorAll('#knowledgeLayer circle');
+                const adaptiveNeurons = document.querySelectorAll('#adaptiveLayer circle');
+
+                knowledgeNeurons.forEach((neuron, i) => {
+                    setTimeout(() => {
+                        neuron.classList.add('active');
+                        if (adaptiveNeurons.length > 0) {
+                            const target = adaptiveNeurons[Math.floor(Math.random() * adaptiveNeurons.length)];
+                            createSignal(neuron, target, '#0B63D6');
+                        }
+                        setTimeout(() => neuron.classList.remove('active'), 1000);
+                    }, i * 100);
+                });
+            }, 3000);
+
+            // 4. Adaptive to Output
+            setTimeout(() => {
+                const adaptiveNeurons = document.querySelectorAll('#adaptiveLayer circle');
+                const outputNeurons = document.querySelectorAll('#outputLayer circle');
+
+                adaptiveNeurons.forEach((neuron, i) => {
+                    setTimeout(() => {
+                        neuron.classList.add('active');
+                        outputNeurons.forEach(target => {
+                            createSignal(neuron, target, '#059669');
+                        });
+                        setTimeout(() => neuron.classList.remove('active'), 1000);
+                    }, i * 200);
+                });
+            }, 4500);
+
+            // Activate outputs
+            setTimeout(() => {
+                const outputNeurons = document.querySelectorAll('#outputLayer circle');
+                outputNeurons.forEach((neuron, i) => {
+                    setTimeout(() => {
+                        neuron.classList.add('active');
+                        setTimeout(() => neuron.classList.remove('active'), 2000);
+                    }, i * 100);
+                });
+            }, 5500);
+        }
+
+        // Random neuron activation - Enhanced
+        function idleAnimation() {
+            setInterval(() => {
+                const allNeurons = document.querySelectorAll('.neuron');
+                if (allNeurons.length > 0) {
+                    const randomNeuron = allNeurons[Math.floor(Math.random() * allNeurons.length)];
+                    randomNeuron.classList.add('active');
+                    setTimeout(() => randomNeuron.classList.remove('active'), 500);
+                }
+
+                // Random synapse activation with better timing
+                const synapses = document.querySelectorAll('.synapse');
+                if (synapses.length > 0) {
+                    const randomSynapse = synapses[Math.floor(Math.random() * synapses.length)];
+                    randomSynapse.classList.add('active');
+                    const color = ['#FFB74D', '#8B5CF6', '#0B63D6', '#059669'][Math.floor(Math.random() * 4)];
+                    randomSynapse.style.stroke = color;
+                    setTimeout(() => {
+                        randomSynapse.classList.remove('active');
+                        randomSynapse.style.stroke = '';
+                    }, 1000);
+                }
+            }, 2500); // Slightly longer interval for better performance
+        }
+
+        // Initialize Neural Network - Enhanced
+        function initializeNeuralNetwork() {
+            // Only initialize if neural network exists
+            if (document.querySelector('.neural-network')) {
+                createParticles();
+                drawSynapses();
+
+                // Start initial animation with delay
+                setTimeout(simulateAlgorithm, 1000);
+
+                // Repeat algorithm simulation
+                setInterval(simulateAlgorithm, 15000);
+
+                // Idle animations
+                setTimeout(idleAnimation, 3000); // Start idle after initial animation
+            }
+        }
+
+        // Performance optimization - Pause animations when tab is not visible
+        document.addEventListener('visibilitychange', () => {
+            const allAnimations = document.querySelectorAll('.particle, .glow-orb, .btn-primary, .info-panel');
+            if (document.hidden) {
+                allAnimations.forEach(el => el.style.animationPlayState = 'paused');
+            } else {
+                allAnimations.forEach(el => el.style.animationPlayState = 'running');
+            }
+        });
+
+        // Initialize neural network when page loads
+        window.addEventListener('load', initializeNeuralNetwork);
 
         // Counter animations for impact section
         const counters = document.querySelectorAll('.impact-number');
@@ -3427,6 +3590,7 @@
                 nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
             }
         });
+
     </script>
 </body>
 </html>

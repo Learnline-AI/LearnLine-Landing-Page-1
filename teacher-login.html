@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login - LearnLine</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0B63D6;
+            --accent-green: #059669;
+            --accent-warm: #FFB74D;
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+            --bg-white: #FFFFFF;
+            --bg-soft: #F8FAFC;
+            --bg-alt: #EEF2F7;
+            --error: #E11D48;
+            --shadow: 0 10px 28px rgba(11, 99, 214, 0.08);
+            --radius: 14px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .login-form-section {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .login-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .login-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .form-input {
+            padding: 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            background: white;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(11, 99, 214, 0.1);
+        }
+
+        .login-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .demo-credentials {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--bg-soft);
+            border-radius: 12px;
+        }
+
+        .demo-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .teacher-credentials {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .credential-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-muted);
+            padding: 12px 16px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .credential-id {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .credential-class {
+            color: var(--accent-green);
+            font-size: 12px;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .mock-dashboard {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .dashboard-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .dashboard-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .dashboard-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .dashboard-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .dashboard-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 16px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--accent-warm);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                grid-template-columns: 1fr;
+                margin: 20px;
+            }
+
+            .mock-dashboard {
+                order: -1;
+                min-height: 200px;
+            }
+
+            .login-form-section {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">
+        ← Back to Home
+    </a>
+
+    <div class="login-container">
+        <div class="login-form-section">
+            <div class="login-header">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="LearnLine Logo">
+                </div>
+                <h1 class="login-title">Teacher Login</h1>
+                <p class="login-subtitle">Access your classroom analytics and insights</p>
+            </div>
+
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label class="form-label" for="username">Teacher ID</label>
+                    <input type="text" id="username" name="username" class="form-input" placeholder="Enter your teacher ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="login-button">Sign In</button>
+            </form>
+
+            <div class="demo-credentials">
+                <div class="demo-title">Demo Teacher IDs (Password: 12345)</div>
+                <div class="teacher-credentials">
+                    <div class="credential-item">
+                        <div>
+                            <div class="credential-id">teacher6a</div>
+                            <div class="credential-class">Class 6A Math Teacher</div>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <div>
+                            <div class="credential-id">teacher6b</div>
+                            <div class="credential-class">Class 6B Math Teacher</div>
+                        </div>
+                    </div>
+                    <div class="credential-item">
+                        <div>
+                            <div class="credential-id">teacher6c</div>
+                            <div class="credential-class">Class 6C Math Teacher</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mock-dashboard">
+            <div class="dashboard-overlay"></div>
+            <div class="dashboard-content">
+                <h2 class="dashboard-title">Teacher Dashboard</h2>
+                <p class="dashboard-description">
+                    Monitor your students' progress, create adaptive assignments, and get real-time insights into learning gaps - all without manual grading.
+                </p>
+
+                <div class="dashboard-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <span>Real-time Class Analytics</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">👥</div>
+                        <span>Individual Student Progress</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <span>Instant Gap Detection</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <span>AI Assignment Creation</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📋</div>
+                        <span>Zero Manual Grading</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔔</div>
+                        <span>Smart Alerts & Recommendations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Define valid teacher credentials
+            const validTeachers = ['teacher6a', 'teacher6b', 'teacher6c'];
+
+            if (validTeachers.includes(username) && password === '12345') {
+                const classMap = {
+                    'teacher6a': '6A',
+                    'teacher6b': '6B',
+                    'teacher6c': '6C'
+                };
+                alert(`Welcome Teacher! You are logged in for Class ${classMap[username]}. Redirecting to your teacher dashboard...`);
+                // Here you would typically redirect to the actual dashboard
+                // window.location.href = 'teacher-dashboard.html';
+            } else {
+                alert('Invalid credentials. Please check your Teacher ID and password.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login - LearnLine</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0B63D6;
+            --accent-green: #059669;
+            --accent-warm: #FFB74D;
+            --text-dark: #1F2937;
+            --text-muted: #6B7280;
+            --bg-white: #FFFFFF;
+            --bg-soft: #F8FAFC;
+            --bg-alt: #EEF2F7;
+            --error: #E11D48;
+            --shadow: 0 10px 28px rgba(11, 99, 214, 0.08);
+            --radius: 14px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 1200px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .login-form-section {
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .login-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .login-subtitle {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .form-input {
+            padding: 16px;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            background: white;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(11, 99, 214, 0.1);
+        }
+
+        .login-button {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-green));
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .demo-credentials {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--bg-soft);
+            border-radius: 12px;
+        }
+
+        .demo-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .credential-item {
+            font-size: 12px;
+            color: var(--text-muted);
+            padding: 4px 8px;
+            background: white;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .mock-dashboard {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .dashboard-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .dashboard-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .dashboard-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .dashboard-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .dashboard-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 16px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                grid-template-columns: 1fr;
+                margin: 20px;
+            }
+
+            .mock-dashboard {
+                order: -1;
+                min-height: 200px;
+            }
+
+            .login-form-section {
+                padding: 40px 30px;
+            }
+
+            .credentials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">
+        ← Back to Home
+    </a>
+
+    <div class="login-container">
+        <div class="login-form-section">
+            <div class="login-header">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="LearnLine Logo">
+                </div>
+                <h1 class="login-title">Student Login</h1>
+                <p class="login-subtitle">Access your personalized learning dashboard</p>
+            </div>
+
+            <form class="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label class="form-label" for="username">Student ID</label>
+                    <input type="text" id="username" name="username" class="form-input" placeholder="Enter your student ID" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="login-button">Sign In</button>
+            </form>
+
+            <div class="demo-credentials">
+                <div class="demo-title">Demo Student IDs (Password: 12345)</div>
+                <div class="credentials-grid">
+                    <!-- Class 6A Students -->
+                    <div class="credential-item">student6a1</div>
+                    <div class="credential-item">student6a2</div>
+                    <div class="credential-item">student6a3</div>
+                    <div class="credential-item">student6a4</div>
+                    <div class="credential-item">student6a5</div>
+                    <div class="credential-item">student6a6</div>
+                    <div class="credential-item">student6a7</div>
+                    <div class="credential-item">student6a8</div>
+                    <div class="credential-item">student6a9</div>
+                    <div class="credential-item">student6a10</div>
+
+                    <!-- Class 6B Students -->
+                    <div class="credential-item">student6b1</div>
+                    <div class="credential-item">student6b2</div>
+                    <div class="credential-item">student6b3</div>
+                    <div class="credential-item">student6b4</div>
+                    <div class="credential-item">student6b5</div>
+                    <div class="credential-item">student6b6</div>
+                    <div class="credential-item">student6b7</div>
+                    <div class="credential-item">student6b8</div>
+                    <div class="credential-item">student6b9</div>
+                    <div class="credential-item">student6b10</div>
+
+                    <!-- Class 6C Students -->
+                    <div class="credential-item">student6c1</div>
+                    <div class="credential-item">student6c2</div>
+                    <div class="credential-item">student6c3</div>
+                    <div class="credential-item">student6c4</div>
+                    <div class="credential-item">student6c5</div>
+                    <div class="credential-item">student6c6</div>
+                    <div class="credential-item">student6c7</div>
+                    <div class="credential-item">student6c8</div>
+                    <div class="credential-item">student6c9</div>
+                    <div class="credential-item">student6c10</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mock-dashboard">
+            <div class="dashboard-overlay"></div>
+            <div class="dashboard-content">
+                <h2 class="dashboard-title">Your Learning Dashboard</h2>
+                <p class="dashboard-description">
+                    Track your progress, complete adaptive assignments, and get personalized AI recommendations to master concepts faster.
+                </p>
+
+                <div class="dashboard-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">📚</div>
+                        <span>Personalized Homework Assignments</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <span>Real-time Progress Tracking</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤖</div>
+                        <span>AI-Powered Learning Recommendations</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <span>Concept Mastery Indicators</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💬</div>
+                        <span>24/7 AI Tutor Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Define valid student credentials
+            const validStudents = [
+                // Class 6A
+                'student6a1', 'student6a2', 'student6a3', 'student6a4', 'student6a5',
+                'student6a6', 'student6a7', 'student6a8', 'student6a9', 'student6a10',
+                // Class 6B
+                'student6b1', 'student6b2', 'student6b3', 'student6b4', 'student6b5',
+                'student6b6', 'student6b7', 'student6b8', 'student6b9', 'student6b10',
+                // Class 6C
+                'student6c1', 'student6c2', 'student6c3', 'student6c4', 'student6c5',
+                'student6c6', 'student6c7', 'student6c8', 'student6c9', 'student6c10'
+            ];
+
+            if (validStudents.includes(username) && password === '12345') {
+                alert(`Welcome ${username}! Redirecting to your student dashboard...`);
+                // Here you would typically redirect to the actual dashboard
+                // window.location.href = 'student-dashboard.html';
+            } else {
+                alert('Invalid credentials. Please check your Student ID and password.');
+            }
+        }
+    </script>
+</body>
+</html>
