@@ -3,12 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { RotatableDial } from '../molecules/RotatableDial'
 import { PreviewWindow } from '../molecules/PreviewWindow'
 
+const BASE_URL = import.meta.env.BASE_URL
+
 // Preview content for each dial position (placeholders - to be customized later)
 function GradePreview() {
   return (
     <div className="bg-coral-light border-2 border-black p-0 h-full min-h-[200px] flex items-center justify-center overflow-hidden">
       <img
-        src="/assets/images/grade-preview.png"
+        src={`${BASE_URL}assets/images/grade-preview.png`}
         alt="Grade preview showing feedback on student work"
         className="preview-grade-image w-full h-full object-contain"
       />
