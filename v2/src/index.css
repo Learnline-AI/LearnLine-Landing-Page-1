@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+/* Font imports */
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/800.css";
+@import "@fontsource/playfair-display/900-italic.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/900.css";
+
+/* Design tokens from Figma */
+@theme {
+  /* Colors */
+  --color-coral: #F99E78;
+  --color-coral-light: #FFDBC5;
+  --color-offwhite: #FAF9F6;
+  --color-toggle-green: #ABD6C2;
+  --color-green-deep: #5BA882;
+  --color-badge-red: #FA7A7A;
+  --color-success: #22C55E;
+  --color-warning: #EF4444;
+  --color-gray-light: #E5E7EB;
+  --color-gray-mid: #D1D5DB;
+  --color-gray-dark: #9CA3AF;
+
+  /* Font families */
+  --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --font-inter: "Inter", sans-serif;
+
+  /* Neo-brutalist shadows */
+  --shadow-brutal: 8px 8px 0px 0px black;
+  --shadow-brutal-sm: 4px 4px 0px 0px black;
+  --shadow-brutal-hover: 12px 12px 0px 0px black;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-inter);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dotted background pattern from Figma */
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, #FFDBC5 2px, transparent 2px);
+  background-size: 48px 48px;
+}
+
+@keyframes preview-window-shake {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  15% {
+    transform: translate(-3px, 1px) rotate(-0.5deg);
+  }
+  30% {
+    transform: translate(3px, -1px) rotate(0.5deg);
+  }
+  45% {
+    transform: translate(-4px, 2px) rotate(-0.7deg);
+  }
+  60% {
+    transform: translate(4px, -2px) rotate(0.7deg);
+  }
+  75% {
+    transform: translate(-2px, 1px) rotate(-0.3deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes preview-close-flash {
+  0% {
+    background: #ef4444;
+  }
+  100% {
+    background: #000000;
+  }
+}
+
+.preview-window-shell {
+  display: inline-block;
+  will-change: transform;
+  transform-origin: center;
+}
+
+.preview-window-shell--shake {
+  animation: preview-window-shake 350ms ease-in-out;
+}
+
+.preview-close-btn--flash {
+  animation: preview-close-flash 150ms linear;
+}
+
+.preview-grade-image {
+  transition: transform 250ms ease;
+  transform-origin: center;
+}
+
+.preview-window-content--max .preview-grade-image {
+  transform: scale(1.12);
+}

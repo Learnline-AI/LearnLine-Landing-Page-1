@@ -1,2 +1,7 @@
 node_modules/
 .env
+
+# v2 React app
+v2/node_modules/
+v2/dist/
+v2/.env
