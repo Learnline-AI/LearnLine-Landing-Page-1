@@ -6,8 +6,9 @@ import { COMPARISON_COUNT, ComparisonTable } from '../molecules/ComparisonTable'
 // Placeholder images - replace with actual Figma exports
 const CURRENT_WAY_IMAGE = 'https://www.figma.com/api/mcp/asset/2f1f8121-6aaa-4afa-a1f6-3df37755134a'
 const BETTER_WAY_IMAGE = 'https://www.figma.com/api/mcp/asset/2f1f8121-6aaa-4afa-a1f6-3df37755134a'
-const BETTER_WAY_VIDEO_ALPHA = '/assets/videos/better-way-alpha.webm'
-const BETTER_WAY_REVERSE_VIDEO_ALPHA = '/assets/videos/better-way-reverse-alpha.webm'
+const BASE_URL = import.meta.env.BASE_URL
+const BETTER_WAY_VIDEO_ALPHA = `${BASE_URL}assets/videos/better-way-alpha.webm`
+const BETTER_WAY_REVERSE_VIDEO_ALPHA = `${BASE_URL}assets/videos/better-way-reverse-alpha.webm`
 const VIDEO_MASK_IMAGE = '/assets/masks/homework-illustration-mask.png'
 const TRANSITION_DURATION_MS = 7500
 const TRANSITION_DURATION_S = TRANSITION_DURATION_MS / 1000
